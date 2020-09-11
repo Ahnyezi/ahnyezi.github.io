@@ -5,4 +5,5 @@ categories: ['others']
 tags: ['sitemap']
 ---
 
-https://minikupa.com/27
+자동 sitemap 생성 오류시 직접 만들어서 사용
+[참고 블로그](#https://minikupa.com/27)
