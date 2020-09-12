@@ -69,3 +69,14 @@ tags: ['framework','library']
 -  Pandas 
 
 <br>
+
+<details>
+<summary>출처</summary>
+
+- https://www.castingn.com/sourcing/kkultip_detail/110
+- https://webclub.tistory.com/458
+- https://engkimbs.tistory.com/673
+- https://www.linux.co.kr/home2/board/subbs/board.php?bo_table=lecture&wr_id=600
+- https://sehun-kim.github.io/sehun/springbean-lifecycle/
+
+</details>
