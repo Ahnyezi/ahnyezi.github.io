@@ -1,7 +1,7 @@
 ---
-title:  "TypeError: must be real number, not tuple 오류"
+title:  "[error] TypeError: must be real number, not tuple 오류"
 date: 2020-7-12
-categories: ['debugging']
+categories: ['error']
 tags: ['파이썬', '파일 출력']
 ---
 

@@ -1,7 +1,7 @@
 ---
-title:  "[빌드 도구] Gradle vs Maven "
+title:  "[CS] 빌드도구 Gradle vs Maven "
 date: 2020-9-13
-categories: ['others']
+categories: ['CS']
 tags: ['build','gradle','maven']
 ---
 

@@ -1,7 +1,7 @@
 ---
-title:  "파이썬 오라클 연동 'like', '%' 사용할 때 주의할 점"
+title:  "[error] 파이썬 오라클 연동 'like', '%' 사용할 때 주의할 점"
 date: 2020-7-13
-categories: ['debugging']
+categories: ['error']
 tags: ['파이썬', '오라클']
 ---
 

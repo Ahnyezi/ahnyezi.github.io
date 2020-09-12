@@ -1,7 +1,7 @@
 ---
-title:  "백엔드 엔지니어 선배님들의 조언"
+title:  "[job] 백엔드 엔지니어 선배님들의 조언"
 date: 2020-8-8
-categories: ['others']
+categories: ['job']
 tags: ['백엔드', '백엔드개발자']
 ---
 

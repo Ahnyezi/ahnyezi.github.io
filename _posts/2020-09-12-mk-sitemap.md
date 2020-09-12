@@ -1,7 +1,7 @@
 ---
-title:  "[google 검색 가능 설정] sitemap 생성"
+title:  "[error] 깃허브 블로그 google 검색 - sitemap 생성"
 date: 2020-9-11
-categories: ['others']
+categories: ['error']
 tags: ['sitemap']
 ---
 

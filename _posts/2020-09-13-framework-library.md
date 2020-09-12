@@ -1,7 +1,7 @@
 ---
-title:  "프레임워크 VS 라이브러리 개념 및 종류"
+title:  "[CS] 프레임워크 VS 라이브러리 개념 및 종류"
 date: 2020-9-13
-categories: ['others']
+categories: ['CS']
 tags: ['framework','library']
 ---
 
