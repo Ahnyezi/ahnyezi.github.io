@@ -323,11 +323,11 @@ project("bootiful-api") {
 <details>
 <summary>출처</summary>
 
-- https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev3.6:dep:build_tool:gradle
-- https://goddaehee.tistory.com/199
-- https://galid1.tistory.com/644
-- https://itholic.github.io/qa-compile-build-deploy/
-- https://woowabros.github.io/tools/2019/04/30/gradle-kotlin-dsl.html
-- https://ojava.tistory.com/147
+- https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev3.6:dep:build_tool:gradle <br>
+- https://goddaehee.tistory.com/199<br>
+- https://galid1.tistory.com/644<br>
+- https://itholic.github.io/qa-compile-build-deploy/<br>
+- https://woowabros.github.io/tools/2019/04/30/gradle-kotlin-dsl.html<br>
+- https://ojava.tistory.com/147<br>
 
 </details>
