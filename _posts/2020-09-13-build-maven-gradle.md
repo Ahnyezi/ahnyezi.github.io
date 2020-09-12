@@ -49,9 +49,158 @@ tags: ['build','gradle','maven']
 > pom.xml 예시
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  <project  xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">  <modelVersion>4.0.0</modelVersion>  <!--POM model의 버전-->  <parent>  <!--프로젝트의 계층 정보-->  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-parent</artifactId>  <version>2.2.4.RELEASE</version>  <relativePath/>  <!-- lookup parent from repository -->  </parent>  <groupId>com.god</groupId>  <!--프로젝트를 생성하는 조직의 고유 아이디를 결정한다. 일반적으로 도메인 이름을 거꾸로 적는다.-->  <artifactId>bo</artifactId>  <!--프로젝트 빌드시 파일 대표이름 이다. groupId 내에서 유일해야 한다.Maven을 이용하여 빌드시 다음과 같은 규칙으로 파일이 생성 된다. artifactid-version.packaging. 위 예의 경우 빌드할 경우 bo-0.0.1-SNAPSHOT.war 파일이 생성된다.-->  <version>0.0.1-SNAPSHOT</version>  <!--프로젝트의 현재 버전, 프로젝트 개발 중일 때는 SNAPSHOT을 접미사로 사용-->  <packaging>war</packaging>  <!--패키징 유형(jar, war, ear 등)-->  <name>bo</name>  <!--프로젝트, 프로젝트 이름-->  <description>Demo project for Spring Boot</description>  <!--프로젝트에 대한 간략한 설명-->  <url>http://goddaehee.tistory.com</url>  <!--프로젝트에 대한 참고 Reference 사이트-->  <properties>  <!-- 버전관리시 용이 하다. ex) 하당 자바 버전을 선언 하고 dependencies에서 다음과 같이 활용 가능 하다. <version>${java.version}</version> -->  <java.version>1.8</java.version>  </properties>  <dependencies>  <!--dependencies태그 안에는 프로젝트와 의존 관계에 있는 라이브러리들을 관리 한다.-->  <dependency>  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-web</artifactId>  </dependency>  <dependency>  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-tomcat</artifactId>  <scope>provided</scope>  </dependency>  <dependency>  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-test</artifactId>  <scope>test</scope>  <exclusions>  <exclusion>  <groupId>org.junit.vintage</groupId>  <artifactId>junit-vintage-engine</artifactId>  </exclusion>  </exclusions>  </dependency>  </dependencies>  <build>  <!--빌드에 사용할 플러그인 목록-->  <plugins>  <plugin>  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-maven-plugin</artifactId>  </plugin>  </plugins>  </build>  </project>  
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- 필수사항 : 프로젝트 정보 기재 부분 -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ojava.blog</groupId>
+  <artifactId>mavendemo</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>mavendemo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <!-- 선택사항 : 해당 프로젝트에 대한 설명 -->
+  <description>demo project for blog</description>
   
-출처: [https://goddaehee.tistory.com/199](https://goddaehee.tistory.com/199) [갓대희의 작은공간]
+  <!-- 선택사항 : pom.xml에서 공통적으로 사용할 버전 또는 설정값 정보 -->
+  <properties>
+  	<!-- 각 Dependency에 지정해줘도 되나 상단에 써두어서 알아보기 쉽게하려는 의도가 더 많음 -->
+  
+  	<!-- build properties -->
+  	<jdk.source>1.11</jdk.source>
+  	<jdk.target>1.11</jdk.target>
+  	
+  	<!-- JSTL / JSP -->
+  	<jstl.version>1.2</jstl.version>
+  	<jsp.version>2.3.0</jsp.version>
+  	<servlet.version>3.0.1</servlet.version>
+  	
+  	<!-- 위 내용처럼 tag명을 원하는 대로 지정하고 값을 주는 방식으로 자유롭게 사용 가능 -->
+  </properties>
+  
+  
+  <!-- 필수내용 : 프로젝트에 import 되는 dependency 목록 -->
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <!-- 상단에 선언했던 properties에 기재한 내용을 이렇게 사용함 -->
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>${jsp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>javax.el-api</artifactId>
+      <version>2.2.2</version>
+      <scope>provided</scope>
+    </dependency>
+                  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 기타 등등... 각 프로젝트에 맞는 내용을 추가하면 된다. -->
+  </dependencies>
+
+  <!-- 필수내용 : 프로젝트 build 정보 -->
+  <build>
+    <!-- 선택사항 : resource 정보 기재 -->
+    <resources>
+    	<resource>
+    		<directory>src/main/webapp</directory>
+    	</resource>
+    </resources>
+    
+    <!-- 선택사항 : maven 관련 plugin 정보 기재 -->
+    <plugins>
+    	<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+        	<id>attach-sources</id>
+            <goals>
+            	<goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <includes>
+            <include>${basedir}/src/main/webapp/**</include>
+          </includes>
+        </configuration>
+      </plugin>
+      
+      <!-- 상단 내용 외 원하는 plugin 관련 내용을 기재하면 된다. -->
+    </plugins>
+  </build>
+  
+  <!-- 선택사항 : repository 별도 설정 -->
+  <distributionManagement>
+  	<repository>
+  		<id>nexus</id>
+        <name>nexus-release</name>
+        <url>${nexus.uri}/content/repository/release</url>
+  	</repository>
+    
+    <!-- 목적에 따라 release, snapshots, 3rd party 등 나눠서 등록할 수 있다 -->
+  </distributionManagement>
+  
+  <!-- 선택사항 : 검증/운영 배포 정보를 구분할 수 있는 설정 profiles -->
+  <profiles>
+ 	<profile>
+ 		<id>test</id>
+ 		<activation>
+ 			<activeByDefault>true</activeByDefault>
+ 		</activation>
+ 		<build>
+ 			<finalName>${project.artifactId}-${project.version}</finalName>
+ 			<directory>${project.basedir}/target</directory>
+ 			<resources>
+ 				<resource>
+ 					<directory>${project.basedir}/src/main/resources</directory>
+ 				</resource>
+ 				<resource>
+ 					<directory>${project.basedir}/src/main/setting/test</directory>
+ 				</resource>
+ 			</resources>
+ 		</build>
+ 	</profile>  
+ 	<profile>
+ 		<id>product</id>
+ 		<activation>
+ 			<activeByDefault>true</activeByDefault>
+ 		</activation>
+ 		<build>
+ 			<finalName>${project.artifactId}-${project.version}</finalName>
+ 			<directory>${project.basedir}/target</directory>
+ 			<resources>
+ 				<resource>
+ 					<directory>${project.basedir}/src/main/resources</directory>
+ 				</resource>
+ 				<resource>
+ 					<directory>${project.basedir}/src/main/setting/product</directory>
+ 				</resource>
+ 			</resources>
+ 		</build>
+ 	</profile>  
+  </profiles>
+</project>
 ```
 
 <br>
@@ -179,5 +328,6 @@ project("bootiful-api") {
 - https://galid1.tistory.com/644
 - https://itholic.github.io/qa-compile-build-deploy/
 - https://woowabros.github.io/tools/2019/04/30/gradle-kotlin-dsl.html
+- https://ojava.tistory.com/147
 
 </details>
