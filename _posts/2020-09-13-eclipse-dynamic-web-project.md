@@ -10,15 +10,17 @@ tags: ['Web','Eclipse','Dynamic Web Project']
 
 #### 1. 새 프로젝트 생성
 <img src="https://user-images.githubusercontent.com/62331803/93004233-1e3aa400-f580-11ea-8639-8d233302f1ab.png" width="60%"> <br>
-     - Dynamic Web Project: JSP와 같이 동적인 웹페이지를 가지는 웹 애플리케이션 개발 시에 사용하는 프로젝트
-     - Static Web Project: JSP와 같은 동적인 페이지가 없는 순수하게 웹 컨텐츠로만 구성되어 있는 웹 컨텐츠를 위한 프로젝트
-     - Web fragment Project : 다른 웹 프로젝트에 하나의 라이브러리와 같은 형태로 재사용될 때 유용. 해당 프로젝트의 output은 jar파일로 생성되어 다르웹 프로젝트에 추가될 수 있음.
+
+- `Dynamic Web Project`: JSP와 같이 동적인 웹페이지를 가지는 웹 애플리케이션 개발 시에 사용하는 프로젝트
+- `Static Web Project`: JSP와 같은 동적인 페이지가 없는 순수하게 웹 컨텐츠로만 구성되어 있는 웹 컨텐츠를 위한 프로젝트
+ - `Web fragment Project` : 다른 웹 프로젝트에 하나의 라이브러리와 같은 형태로 재사용될 때 유용. 해당 프로젝트의 output은 jar파일로 생성되어 다르웹 프로젝트에 추가될 수 있음.
 <br>
 
 #### 2. 다이나믹 웹 프로젝트 
 <img src="https://user-images.githubusercontent.com/62331803/93004257-58a44100-f580-11ea-8238-12c5e0eff233.png" width="60%"><br>
-- Target runtime: 웹 어플리케이션 실행 서버. tomcat 관련 라이브러리 프로젝트에 자동 추가
-- Dynamic web model version: 서블릿 버전. 이클립스가 해당 버전으로 코드문법을 검사.
+
+- `Target runtime`: 웹 어플리케이션 실행 서버. tomcat 관련 라이브러리 프로젝트에 자동 추가
+- `Dynamic web model version`: 서블릿 버전. 이클립스가 해당 버전으로 코드문법을 검사.
 <br>
 
 #### 3. 웹 어플리케이션 배치 정보 설정
