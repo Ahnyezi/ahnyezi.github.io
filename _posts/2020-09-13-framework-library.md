@@ -27,13 +27,15 @@ tags: ['framework','library']
  - 엔터프라이즈급(기업을 대상으로 하는) 웹 앱 개발에 사용되는 경량형 프레임워크
 - 프로젝트 규모가 클 수록 스트럿츠보다 스프링을 활용하는 추세
 - J2EE(Java 2 Enterprise Edition)에서 제공하는 대부분의 기능을 지원 
-   - J2EE: 분산 객체, 효율적 자원관리, 컴포넌트 기반 개발 등을 자바 환경에서 사용할 수 있게 하는 표준 규약
+      - J2EE: 분산 객체, 효율적 자원관리, 컴포넌트 기반 개발 등을 자바 환경에서 사용할 수 있게 하는 표준 규약
 - 다양한 DB처리 라이브러리와 연동 
-  - JDBC, iBatis, 하이버네이트, JPA
+     - JDBC, iBatis, 하이버네이트, JPA
+
 -  DI(Dependency Injection, 의존성 주입)를 지원
-    - 스프링 container가 대신 객체를 생성해주고, 알아서 객체를 주입 
+     - 스프링 container가 대신 객체를 생성해주고, 알아서 객체를 주입 
+
 -  Ioc(Inversion Of Control, 제어 역전의 원칙)를 지원
-   - container에 의해 생성된 객체는 자신이 어디에 쓰이는지 알지 못함
+     - container에 의해 생성된 객체는 자신이 어디에 쓰이는지 알지 못함
 
 
 3. 앵귤러 JS(AngularJS)
