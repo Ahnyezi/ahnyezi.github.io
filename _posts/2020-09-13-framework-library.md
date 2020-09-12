@@ -5,7 +5,7 @@ categories: ['others']
 tags: ['framework','library']
 ---
 
-# 프레임워크 VS 라이브러리 개념 및 종류
+프레임워크 VS 라이브러리 개념 및 종류
 
 ## 프레임워크
 
@@ -73,10 +73,10 @@ tags: ['framework','library']
 <details>
 <summary>출처</summary>
 
-- https://www.castingn.com/sourcing/kkultip_detail/110
-- https://webclub.tistory.com/458
-- https://engkimbs.tistory.com/673
-- https://www.linux.co.kr/home2/board/subbs/board.php?bo_table=lecture&wr_id=600
-- https://sehun-kim.github.io/sehun/springbean-lifecycle/
+- https://www.castingn.com/sourcing/kkultip_detail/110<br>
+- https://webclub.tistory.com/458<br>
+- https://engkimbs.tistory.com/673<br>
+- https://www.linux.co.kr/home2/board/subbs/board.php?bo_table=lecture&wr_id=600<br>
+- https://sehun-kim.github.io/sehun/springbean-lifecycle/<br>
 
 </details>
