@@ -14,22 +14,6 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-
-<!--[if IE]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
-    }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
-
 <link rel="apple-touch-icon" sizes="57x57" href="{{site.baseurl}}/assets/logo.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{site.baseurl}}/assets/logo.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{site.baseurl}}/assets/logo.ico/apple-icon-72x72.png">
@@ -47,6 +31,22 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="{{site.baseurl}}/assets/logo.ico/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
 
 {% if site.head_scripts %}
   {% for script in site.head_scripts %}
