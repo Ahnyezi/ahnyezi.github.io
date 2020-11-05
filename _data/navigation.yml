@@ -11,28 +11,28 @@ docs:
       - title: "Operation System"
         url: /custom/os/
       - title: "Networking"
-        url: /docs/structure/
+        url: /custom/network/
 
   - title: 2 Content
     children:
       - title: "Web"
-        url: /docs/posts/
+        url: /custom/web/
       - title: "Android"
-        url: /docs/pages/
+        url: /custom/android/
       - title: "IoT"
-        url: /docs/collections/
+        url: /custom/iot/
       - title: "OpenCV"
-        url: /docs/helpers/
+        url: /custom/opencv/
       - title: "Machine Learning / Deep Learning"
-        url: /docs/utility-classes/
+        url: /custom/mldl/
 
   - title: 3 Extra
     children:
       - title: "Algorithm"
-        url: /docs/structure/
+        url: /custom/algorithm/
       - title: "Debug"
-        url: /docs/configuration/
+        url: /custom/debug/
       - title: "Job"
-        url: /docs/navigation/
+        url: /custom/job/
       - title: "Interest"
-        url: /docs/ui-text/
+        url: /custom/interest/
