@@ -5,7 +5,7 @@ main:
   - title: "About"
     url: /about/
 docs:
-  - title: Menu
+  - title: Menu :point_down:
   - title: 1 Computer_Science
     children:
       - title: "Operation System"
