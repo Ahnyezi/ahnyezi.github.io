@@ -7,7 +7,7 @@ main:
 docs:
   - title: Getting Started
     children:
-      - title: "Quick-Start Guide"
+      - title: "Start Guide"
         url: /docs/quick-start-guide/
       - title: "Structure"
         url: /docs/structure/
