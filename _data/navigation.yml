@@ -6,14 +6,14 @@ main:
     url: /about/
 docs:
   - title: Menu
-  - title: > Computer_Science
+  - title: 1 Computer_Science
     children:
       - title: "Operation System"
         url: /docs/quick-start-guide/
       - title: "Networking"
         url: /docs/structure/
 
-  - title: Content
+  - title: 2 Content
     children:
       - title: "Web"
         url: /docs/posts/
@@ -26,7 +26,7 @@ docs:
       - title: "Machine Learning / Deep Learning"
         url: /docs/utility-classes/
 
-  - title: 1 Extra
+  - title: 3 Extra
     children:
       - title: "Debug"
         url: /docs/configuration/
