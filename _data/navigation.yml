@@ -5,14 +5,15 @@ main:
   - title: "About"
     url: /about/
 docs:
-  - title: Computer Science
+  - title: Menu
+  - title: 1 Computer_Science
     children:
       - title: "Operation System"
         url: /docs/quick-start-guide/
       - title: "Networking"
         url: /docs/structure/
 
-  - title: Content
+  - title: 2 Content
     children:
       - title: "Web"
         url: /docs/posts/
@@ -25,7 +26,7 @@ docs:
       - title: "Machine Learning / Deep Learning"
         url: /docs/utility-classes/
 
-  - title: Extra
+  - title: 3 Extra
     children:
       - title: "Debug"
         url: /docs/configuration/
