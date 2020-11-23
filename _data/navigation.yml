@@ -13,7 +13,7 @@ docs:
       - title: "Networking"
         url: /docs/structure/
 
-  - title: :: Content
+  - title: | Content
     children:
       - title: "Web"
         url: /docs/posts/
