@@ -28,6 +28,8 @@ docs:
 
   - title: 3 Extra
     children:
+      - title: "Algorithm"
+        url: /docs/structure/
       - title: "Debug"
         url: /docs/configuration/
       - title: "Job"
