@@ -5,46 +5,31 @@ main:
   - title: "About"
     url: /about/
 docs:
-  - title: Getting Started
+  - title: Computer Science
     children:
-      - title: "Start Guide"
+      - title: "Operation System"
         url: /docs/quick-start-guide/
-      - title: "Structure"
+      - title: "Networking"
         url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
-
-  - title: Customization
-    children:
-      - title: "Configuration"
-        url: /docs/configuration/
-      - title: "Navigation"
-        url: /docs/navigation/
-      - title: "UI Text"
-        url: /docs/ui-text/
-      - title: "Authors"
-        url: /docs/authors/
-      - title: "Layouts"
-        url: /docs/layouts/
 
   - title: Content
     children:
-      - title: "Working with Posts"
+      - title: "Web"
         url: /docs/posts/
-      - title: "Working with Pages"
+      - title: "Android"
         url: /docs/pages/
-      - title: "Working with Collections"
+      - title: "IoT"
         url: /docs/collections/
-      - title: "Helpers"
+      - title: "OpenCV"
         url: /docs/helpers/
-      - title: "Utility Classes"
+      - title: "Machine Learning / Deep Learning"
         url: /docs/utility-classes/
 
-  - title: Extras
+  - title: Extra
     children:
-      - title: "Stylesheets"
-        url: /docs/stylesheets/
-      - title: "JavaScript"
-        url: /docs/javascript/
+      - title: "Debug"
+        url: /docs/configuration/
+      - title: "Job"
+        url: /docs/navigation/
+      - title: "Interest"
+        url: /docs/ui-text/
