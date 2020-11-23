@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-title: "About"
+title: "Thank you for visiting my blog :hand:"
 sidebar:
   nav: "docs"
 ---
