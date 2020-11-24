@@ -1,6 +1,6 @@
 ---
 title: "Results"
-layout: categories
+layout: custom
 permalink: /results/
 author_profile: false
 sidebar:
