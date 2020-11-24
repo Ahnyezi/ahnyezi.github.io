@@ -6,7 +6,7 @@ main:
     url: /about/
 docs:
   - title: Menu
-  - title: 1 Computer_Science
+  - title: 1 Computer Science
     children:
       - title: "Operation System"
         url: /docs/quick-start-guide/
