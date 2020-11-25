@@ -1,7 +1,7 @@
 ---
 title: "Results"
 layout: custom
-permalink: /results/
+permalink: /categories/
 author_profile: false
 sidebar:
   nav: "docs"
