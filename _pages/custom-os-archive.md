@@ -1,7 +1,7 @@
 ---
 title: "Results"
-layout: custom
-permalink: /results/
+layout: customos
+permalink: /custom/os/
 author_profile: false
 sidebar:
   nav: "docs"

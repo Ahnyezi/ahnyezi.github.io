@@ -9,7 +9,7 @@ docs:
   - title: 1 Computer Science
     children:
       - title: "Operation System"
-        url: /results/
+        url: /custom/os/
       - title: "Networking"
         url: /docs/structure/
 
