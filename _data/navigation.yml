@@ -10,7 +10,7 @@ docs:
     children:
       - title: "Operation System"
         url: /custom/os/
-      - title: "Networking"
+      - title: "Network"
         url: /custom/network/
 
   - title: 2 Content
