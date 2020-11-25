@@ -1,11 +1,11 @@
 ---
 title:  "[error] 파이썬 오라클 연동 'like', '%' 사용할 때 주의할 점"
 date: 2020-7-13
-categories: ['error']
+categories: ['Debug']
 tags: ['파이썬', '오라클']
 ---
 
-[참고 블로그](#https://brownbears.tistory.com/421)
+[참고 블로그](https://brownbears.tistory.com/421)
 
 - 파이썬에서 '%'는 외부에서 값을 받아올 때 타입을 지정해주기 위해 사용(c언어 방식과 동일) 
 ```python

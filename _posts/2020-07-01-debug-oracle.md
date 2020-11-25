@@ -1,7 +1,7 @@
 ---
 title:  "[error] cx_Oracle.DatabaseError: ORA-01036: illegal variable name/number 오류"
 date: 2020-7-1
-categories: ['error']
+categories: ['Debug']
 tags: ['파이썬', '오라클']
 ---
 
