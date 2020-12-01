@@ -1,7 +1,7 @@
 ---
 title:  "[Cloud] 가상화 vs 유틸리티 컴퓨팅 vs 클라우드"
 date: 2020-9-13
-categories: ['Cloud']
+categories: ['Ext']
 tags: ['가상화','클라우드']
 ---
 가상화 vs 유틸리티 컴퓨팅 vs 클라우드

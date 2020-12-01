@@ -6,33 +6,39 @@ main:
     url: /about/
 docs:
   - title: Menu
-  - title: 1 Computer Science
+  - title: 1 Programming
     children:
       - title: "Operation System"
         url: /custom/os/
       - title: "Network"
         url: /custom/network/
+      - title: "Java"
+        url: /custom/java/
+      - title: "Maven"
+        url: /custom/maven/
+      - title: "Spring"
+        url: /custom/spring/
+      - title: "Debug"
+        url: /custom/debug/
+      - title: "Ext"
+        url: /custom/ext/
 
-  - title: 2 Content
+  - title: 2 Algorithm
     children:
-      - title: "Web"
-        url: /custom/web/
-      - title: "Android"
-        url: /custom/android/
-      - title: "IoT"
-        url: /custom/iot/
-      - title: "OpenCV"
-        url: /custom/opencv/
-      - title: "Machine Learning / Deep Learning"
-        url: /custom/mldl/
+      - title: "Dynamic Programming"
+        url: /custom/dp/
+      - title: "Greedy"
+        url: /custom/greedy/
+      - title: "BFS/DFS"
+        url: /custom/search/
+      - title: "Hash/Heap"
+        url: /custom/hashheap/
 
   - title: 3 Extra
     children:
-      - title: "Algorithm"
-        url: /custom/algorithm/
-      - title: "Debug"
-        url: /custom/debug/
       - title: "Job"
         url: /custom/job/
       - title: "Interest"
         url: /custom/interest/
+      - title: "Daily"
+        url: /custom/daily/

@@ -1,8 +1,8 @@
 ---
-title:  " [Web] Dynamic Web Project 구조 파헤치기"
+title:  " [Eclipse] Dynamic Web Project 구조 파헤치기"
 date: 2020-9-13
-categories: ['Web']
-tags: ['Web','Eclipse','Dynamic Web Project']
+categories: ['Ext']
+tags: ['Eclipse','Dynamic Web Project']
 ---
 
  [Eclipse] Dynamic Web Project 구조 파헤치기

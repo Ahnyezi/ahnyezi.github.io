@@ -1,7 +1,7 @@
 ---
 title: "Algorithm"
-layout: customalgorithm
-permalink: /custom/algorithm/
+layout: algorithmhashheap
+permalink: /custom/hashheap/
 author_profile: false
 sidebar:
   nav: "docs"

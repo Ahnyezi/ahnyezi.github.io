@@ -1,7 +1,7 @@
 ---
 title:  "[Java] JVM, JRE, JDK"
 date: 2020-9-13
-categories: ['Web']
+categories: ['Java']
 tags: ['Java','JVM','JRE','JDK']
 ---
 

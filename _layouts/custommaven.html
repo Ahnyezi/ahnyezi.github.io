@@ -2,7 +2,7 @@
 layout: archive
 ---
 
-{{ Web }}
+{{ Maven }}
 
 {% assign categories_max = 0 %}
 {% for category in site.categories %}
@@ -15,7 +15,7 @@ layout: archive
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
-    {% if category[1].size == i and category[0] contains "Web" %}
+    {% if category[1].size == i and category[0] contains "Maven" %}
       <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
         <h2 class="archive__subtitle"></h2>
         <div class="entries-{{ entries_layout }}">
