@@ -1,12 +1,9 @@
 ---
-title:  "[자바 스터디] 4주차 과제: 제어문"
+title:  "[Java] 선택문과 제어문"
 date: 2020-12-03
 categories: ['Java']
 tags: ['Java']
 ---
-
-4주차 과제 : 제어문
-<br>
 
 
 ### :pencil2: 학습
@@ -20,16 +17,6 @@ tags: ['Java']
    - for
    - break
    - continue 
-
-<br>
-
-### :closed_book: 과제
-1. JUnit 5
-2. live-study 대시보드 만드는 코드 작성
-3. LinkedList 구현
-4. Stack 구현
-5. ListNode를 이용한 Stack 구현
-6. Queue 구현
 
 <br>
 <br>
@@ -678,3 +665,5 @@ public class ContinueStatement {
 
 
 <br> <br> 
+
+
