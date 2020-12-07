@@ -42,6 +42,7 @@ tags: ['Java','GitHub API']
 	     - 3.1.2. [REST API란](#312-REST-API란)
 	     - 3.1.3. [HTTP 프로토콜이란](#313-HTTP-프로토콜이란) 
 	     - 3.1.4. [Octokit과 Third Party libraries](#314-octokit과-third-party-libraries)
+      - 3.2 [테스트와 리팩토링](#32-테스트와-리팩토링)
 
 
 <br><br><br>
@@ -791,16 +792,6 @@ HTTP POST, http://myweb/users/
 **Third-party**란 프로그래밍을 도와주는 `Plug-in(플러그인)`, `Framework(프레임워크)`, `Library(라이브러리)` 등을 말한다.<br>
 이번에 사용한 [GitHub API for Java(org.kohsuke.github)](https://github-api.kohsuke.org/)도 객체지향 형태로 GitHub API를 사용할 수 있게 만든 **서드파티 라이브러리의 일종**이다.
 
-<br>
-
-:orange_book: *References*<br>
-- [GitHub Developer REST API v3](https://developer.github.com/v3/libraries/)
-- [Octokit을 이용하여 GitHub 앱 만들기](https://blog.aliencube.org/ko/2015/06/22/developing-github-app-with-octokit/)
-- [Using Octokit.net to authenticate your app with GitHub](https://haacked.com/archive/2014/04/24/octokit-oauth/)
-- [What Is a REST API?](https://www.sitepoint.com/developers-rest-api/)
-- [REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
-- [REST API 설계](https://www.slideshare.net/Byungwook/rest-api-60505484)
-
 <br><br>
 
 #### 3.2. 테스트와 리팩토링
@@ -818,6 +809,12 @@ HTTP POST, http://myweb/users/
 <br>
 
 :orange_book: *References*<br>
+- [GitHub Developer REST API v3](https://developer.github.com/v3/libraries/)
+- [Octokit을 이용하여 GitHub 앱 만들기](https://blog.aliencube.org/ko/2015/06/22/developing-github-app-with-octokit/)
+- [Using Octokit.net to authenticate your app with GitHub](https://haacked.com/archive/2014/04/24/octokit-oauth/)
+- [What Is a REST API?](https://www.sitepoint.com/developers-rest-api/)
+- [REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
+- [REST API 설계](https://www.slideshare.net/Byungwook/rest-api-60505484)
 - [캠퍼스 핵데이 Java 코딩 컨벤션](https://naver.github.io/hackday-conventions-java/)
 - [우아한 테크 세미나 TDD 리팩토링](https://youtu.be/bIeqAlmNRrA)
 
