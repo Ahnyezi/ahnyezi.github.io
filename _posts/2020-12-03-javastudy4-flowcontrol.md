@@ -5,9 +5,10 @@ categories: ['Java']
 tags: ['Java']
 ---
 
+***Java언어에서 flow control을 담당하는 선택문과 제어문을 공부해보자!*** :raising_hand:<br>
+<br><br>
 
-### :pencil2: 학습
-1. **선택문과 제어문**
+### :pencil2: **선택문과 제어문**
    - if
    - else
    - else if

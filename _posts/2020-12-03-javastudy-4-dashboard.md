@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java','GitHub API']
 ---
 
-GitHub API를 사용해서 live-study 대시보드를 만들어보자! :raising_hand:<br>
+***GitHub API를 사용해서 live-study 대시보드를 만들어보자!*** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements

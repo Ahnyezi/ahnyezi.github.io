@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java','LinkedList']
 ---
 
-Java로 LinkedList를 구현해보자! :raising_hand:<br>
+***Java로 LinkedList를 구현해보자!*** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
