@@ -732,7 +732,7 @@ public class main {
 <details>
 <summary> REST 기본 </summary>
 
-**REST 구성**<BR>
+**REST 구성**<br>
 
 ![image](https://user-images.githubusercontent.com/62331803/101243445-cad18f80-3743-11eb-996b-6218e566f936.png)
 <br>
@@ -763,6 +763,7 @@ HTTP POST, http://myweb/users/
 **=> 사용자라는 Resource(//myweb/users), 이름이 "yeji"인 Representation으로, 새로운 사용자를 생성 (HTTP POST)**
 
 </details> 
+
 <br>
 
 #### 3.1.3. HTTP 프로토콜이란
