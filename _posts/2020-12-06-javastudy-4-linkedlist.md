@@ -159,6 +159,8 @@ public class LinkedListImpl implements LinkedList{
 }
 
 ```
+<br>
+
 
 > LinkedListImplTest<br>
 
@@ -229,7 +231,7 @@ public class LinkedListImplTest {
 }
 <br>
 
-<img src="https://user-images.githubusercontent.com/62331803/101296740-707e1f00-3868-11eb-9fb3-8372a0afe46b.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/101296740-707e1f00-3868-11eb-9fb3-8372a0afe46b.png" width="80%">
 <br>
 
 
