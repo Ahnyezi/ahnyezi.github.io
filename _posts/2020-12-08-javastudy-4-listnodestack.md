@@ -1,11 +1,11 @@
 ---
-title:  "[Java] Node 사용하여 Stack 구현하고 JUnit5로 테스트하기"
+title:  "[Java] node 사용하여 Stack 구현하고 JUnit5로 테스트하기"
 date: 2020-12-08
 categories: ['Java']
 tags: ['Java']
 ---
 
-*** Node를 사용하여 Stack을 구현해보자!*** :raising_hand:<br>
+** node를 사용하여 Stack을 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
@@ -17,7 +17,7 @@ tags: ['Java']
 
 ## 스택
 
-> ListNodeStack<br>
+> 스택 구현코드<br>
 
 ```java
 package datastructure.stack;
@@ -84,7 +84,7 @@ public class ListNodeStack implements Stack {
 
 ```
 
-> ListNodeStackTest<br>
+> 테스트코드<br>
 
 ```java
 package datastructure.stack;

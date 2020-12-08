@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-*** int 배열을 사용하여 Queue를 구현해보자!*** :raising_hand:<br>
+** int 배열을 사용하여 Queue를 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
@@ -17,7 +17,7 @@ tags: ['Java']
 
 ## 큐
 
-> QueueImpl<br>
+> 큐 구현 코드 <br>
 
 ```java
 package datastructure.queue;
@@ -72,7 +72,7 @@ public class QueueImpl implements Queue {
 
 ```
 
-> QueueImplTest<br>
+> 테스트 코드<br>
 
 ```java
 package datastructure.queue;

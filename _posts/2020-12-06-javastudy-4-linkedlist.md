@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java','LinkedList']
 ---
 
-***Java로 LinkedList를 구현해보자!*** :raising_hand:<br>
+**Java로 LinkedList를 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
@@ -42,7 +42,7 @@ public class ListNode {
 <br>
 
 
-> LinkedListImpl <br>
+> 연결리스트 구현코드 <br>
 
 ```java
 package datastructure.linkedlist;
@@ -166,7 +166,7 @@ public class LinkedListImpl implements LinkedList{
 <br>
 
 
-> LinkedListImplTest<br>
+> 테스트코드<br>
 
 ```java
 package datastructure.linkedlist;

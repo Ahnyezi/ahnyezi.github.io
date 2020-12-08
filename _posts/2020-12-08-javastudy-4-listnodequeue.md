@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-*** Node를 사용하여 Queue를 구현해보자!*** :raising_hand:<br>
+** Node를 사용하여 Queue를 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
@@ -17,7 +17,7 @@ tags: ['Java']
 
 ## 큐
 
-> LinkedNodeQueue <br>
+> 큐 구현코드 <br>
 
 ```java
 package datastructure.queue;
@@ -85,7 +85,7 @@ public class LinkedNodeQueue implements Queue {
 
 ```
 
-> LinkedNodeQueueTest <br>
+> 테스트코드<br>
 
 ```java
 package datastructure.queue;

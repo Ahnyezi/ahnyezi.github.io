@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-*** int 배열로 Stack을 구현해보자!*** :raising_hand:<br>
+** int 배열로 Stack을 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
@@ -17,7 +17,7 @@ tags: ['Java']
 
 ## 스택
 
-> StackImpl
+> 스택 구현코드<br>
 
 ```java
 package datastructure.stack;
@@ -76,7 +76,7 @@ public class StackImpl implements Stack {
 
 ```
 
-> StackImplTest<br>
+> 테스트코드<br>
 
 ```java
 package datastructure.stack;
