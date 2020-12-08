@@ -35,6 +35,10 @@ docs:
         url: /custom/search/
       - title: "Hash/Heap"
         url: /custom/hashheap/
+      - title: "Sort"
+        url: /custom/sort/
+      - title: "ext"
+        url: /custom/ext/
 
   - title: 3 Extra
     children:
