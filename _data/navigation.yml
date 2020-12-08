@@ -22,8 +22,6 @@ docs:
         url: /custom/spring/
       - title: "Debug"
         url: /custom/debug/
-      - title: "Ext"
-        url: /custom/ext/
 
   - title: 2 Algorithm
     children:
