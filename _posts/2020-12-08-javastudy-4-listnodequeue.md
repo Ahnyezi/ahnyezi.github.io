@@ -1,11 +1,11 @@
 ---
-title:  "[Java] node를 사용한 Queue 구현하고 JUnit5로 테스트하기"
+title:  "[Java] node를 사용하여 Queue 구현하고 JUnit5로 테스트하기"
 date: 2020-12-08
 categories: ['Java']
 tags: ['Java']
 ---
 
-** Node를 사용하여 Queue를 구현해보자!** :raising_hand:<br>
+**Node를 사용하여 Queue를 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements

@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-** int 배열을 사용하여 Queue를 구현해보자!** :raising_hand:<br>
+**int 배열을 사용하여 Queue를 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements

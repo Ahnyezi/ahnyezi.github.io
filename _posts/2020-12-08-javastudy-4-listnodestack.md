@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-** node를 사용하여 Stack을 구현해보자!** :raising_hand:<br>
+**node를 사용하여 Stack을 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements

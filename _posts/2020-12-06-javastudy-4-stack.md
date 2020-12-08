@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-** int 배열로 Stack을 구현해보자!** :raising_hand:<br>
+**int 배열로 Stack을 구현해보자!** :raising_hand:<br>
 <br><br>
 
 ### :bulb:  Requirements
