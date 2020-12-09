@@ -16,8 +16,70 @@ tags: ['Java','LinkedList']
 - `boolean contains(ListNode head, ListNode nodeTocheck)`를 구현하세요.
 <br><br>
 
+## 1. 연결리스트 자료구조
 
-## 연결리스트
+![image](https://user-images.githubusercontent.com/62331803/101612807-687fd400-3a4e-11eb-9f3b-589ec5729f9a.png)
+<br>
+
+
+**연결리스트**는 **'노드'를 기반으로 데이터를 저장하는 선형 자료구조**이다. <br>
+
+각 노드는 **데이터**와 **포인터**를 가지고 있으며, 포인터는 **다음이나 이전 노드와의 연결**을 담당한다. <br>
+<br>
+
+### 1.1 연결리스트의 특징
+
+- 연결리스트는 순서를 가지고 있는 **선형 자료구조**이다
+- 각 노드의 **포인터**로 **다른 노드와 연결**하여 **순서를 저장**한다.
+- 포인터를 사용하기 때문에, **요소 삽입과 삭제 연산이 빠르다**는 장점이 있다.
+- **하지만** 각 노드에 포인터를 저장할 공간이 필요하기 때문에 **메모리 공간 활용 효율이 낮다**.
+<br>
+
+
+
+### 1.2 연결리스트의 종류
+
+
+**연결 리스트의 종류**로는 **단일 연결 리스트**와 **이중 연결 리스트** 등이 있다. 
+<br>
+
+> 단일연결리스트<br>
+
+![image](https://user-images.githubusercontent.com/62331803/101612807-687fd400-3a4e-11eb-9f3b-589ec5729f9a.png)
+<br>
+
+**단일 연결 리스트**는 각 노드에 자료 공간과 **한 개의 포인터 공간**을 가진 형태를 말한다.  노드의 포인터는 **다음 노드**를 가리킨다.<br>
+
+
+> 이중연결리스트<br>
+
+![image](https://user-images.githubusercontent.com/62331803/101612819-6c135b00-3a4e-11eb-86bc-63376112d109.png)
+<br>
+
+**이중 연결 리스트**는 단일 연결 리스트와 비슷하지만, **포인터 공간이 2개**이고 각 포인터는 **앞의 노드**와 **뒤의 노드**를 가리킨다.<br>
+
+ **이중연결리스트**는 앞 노드와 뒷 노드 모두 순회할 수 있기 때문에, 추가와 삭제 연산에 있어서 더 효율적인 성능을 낼 수 있다. 
+ 하지만, 2개의 포인터를 사용하기 때문에 추가적인 공간이 필요하다.
+<br><br>
+
+
+## 2. 자바의 연결리스트
+
+![image](https://user-images.githubusercontent.com/62331803/101623514-e7c7d480-3a5b-11eb-8fb1-0b97a15bdcb9.png)
+<br>
+
+**java.util.LinkedList**는 Serializable, Cloneable, Iterable, Collections, Deque, List, Queue와 같은 다양한 인터페이스를 구현하고 있으며, 특히 **List**와 **Deque** 인터페이스의 **이중연결리스트 구현체**이다. 
+
+특징은 다음과 같다.<br>
+- 모든 메서드는 이중연결리스트의 성능을 가지고 있다.
+- 비동기적으로 구현되기 때문에, 여러 스레드가 동시에 LinkedList의 노드를 추가/삭제할 수 없다.
+   - 즉, 외부적으로만 동기화 될 수 있다.
+<br><br>
+
+
+
+
+## 3. 코드
 
 > ListNode <br>
 
@@ -243,5 +305,8 @@ public class LinkedListImplTest {
 <br><br>
 
 :orange_book: *References*<br>
+- [위키백과 : 연결리스트](https://ko.wikipedia.org/wiki/%EC%97%B0%EA%B2%B0_%EB%A6%AC%EC%8A%A4%ED%8A%B8)
+- [단순 연결 리스트(singly linked list) - 정리 및 연습문제](https://atoz-develop.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8B%A8%EC%88%9C-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C)
+- [LinkedList(Java Platform SE 7) - Oracle Help Center](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
 - [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
 - [단위 테스트 활용 방법: JUnit 참조 가이드](https://brunch.co.kr/@pubjinson/16)
