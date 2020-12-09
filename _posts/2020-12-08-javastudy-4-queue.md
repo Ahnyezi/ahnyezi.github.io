@@ -28,36 +28,36 @@ public class QueueImpl implements Queue {
 
     @Override
     public void enqueue(int data) {
-        if (queue == null) {
+        if (queue == null) {                    // 빈 큐일 경우
             queue = new int[]{data};
             return;
         }
-
+                                                // 일반적인 경우
         int size = queue.length;
-        int[] tmp = queue.clone();
-        queue = new int[size + 1];
+        int[] tmp = queue.clone();              // 기존의 배열을 깊은 복사
+        queue = new int[size + 1];              // 사이즈 1칸 증가시킨 배열로 초기화
         for (int i = 0; i < size; i++) {
-            queue[i] = tmp[i];
+            queue[i] = tmp[i];                  // 기존 값으로 초기화
         }
-        queue[size] = data;
+        queue[size] = data;                     // 마지막 방 새로운 값으로 초기화
     }
 
     @Override
     public int dequeue() {
-        if (queue == null) {throw new IndexOutOfBoundsException();}
-        if (queue.length == 1) {
+        if (queue == null) {throw new IndexOutOfBoundsException();}    // 빈 큐일 경우
+        if (queue.length == 1) {                                       // 값이 하나만 존재할 경우
             int result = queue[0];
             queue = null;
             return result;
         }
-
+                                                                        // 일반적인 경우
         int size = queue.length;
-        int[] tmp = queue.clone();
-        queue = new int[size - 1];
+        int[] tmp = queue.clone();                                      // 기존의 배열을 깊은 복사
+        queue = new int[size - 1];                                      // 사이즈 1칸 감소시킨 배열로 초기화
         for (int i = 1; i < size; i++) {
-            queue[i - 1] = tmp[i];
+            queue[i - 1] = tmp[i];                                      // 기존 값으로 초기화
         }
-        return tmp[0];
+        return tmp[0];                                                  // 기존 배열의 첫번째 방 반환
     }
 
     public String toString() {
@@ -151,41 +151,42 @@ public class LinkedNodeQueue implements Queue {
     @Override
     public void enqueue(int data) {
         queueSize += 1;
-        if (head == null) {
+        if (head == null) {                                         // 빈 큐일 경우
             head = new ListNode(data);
             return;
         }
-        getNodeAtThePosition(queueSize-1).next = new ListNode(data);
+
+        getNodeAtThePosition(queueSize-1).next = new ListNode(data); // 마지막 방에 생성한 노드 연결
     }
 
     @Override
     public int dequeue() {
         int result;
-        if (head == null){throw new IndexOutOfBoundsException();}
-        if (queueSize == 1){
+        if (head == null){throw new IndexOutOfBoundsException();}    // 빈 큐일 경우
+        if (queueSize == 1){                                        // 1개의 노드만 존재할 경우
             result = head.getData();
             head = null;
             queueSize = 0;
             return result;
         }
-
-        result = getNodeAtThePosition(1).getData();
-        head = getNodeAtThePosition(2);
+                                                                    // 일반적인 경우
+        result = getNodeAtThePosition(1).getData();                 // 1번째 노드 result에 저장
+        head = getNodeAtThePosition(2);                             // 2번째 노드를 head로 지정
         queueSize -= 1;
         return result;
     }
 
     // position 위치의 노드 반환
     public ListNode getNodeAtThePosition(int position) {// position : 1 ~ queueSize
-        if (position < 1 || position > queueSize) {
+        if (position < 1 || position > queueSize) {                 // position이 인덱스 범위를 벗어난 경우
             throw new IndexOutOfBoundsException();
         }
-        if (position == 1) {
+        if (position == 1) {                                        // 1번째 노드를 요구하는 경우
             return head;
         }
-
+                                                                    // 일반적인 경우
         ListNode node = head;
-        for (int i = 1; i < position; i++) {
+        for (int i = 1; i < position; i++) {                        // position 위치까지 노드 순환시키기
             node = node.next;
         }
         return node;
@@ -201,7 +202,6 @@ public class LinkedNodeQueue implements Queue {
     }
 
 }
-
 
 ```
 

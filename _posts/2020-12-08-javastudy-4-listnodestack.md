@@ -31,38 +31,39 @@ public class ListNodeStack implements Stack {
     @Override
     public void push(int data) {
         stackSize += 1;
-        if (head == null) {
+        if (head == null) {                                             // 스택이 비어있는 경우
             head = new ListNode(data);
             return;
         }
-        getNodeAtThePosition(stackSize - 1).next = new ListNode(data);
+                                                                        // 비어있지 않은 경우
+        getNodeAtThePosition(stackSize - 1).next = new ListNode(data);  // 노드 생성하여 기존의 마지막 노드와 연결
     }
 
     @Override
     public int pop() {
         int result;
-        if (head == null) {throw new IndexOutOfBoundsException();}
-        if (stackSize == 1) {
+        if (head == null) {throw new IndexOutOfBoundsException();}      // 스택이 비어있는 경우
+        if (stackSize == 1) {                                           // 스택의 노드가 하나인 경우
             result = head.getData();
             head = null;
             stackSize = 0;
             return result;
         }
-
-        ListNode prevNode = getNodeAtThePosition(stackSize - 1);
-        result = prevNode.next.getData();
-        prevNode.next = null;
-        stackSize -= 1;
+                                                                        // 일반적인 경우
+        ListNode prevNode = getNodeAtThePosition(stackSize - 1);        // 끝에서 2번째 노드를 가져온다
+        result = prevNode.next.getData();                               // 마지막 노드의 data를 result에 저장
+        prevNode.next = null;                                           // 끝에서 2번째 노드의 link를 null로 초기화
+        stackSize -= 1;                                                 // 사이즈 하나 감소
         return result;
     }
 
     // position 위치의 노드를 반환
     public ListNode getNodeAtThePosition(int position) {// position: 1 ~ stackSize
-        if (position < 1 || position > stackSize) { throw new IndexOutOfBoundsException(); }
-        if (position == 1) { return head; }
+        if (position < 1 || position > stackSize) { throw new IndexOutOfBoundsException(); } // 인덱스가 범위를 벗어난 경우
+        if (position == 1) { return head; }                                                 // 첫번째 노드를 요구하는 경우
 
         ListNode node = head;
-        for (int i = 1; i < position; i++) {
+        for (int i = 1; i < position; i++) {                                                // 일반적인 경우
             node = node.next;
         }
         return node;
