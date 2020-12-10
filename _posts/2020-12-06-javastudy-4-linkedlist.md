@@ -25,12 +25,13 @@ tags: ['Java','LinkedList']
 
 > 배열과 연결리스트로 만든 리스트 자료구조<br>
 
-![image](https://user-images.githubusercontent.com/62331803/101842000-776ba100-3b8a-11eb-9ad9-97469ad85887.png)
+<img src="https://user-images.githubusercontent.com/62331803/101842000-776ba100-3b8a-11eb-9ad9-97469ad85887.png" width="50%">
+
 <br>
 
 ### 1.1. 배열로 만든 리스트
 
-<img src="https://user-images.githubusercontent.com/62331803/101842012-7a669180-3b8a-11eb-8adf-e5cd98c417ff.png" width="50%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/101842012-7a669180-3b8a-11eb-8adf-e5cd98c417ff.png" width="35%"><br>
 
 리스트를 표현하는 가장 대표적인 방법이다. 데이터를 **연속된 공간에 저장**하므로서 데이터들의 **순서 관계를 유지**할 수 있다. <br>
 
@@ -43,7 +44,7 @@ tags: ['Java','LinkedList']
 
 ### 1.2. 연결리스트
 
-<img src="https://user-images.githubusercontent.com/62331803/101842015-7d618200-3b8a-11eb-8ac7-5c394c5c6e06.png" width="50%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/101842015-7d618200-3b8a-11eb-8ac7-5c394c5c6e06.png" width="35%"><br>
 
 **노드**들이 **링크로 연결**된 형태의 자료구조이다.  **데이터 영역**에 데이터를 저장하고, **포인터(링크)영역**에 다음/이전 노드로 가는 주소를 저장하여 **순서**를 나타낸다. <br>
   
