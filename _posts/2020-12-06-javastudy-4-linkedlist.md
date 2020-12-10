@@ -6,7 +6,7 @@ tags: ['Java','LinkedList']
 ---
 
 **Java로 LinkedList를 구현해보자!** :raising_hand:<br>
-<br><br>
+<br>
 
 ### :bulb:  Requirements
 - LinkedList에 대해 공부하세요.
@@ -16,29 +16,49 @@ tags: ['Java','LinkedList']
 - `boolean contains(ListNode head, ListNode nodeTocheck)`를 구현하세요.
 <br><br>
 
-## 1. 연결리스트 자료구조
+## 1. 리스트 자료구조
 
-![image](https://user-images.githubusercontent.com/62331803/101612807-687fd400-3a4e-11eb-9f3b-589ec5729f9a.png)
+**List**는 다수의 데이터를 저장하는 자료구조로, **집합과 달리** 순서가 있게 데이터가 나열되어 있는 형태이다.<br>
+
+기본적으로 삽입(insert), 삭제(remove), 검색(search) 등의 연산이 있으며, 대표적으로 **배열**과 **연결리스트** 형태로 리스트를 구현한다.
+<br>
+
+> 배열과 연결리스트로 만든 리스트 자료구조<br>
+
+![image](https://user-images.githubusercontent.com/62331803/101842000-776ba100-3b8a-11eb-9ad9-97469ad85887.png)
+<br>
+
+### 1.1. 배열로 만든 리스트
+
+<img src="https://user-images.githubusercontent.com/62331803/101842012-7a669180-3b8a-11eb-8adf-e5cd98c417ff.png" width="50%"><br>
+
+리스트를 표현하는 가장 대표적인 방법이다. 데이터를 **연속된 공간에 저장**하므로서 데이터들의 **순서 관계를 유지**할 수 있다. <br>
+
+   - `랜덤 엑세스 가능` :  내가 원하는 칸이 어디에 위치해 있던지, 간단한 연산을 통해 메모리 주소를 계산하여 접근할 수 있다.
+      -  `내가 원하는 메모리 주소 == 배열의 시작주소 + (내가 찾고자하는 칸의 인덱스 * 1칸의 크기)`
+
+   - `크기가 고정` : 기존의 배열칸 이상의 데이터를 저장할 경우 **rellocation**이 필요하다.
+   - `삽입과 삭제연산 비용 큼`: 리스트 중간에 원소를 삽입하거나 삭제할 경우, 다수의 데이터를 옮겨야 하기 때문에 비용이 크다.
+
+
+### 1.2. 연결리스트
+
+<img src="https://user-images.githubusercontent.com/62331803/101842015-7d618200-3b8a-11eb-8ac7-5c394c5c6e06.png" width="50%"><br>
+
+배열의 장점은 가지지 못하지만, 단점을 보완한 형태이다. **노드**를 사용해 데이터를 저장하며, **포인터(링크)영역에 다음/이전 노드로 가는 주소를 저장**하여 **순서**를 나타낸다. <br>
+  
+   - `삽입과 삭제연산 비용 적음`: 다른 데이터의 이동없이 리스트 중간에 삽입 삭제할 수 있다.
+   - `길이제한 없음`: 노드를 연결한 형태이기 때문에 길이제한이 없다.
+   - `메모리 효율 낮음` : 노드를 연결하기 위한 포인터 저장 영역이 필요하기 때문에, 배열에 비해 메모리 효율이 낮다.
+   - `랜덤 엑세스 불가능`
+
+<br>
+
+종합적으로 보면 **요소의 삽입/삭제가 빈번**한 경우 **연결리스트**를 사용하고, **그렇지 않은 경우**라면 **배열**을 사용하는 것이 효과적이다.<br>
 <br>
 
 
-**연결리스트**는 **'노드'를 기반으로 데이터를 저장하는 선형 자료구조**이다. <br>
-
-각 노드는 **데이터**와 **포인터**를 가지고 있으며, 포인터는 **다음이나 이전 노드와의 연결**을 담당한다. <br>
-<br>
-
-### 1.1 연결리스트의 특징
-
-- 연결리스트는 순서를 가지고 있는 **선형 자료구조**이다
-- 각 노드의 **포인터**로 **다른 노드와 연결**하여 **순서를 저장**한다.
-- 포인터를 사용하기 때문에, **요소 삽입과 삭제 연산이 빠르다**는 장점이 있다.
-- **하지만** 각 노드에 포인터를 저장할 공간이 필요하기 때문에 **메모리 공간 활용 효율이 낮다**.
-<br>
-
-
-
-### 1.2 연결리스트의 종류
-
+## 2. 연결리스트의 종류
 
 **연결 리스트의 종류**로는 **단일 연결 리스트**와 **이중 연결 리스트** 등이 있다. 
 <br>
@@ -63,7 +83,7 @@ tags: ['Java','LinkedList']
 <br><br>
 
 
-## 2. 자바의 연결리스트
+## 3. 자바의 연결리스트
 
 ![image](https://user-images.githubusercontent.com/62331803/101623514-e7c7d480-3a5b-11eb-8fb1-0b97a15bdcb9.png)
 <br>
@@ -79,7 +99,7 @@ tags: ['Java','LinkedList']
 
 
 
-## 3. 코드
+## 4. 코드
 
 단일연결리스트로 구현하였다.<br>
 
@@ -124,13 +144,6 @@ public class LinkedListImpl implements LinkedList{
 
     public LinkedListImpl(ListNode nodeToAdd) {
         add(null, nodeToAdd, 0);
-    }
-
-    public LinkedListImpl(ArrayList<Integer> datas) {
-        ListNode head = null;
-        for (int i = 0; i < datas.size(); i++) {
-            add(head, new ListNode(datas.get(i)), i);
-        }
     }
 
     @Override
@@ -307,6 +320,7 @@ public class LinkedListImplTest {
 <br><br>
 
 :orange_book: *References*<br>
+- [자료구조 제11-1강 연결리스트 - 개념과 기본 동작들](https://www.youtube.com/watch?v=eTwYE-ercNM&t=1400s)
 - [위키백과 : 연결리스트](https://ko.wikipedia.org/wiki/%EC%97%B0%EA%B2%B0_%EB%A6%AC%EC%8A%A4%ED%8A%B8)
 - [단순 연결 리스트(singly linked list) - 정리 및 연습문제](https://atoz-develop.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8B%A8%EC%88%9C-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C)
 - [LinkedList(Java Platform SE 7) - Oracle Help Center](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
