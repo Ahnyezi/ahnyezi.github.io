@@ -5,8 +5,7 @@ categories: ['Java']
 tags: ['Java','GitHub API']
 ---
 
-***GitHub API를 사용해서 live-study 대시보드를 만들어보자!*** :raising_hand:<br>
-<br><br>
+GitHub API를 사용해서 대시보드 만들기<br>
 
 ### :bulb:  Requirements
 -   깃헙 이슈 1번부터 18번까지 댓글을 순회하며 댓글을 남긴 사용자를 체크 할 것.
@@ -16,28 +15,118 @@ tags: ['Java','GitHub API']
 <br><br>
 
 
-:bulb:  **목표**  <br>
-- `깃허브 Java 라이브러리 이해`
-- `MVC 패턴으로 짜기`
-- `사용자에게 Repository name 받아와서 해당 repo 객체 생성하기`
-- `메뉴 만들기`
-   - `아이디별 출석율 검색`
-   - `출석랭크 높은 순으로 정렬해서 출력`
-<br><br>
+### 과제 회고
+원래 목표는 기선님이 하신 것 처럼 README 파일에 직접 Grid형태로 대시보드를 작성해보는 것이었다!<br>
+근데... 이상하게 fork된 리포지토리가 아니면 리포지토리 자체를 읽어오지 못했다...ㅠㅠㅠ <br>
+
+> 다른 계정에서 fork한 리포지토리<br>
+
+<img src="https://user-images.githubusercontent.com/62331803/101879752-2339de80-3bd5-11eb-9343-ca4b88ed5b88.png" width="70%"><br>
+
+> 내가 직접 생성한 리포지토리<br>
+
+<img src="https://user-images.githubusercontent.com/62331803/101879595-ec63c880-3bd4-11eb-8fcc-2da60266e7a3.png" width="80%"><br>
+<br>
+
+<details>
+	<summary>trace</summary>
+		<code>
+			java.lang.NullPointerException: Cannot invoke "org.kohsuke.github.GHRepository.getFileContent(String)" because "this.repo" is null
+	at livestudy.mission4.Dao.Test(Dao.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:205)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:201)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+
+
+			
+</code>
+	
+</details>
+
+문제를 차차 찾아보기로 하고... 일단 **콘솔에 출력하는 프로그램** 형태로 짰다!<br>
+(혹시 에러원인 아시면 답변 부탁드릴게요오.. :pensive:)
+<br>
+
+이번엔 정보를 가져오는 기능만 짰는데, 다음 번에는 직접 입력받은 내용을 write 할 수 있는 기능을 추가해보고 싶다.
+
+<br>
+<br>
 
 :point_right: **목차**   <br>
-1. [GitHub 자바 라이브러리 ?](#1-GitHub-자바-라이브러리)
+1. [GitHub 자바 라이브러리 설치](#1-GitHub-자바-라이브러리)
 
-2. [코드 구성](#2-코드-구성)
+2. 코드
      - 2.0. [결과물](#우선-결과물은-다음과-같다)
      - 2.1. [GHConnect : 깃허브 객체 생성](#21-GHConnect--깃허브-객체-생성)
      - 2.2. [Dao : 데이터 관리](#22--Dao--데이터-관리)
-     - 2.3. [Service : 화면 출력](#23--Service--화면-출력)
+     - 2.3. [Service : 기능 출력](#23--Service--기능-출력)
      - 2.4. [Menu : 메뉴](#24--Menu--메뉴)
      - 2.5. [main : 메인](#25--main--메인)
      
-3. [회고](#3-회고)
-      - 3.1 [깃허브 자바 라이브러리를 사용하며](#31-깃허브-자바-라이브러리를-사용하며)
+3. [공부한 내용](#3-공부한-내용)
+      - 3.1 [깃허브 자바 라이브러리](#31-깃허브-자바-라이브러리)
          - 3.1.1. [Open API란](#311-Open-API란)
 	     - 3.1.2. [REST API란](#312-REST-API란)
 	     - 3.1.3. [HTTP 프로토콜이란](#313-HTTP-프로토콜이란) 
@@ -50,8 +139,7 @@ tags: ['Java','GitHub API']
 
 ### 1. GitHub 자바 라이브러리
 
-
-![image](https://user-images.githubusercontent.com/62331803/101235118-ed928280-3708-11eb-948c-8d15a1ad093f.png)
+<img src="https://user-images.githubusercontent.com/62331803/101235118-ed928280-3708-11eb-948c-8d15a1ad093f.png" width="60%">
 <br>
 
 **우선 [GitHub 자바 라이브러리](https://github-api.kohsuke.org/)를 알아보았다.** <br>
@@ -74,19 +162,18 @@ tags: ['Java','GitHub API']
 
 > Dependency Information 메뉴에서 pom.xml에 삽입할 태그 내용을 복사한다<br>
 
-
-![image](https://user-images.githubusercontent.com/62331803/101136173-4520e780-3650-11eb-9684-80e21aa3eb02.png)
+<img src="https://user-images.githubusercontent.com/62331803/101136173-4520e780-3650-11eb-9684-80e21aa3eb02.png" width="70%">
 <br>
 
 > 내가 만든 maven 프로젝트의 pom.xml에 붙여넣는다<br>
 
-![image](https://user-images.githubusercontent.com/62331803/101136515-c8423d80-3650-11eb-8a2a-0eeace810af9.png)
+![image](https://user-images.githubusercontent.com/62331803/101880679-a6a7ff80-3bd6-11eb-97e0-57419ef2fee6.png)
 <br>
 
 
 > 설치완료<br>
 
-![image](https://user-images.githubusercontent.com/62331803/101235537-baea8900-370c-11eb-9514-0f5f77df677e.png)
+![image](https://user-images.githubusercontent.com/62331803/101880703-b32c5800-3bd6-11eb-94f8-f154d9de9ef2.png)
 <br>
 
 > 이제 해당 라이브러리를 import해서 사용할 수 있다<br>
@@ -560,7 +647,7 @@ public class Dao {
 <br><br>
 
 
-#### 2.3. Service : 화면 출력
+#### 2.3. Service : 기능 출력
 
 ```java
 package livestudy.mission4;
@@ -704,9 +791,9 @@ public class main {
 <br><br>
 
 
-### 3. 회고
+### 3. 공부한 내용
 
-#### 3.1. 깃허브 자바 라이브러리를 사용하며
+#### 3.1. 깃허브 자바 라이브러리
 
 <img src="https://user-images.githubusercontent.com/62331803/101240382-5e01c980-3732-11eb-81ac-b3288b57e448.png" width="60%">
 <br>
