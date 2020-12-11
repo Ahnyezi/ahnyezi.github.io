@@ -340,7 +340,6 @@ public class SwitchDemo2 {
     }  
 }
 ```
-<br>
 
 ```java
 동을 입력하세요>>망원동
@@ -357,9 +356,9 @@ unknown
 ### 4.1. Java SE 12 switch expressions
 
 :orange_book: **References**<br>
-- https://docs.oracle.com/en/java/javase/13/language/switch-expressions.html
-- https://dev-kani.tistory.com/21
-- https://stackoverflow.com/questions/58049131/what-does-the-new-keyword-yield-mean-in-java-13
+- (https://docs.oracle.com/en/java/javase/13/language/switch-expressions.html)
+- (https://dev-kani.tistory.com/21)
+- (https://stackoverflow.com/questions/58049131/what-does-the-new-keyword-yield-mean-in-java-13)
 
 자바 12에 break대신 `yield문`과 `arrow`를 사용한 switch문이 소개되었다.<br>
 - `yield` : case의 결과로 반환하고 싶은 값이 있을 경우. yield를 사용한다.
