@@ -29,17 +29,17 @@ tags: ['Java']
 
 ### :pencil2: **목차**
  
-1. [if](1-if--표현식이-참인지-판별)
-2. [else](2-else)
-3. [else if](3-else-if)
-4. [switch](4-switch)
+1. [if](#1-if--표현식이-참인지-판별)
+2. [else](#2-else)
+3. [else if](#3-else-if)
+4. [switch](#4-switch)
    - 4.1. Java SE 12 switch expressions (yield, ->)
-5. [while](5-while)
-6. [do while](6-do-while)
-7. [for](7-for)
+5. [while](#5-while)
+6. [do while](#6-do-while)
+7. [for](#7-for)
    - forEach(->)
-8. [break](8-break)
-9. [continue](9-continue) 
+8. [break](#8-break)
+9. [continue](#9-continue) 
 
 <br>
 <br>
