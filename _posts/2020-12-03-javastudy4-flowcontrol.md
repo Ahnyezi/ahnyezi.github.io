@@ -359,18 +359,19 @@ unknown
 - [https://docs.oracle.com/en/java/javase/13/language/switch-expressions.html](https://docs.oracle.com/en/java/javase/13/language/switch-expressions.html)
 - [https://dev-kani.tistory.com/21](https://dev-kani.tistory.com/21)
 - [https://stackoverflow.com/questions/58049131/what-does-the-new-keyword-yield-mean-in-java-13](https://stackoverflow.com/questions/58049131/what-does-the-new-keyword-yield-mean-in-java-13)
+<br>
 
 자바 12에 break대신 `yield문`과 `arrow`를 사용한 switch문이 소개되었다.<br>
 - `yield` : case의 결과로 반환하고 싶은 값이 있을 경우. yield를 사용한다.
 - `->`:  `:`대신 사용할 수 있다.
-
+<br>
 
 :point_right: **예제6 :  arrow 사용전후 코드 비교**<br>
 
 ```java
 	public enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY; }  
   
-    // 기존의 switch문  
+    	// 기존의 switch문  
 	  int numLetters = 0;  
 	  Day day = Day.WEDNESDAY;  
 	  switch (day) {  
@@ -394,7 +395,7 @@ unknown
 	  }  
 	   System.out.println(numLetters);  
     
-  // arrow 사용한 switch문  
+   	// arrow 사용한 switch문  
 	  Day day = Day.WEDNESDAY;  
 	  System.out.println(  
 	            switch (day) {  
@@ -453,6 +454,7 @@ while (표현식 expression){
 ```
 - **표현식**이 참인 경우 명령문을 계속해서 수행한다.
 <br>
+<br>
 
 :point_right: **예제8 :  더하기 연산 반복하기**<br>
 
@@ -500,6 +502,7 @@ sum : 55
 
 **do while**은 `while`문의 방식을 살짝 수정해서 사용할 수 있는 키워드이다.<br>
 - 명령문이 최소 1번 실행된 후에, while문 뒤에 있는 표현식을 확인하여 반복여부를 결정한다.
+<br>
 <br>
 
 :point_right: **예제9 :  횟수 카운팅하기**<br>  
@@ -686,7 +689,6 @@ for ( ; ; ) {
     // your code goes here
 }
 ```
-<br>
 
 **(추가2) forEach 메서드**<br>
 ```java
