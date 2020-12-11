@@ -195,7 +195,7 @@ public class LinkedListImpl implements LinkedList{
         ListNode prevNode = getNodeAtThePosition(head, position - 1);// 삽입하려는 위치의 바로 이전 노드(position - 1)를 가져온다.
         nodeToAdd.next = prevNode.next;                                     // 삽입하려는 노드(nodeToAdd)에 기존의 linkedlist에서 position에 위치했던 node를 연결시킨다.
         prevNode.next = nodeToAdd;                                          // 삽입하려는 위치의 바로 이전 노드에 삽입하려는 노드를 연결시킨다.
-        return head;
+        return head; // 새로운 연결리스트의 head를 반환
     }
 
     @Override
@@ -212,7 +212,7 @@ public class LinkedListImpl implements LinkedList{
 
         ListNode prevNode = getNodeAtThePosition(head, positionToRemove - 1);// 제거하려는 위치의 바로 이전 노드를 가져온다.
         prevNode.next = prevNode.next.next;                                         // prevNode에 해당 노드의 다다음 노드를 연결시킨다.
-        return head;
+        return head; // 새로운 연결리스트의 head를 반환
     }
 
     @Override
