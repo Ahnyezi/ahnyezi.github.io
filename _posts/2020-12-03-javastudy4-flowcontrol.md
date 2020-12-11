@@ -6,16 +6,16 @@ tags: ['Java']
 ---
 
 ***Java언어에서 flow control을 담당하는 선택문과 제어문을 공부해보자!*** :raising_hand:<br>
+<br>
 
+**과제 회고**<br>
 자바의 기본적인 문법은 알고 있었지만, 속성식으로 빠르게 배웠기 때문에 깊이가 없다고 생각했다.<br>
 그래서 이번 과제의 목표를 다음과 같이 잡았다.<br>
 
-- `oracle documentation`과 예제 보고 키워드 사용법 제대로 이해하기 
-- 새롭게 업데이트 된 부분 공부하기
+- **oracle documentation**과 예제보고 키워드 사용법 제대로 이해하기 
+- 새롭게 **업데이트 된 부분 공부**하기
 
-<br>
-
-문서와 예제를 통해 공부를 하니까, 이미 알고있던 키워드도 더 잘 활용할 수 있는 방법을 배울 수 있었다. <br>
+문서와 예제를 통해 공부를 하니까, 이미 알고있던 키워드도 더 잘 활용하는 방법을 배울 수 있었다. <br>
 또 새롭게 알게 된 내용도 많았다.<br>
 - `forEach` 메서드
 - 새로운 `Switch`문 사용법
@@ -29,11 +29,11 @@ tags: ['Java']
 
 ### :pencil2: **목차**
  
- 1. [if](1-if--표현식이-참인지-판별)
- 2. [else](2-else)
- 3. [else if](3-else-if)
- 4. [switch](4-switch)
-- 4.1. [Java SE 12 switch expressions (yield, ->)](41--java-se-12-switch-expressions) 
+1. [if](1-if--표현식이-참인지-판별)
+2. [else](2-else)
+3. [else if](3-else-if)
+4. [switch](4-switch)
+-4.1. [Java SE 12 switch expressions (yield, ->)](41--java-se-12-switch-expressions)
 5. [while](5-while)
 6. [do while](6-do-while)
 7. [for](7-for)
@@ -804,7 +804,7 @@ public class ContinueStatement {
 <br>
 
 :orange_book: **References**<br>
-- http://zetcode.com/lang/java/flow/<br>
+- (http://zetcode.com/lang/java/flow/)<br>
 
 
 <br> <br> 
