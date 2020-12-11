@@ -337,6 +337,11 @@ public class ListNodeStackTest {
 
 <img src="https://user-images.githubusercontent.com/62331803/101426745-e5248c80-3940-11eb-92eb-fddb9a6c5641.png" width="60%">
 <br>
+<br>
+
+:orange_book: References<br>
+- [스택의 개념과 구현](https://www.youtube.com/watch?v=MaLRjxoaowA&list=PL52K_8WQO5oXIATx2vcTvqwxXxoGxxsIz&index=32)
+
 
 
 <br><br>
