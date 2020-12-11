@@ -95,7 +95,7 @@ Stack 클래스는 LIFO의 스택 자료구조를 구현한 클래스이지만, 
 
 <br>
 
-`Stack`클래스가 있는데 굳이  `Deque`를 구현해서 사용하는 것에 대해 이해가 되지 않아서 조사해봤다.<br>
+:question: `Stack`클래스가 있는데 굳이  `Deque`를 구현해서 사용하는 것에 대해 이해가 되지 않아서 조사해봤다.<br>
 
 [출처:Why should I use Deque over Stack?](https://stackoverflow.com/questions/12524826/why-should-i-use-deque-over-stack)
 
