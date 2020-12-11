@@ -93,21 +93,23 @@ Stack 클래스는 LIFO의 스택 자료구조를 구현한 클래스이지만, 
       Deque<Integer> stack = new ArrayDeque<Integer>();
 ```
 
- `Deque`를 구현해서 사용하는 것에 대해 이해가 되지 않아서 조사해봤다.<br>
+<br>
 
-[Why should I use Deque over Stack?](https://stackoverflow.com/questions/12524826/why-should-i-use-deque-over-stack)
+`Stack`클래스가 있는데 굳이  `Deque`를 구현해서 사용하는 것에 대해 이해가 되지 않아서 조사해봤다.<br>
 
-1. `객체지향 관점 Object oriented design` <br>
+[출처:Why should I use Deque over Stack?](https://stackoverflow.com/questions/12524826/why-should-i-use-deque-over-stack)
 
-인터페이스가 다중상속이 가능한 것과 달리, 클래스는 하나의 클래스로만 extends 될 수 있다. Deque 인터페이스를 사용하면 구체적인 Stack 클래스와 그 조상에 대한 종속성이 제거되어 더 유연하게 사용할 수 있다. 즉, 다른 클래스를 extends하거나 Deque의 다른 구현체(LinkedList, ArrayDeque)등으로 교체하는 것이 자유롭다.<br>
+**1. 객체지향관점에서의 문제 Object oriented design** <br>
 
-2. `일관성 문제 Inconsistency` <br>
+인터페이스가 다중상속이 가능한 것과 달리, 클래스는 하나의 클래스로만 extends 될 수 있다. **Deque 인터페이스**를 사용하면 구체적인 Stack 클래스와 그 조상에 대한 종속성이 제거되어 **더 유연하게 사용할 수 있다**. 즉, 다른 클래스를 extends하거나 Deque의 다른 구현체(LinkedList, ArrayDeque)등으로 교체하는 것이 자유롭다.<br>
 
-Stack클래스는 Vector 클래스를 상속받은 형태이다. 따라서 랜덤액세스가 가능한데 스택의 원칙인 LIFO에 불필요한 작업을 수행할 수 있게 된다. Deque를 사용하는 경우 랜덤액세스가 불가능하다. <br>
+**2. 일관성 문제 Inconsistency** <br>
 
-3. `Performance`<br>
+Stack클래스는 **Vector 클래스**를 상속받은 형태이다. 따라서 랜덤액세스가 가능한데 스택의 원칙인 **LIFO에 불필요한 작업을 수행**할 수 있게 된다. Deque를 사용하는 경우 랜덤액세스가 불가능하다. <br>
 
-Stack클래스가 상속받는 Vector 클래스는 ArrayList의 **thread-safe**(멀티 스레드가 접근하는 것을 허용) 버전이다. 이런 식으로 동기화를 할 경우, 어플리케이션에 성능 저하를 일으킬 가능성이 있다. 또한 굳이 필요하지 않은 기능 사용하는 다른 클래스를 확장할 경우(2와 마찬가지로) 사용하는 객체가 커져서 추가 메모리와 성능 오버헤드를 발생시킬 수 있다. <br>
+**3. 성능 문제 Performance**<br>
+
+Stack클래스가 상속받는 Vector 클래스는 ArrayList의 **thread-safe**(멀티 스레드가 접근하는 것을 허용) 버전이다. 이런 식으로 **동기화**를 할 경우, **어플리케이션에 성능 저하**를 일으킬 가능성이 있다. 또한 굳이 필요하지 않은 기능 사용하는 다른 클래스를 확장할 경우(2와 마찬가지로) 사용하는 객체가 커져서 **추가 메모리와 성능 오버헤드**를 발생시킬 수 있다. <br>
 
 <br>
 
