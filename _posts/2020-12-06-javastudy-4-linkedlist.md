@@ -6,7 +6,6 @@ tags: ['Java','LinkedList']
 ---
 
 **Java로 LinkedList를 구현해보자!** :raising_hand:<br>
-<br>
 
 ### :bulb:  Requirements
 - LinkedList에 대해 공부하세요.
@@ -14,7 +13,21 @@ tags: ['Java','LinkedList']
 - `ListNode add(ListNode head, ListNode nodeToAdd, int position)`를 구현하세요.
 - `ListNode remove(ListNode head, int positionToRemove)`를 구현하세요.
 - `boolean contains(ListNode head, ListNode nodeTocheck)`를 구현하세요.
+<br>
+
+### :bulb:  목차
+**1. 리스트 자료구조**<br>
+- 1.1. 배열로 만든 리스트
+- 1.2. 연결리스트
+
+**2. 연결리스트**<br>
+- 2.1. 노드
+- 2.2. 연결리스트의 종류
+- 2.3. 자바의 연결리스트
+
+**3. 코드**<br>
 <br><br>
+
 
 ## 1. 리스트 자료구조
 
@@ -22,8 +35,9 @@ tags: ['Java','LinkedList']
 
 기본적으로 삽입(insert), 삭제(remove), 검색(search) 등의 연산이 있으며, 대표적으로 **배열**과 **연결리스트** 형태로 리스트를 구현한다.
 <br>
+<br>
 
-> 배열과 연결리스트로 만든 리스트 자료구조<br>
+> **배열**과 **연결리스트**로 만든 리스트 자료구조<br>
 
 <img src="https://user-images.githubusercontent.com/62331803/101842000-776ba100-3b8a-11eb-9ad9-97469ad85887.png" width="50%">
 
@@ -51,7 +65,7 @@ tags: ['Java','LinkedList']
    - `삽입과 삭제연산 비용 적음`: 다른 데이터의 이동없이 리스트 중간에 삽입 삭제할 수 있다.
    - `길이제한 없음`: 노드를 연결한 형태이기 때문에 길이제한이 없다.
    - `메모리 효율 낮음` : 노드를 연결하기 위한 포인터 저장 영역이 필요하기 때문에, 배열에 비해 메모리 효율이 낮다.
-   - `랜덤 엑세스 불가능`
+   - `랜덤 엑세스 불가능` : 연속된 메모리 주소에 데이터가 저장된 것이 아니기 때문에, 배열처럼 랜덤 액세스가 불가능하다.
 
 <br>
 
@@ -72,6 +86,7 @@ tags: ['Java','LinkedList']
 - 각 노드는 하나의 **데이터 필드**와 하나의 **링크(next) 필드**로 구성된다.
 -  **첫 번째 노드**의 주소는 따로 저장(head)해야 한다.
 -  **마지막 노드**의 next 필드에는 **NULL**을 저장하여 연결리스트의 끝임을 표시한다.
+<br>
 <br>
 
 ### 2.2. 연결리스트의 종류
@@ -99,7 +114,7 @@ tags: ['Java','LinkedList']
 <br><br>
 
 
-## 3. 자바의 연결리스트
+### 2.3. 자바의 연결리스트
 
 ![image](https://user-images.githubusercontent.com/62331803/101623514-e7c7d480-3a5b-11eb-8fb1-0b97a15bdcb9.png)
 <br>
@@ -115,7 +130,7 @@ tags: ['Java','LinkedList']
 
 
 
-## 4. 코드
+## 3. 코드
 
 단일연결리스트로 구현하였다.<br>
 
