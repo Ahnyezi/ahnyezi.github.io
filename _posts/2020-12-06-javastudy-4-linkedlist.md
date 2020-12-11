@@ -13,9 +13,9 @@ tags: ['Java','LinkedList']
 - `ListNode add(ListNode head, ListNode nodeToAdd, int position)`를 구현하세요.
 - `ListNode remove(ListNode head, int positionToRemove)`를 구현하세요.
 - `boolean contains(ListNode head, ListNode nodeTocheck)`를 구현하세요.
-<br>
+<br><br>
 
-### :bulb:  목차
+### 목차
 **1. 리스트 자료구조**<br>
 - 1.1. 배열로 만든 리스트
 - 1.2. 연결리스트
@@ -26,6 +26,8 @@ tags: ['Java','LinkedList']
 - 2.3. 자바의 연결리스트
 
 **3. 코드**<br>
+- 3.1. 연결리스트 구현코드
+- 3.2. 테스트코드
 <br><br>
 
 
