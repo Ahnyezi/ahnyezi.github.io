@@ -25,7 +25,7 @@ tags: ['Java']
 - 1.1. 스택의 개념
 - 1.2. 스택의 기본연산
 - 1.3. 스택의 활용 : 괄호검사문제
-- 1.4. 자바의 스택
+- 1.4. 자바의 스택 클래스
 
 2. **코드**
 
@@ -374,7 +374,6 @@ public class ListNodeStackTest {
 
 :orange_book: References<br>
 - [스택의 개념과 구현](https://www.youtube.com/watch?v=MaLRjxoaowA&list=PL52K_8WQO5oXIATx2vcTvqwxXxoGxxsIz&index=32)
-
-
+- [java.util.Stack](https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html)
 
 <br><br>

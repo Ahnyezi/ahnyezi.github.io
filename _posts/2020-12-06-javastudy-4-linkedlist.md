@@ -23,7 +23,7 @@ tags: ['Java','LinkedList']
 **2. 연결리스트**<br>
 - 2.1. 노드
 - 2.2. 연결리스트의 종류
-- 2.3. 자바의 연결리스트
+- 2.3. 자바의 연결리스트 클래스
 
 **3. 코드**<br>
 - 3.1. 연결리스트 구현코드
@@ -116,7 +116,7 @@ tags: ['Java','LinkedList']
 <br><br>
 
 
-### 2.3. 자바의 연결리스트
+### 2.3. 자바의 연결리스트 클래스
 
 ![image](https://user-images.githubusercontent.com/62331803/101623514-e7c7d480-3a5b-11eb-8fb1-0b97a15bdcb9.png)
 <br>
