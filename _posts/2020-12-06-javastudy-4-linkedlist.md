@@ -166,6 +166,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LinkedListImpl implements LinkedList{
+    private ListNode head; // 첫 번째 노드를 저장할 head
 
     public LinkedListImpl() {}
 
