@@ -153,6 +153,7 @@ public class StackImpl implements Stack {
 package datastructure.stack;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -165,20 +166,21 @@ public class StackImplTest {
     @BeforeEach
     public void init() {
         stack = new StackImpl();
-    }
-
-    @Test
-    public void pushTest() {
         stack.push(1);
         stack.push(3);
         stack.push(5);
         stack.push(7);
+    }
+
+    @Test
+    @DisplayName("push test")
+    public void pushTest() {
         assertEquals("1,3,5,7", stack.toString());
     }
 
     @Test
+    @DisplayName("pop test")
     public void popTest() {
-        pushTest();
         assertAll("pop test",
                 () -> {//스택(1,3,5,7)에서 2번 pop한 후의 배열 확인
                     stack.pop();
@@ -196,6 +198,7 @@ public class StackImplTest {
                 });
     }
 }
+
 ```
 <br>
 
