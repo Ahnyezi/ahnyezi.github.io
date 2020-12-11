@@ -1,3 +1,4 @@
+
 ---
 title:  "[Java] 선택문과 제어문"
 date: 2020-12-03
@@ -9,15 +10,18 @@ tags: ['Java']
 <br><br>
 
 ### :pencil2: **선택문과 제어문**
-   - if
-   - else
-   - else if
-   - switch
-   - while
-   - do while
-   - for
-   - break
-   - continue 
+ 
+ 1. [if](1-if--표현식이-참인지-판별)
+ 2. [else](2-else)
+ 3. [else if](3-else-if)
+ 4. [switch](4-switch)
+   - 4.1. [Java SE 12 switch expressions (yield, ->)](41--java-se-12-switch-expressions) 
+5. [while](5-while)
+6. [do while](6-do-while)
+7. [for](7-for)
+- forEach(->)
+8. [break](8-break)
+9. [continue](9-continue) 
 
 <br>
 <br>
@@ -34,7 +38,7 @@ tags: ['Java']
 각 **keyword**의 쓰임을 예제를 통해 살펴보자. <br>
 <br>
 
-### 1. if - 표현식이 참인지를 판별
+### 1. if : 표현식이 참인지 판별
 
 기본적인 형식은 다음과 같다.<br>
 
@@ -80,8 +84,6 @@ public class IFStatement {
 }
 ```
 <br>
-
-
 
 
 
@@ -193,7 +195,6 @@ public class MultipleBranches {
 ```
 
 ```java
-/* 
 숫자를 입력하세요:
 -3
 음수입니다.
@@ -205,7 +206,6 @@ public class MultipleBranches {
 숫자를 입력하세요:
 0
 0 입니다.
-*/
 ```
 
 <br>
@@ -236,6 +236,7 @@ switch(domain){
 - 일치 하는 값이 없을 경우에는 아무 명령문도 실행되지 않거나, **default** 옵션을 사용해서 일치하는 case가 없을 경우 실행할 명령문을 지정해 줄 수 있다. 
 - 각각의 분기는 `break` 키워드로 종료한다.
    - `break`문이 없다면, 해당 **case**하단에 모든 case들이 실행된 후 종료된다.
+- 여러가지 case를 그룹화하여 사용할 수  있다. (예제5)
 
 <br>
 
@@ -285,7 +286,6 @@ public class SwitchStatement {
 ```
 
 ```java
-/*
 도메인을 입력하세요:
 kr
 대한민국
@@ -293,10 +293,134 @@ kr
 도메인을 입력하세요:
 de
 알 수 없는 나라
-*/
 ```
-
 <br>
+
+:point_right: **예제5 :  어느 구인지 판별하기**<br>
+
+```java
+package javabasic;  
+  
+import java.util.Scanner;  
+  
+public class SwitchDemo2 {  
+    public static void main(String[] args){  
+        Scanner sc = new Scanner(System.in);  
+  System.out.print("동을 입력하세요>>");  
+  String district = sc.nextLine();  
+  
+ switch(district.trim()){  
+            case "방배동": case "양재동": case "서초동":  
+            case "반포동": case "잠원동":  
+                System.out.println(district + " in 서초구");  
+ break; case "합정동": case "망원동": case "연남동":  
+            case "아현동": case "서교동":  
+                System.out.println(district + " in 마포구");  
+ break; default:  
+                System.out.println("unknown");  
+  }  
+    }  
+}
+```
+<br>
+
+```java
+동을 입력하세요>>망원동
+망원동 in 마포구
+
+동을 입력하세요>>서교동
+서교동 in 마포구
+
+동을 입력하세요>>대학동
+unknown
+```
+<br>
+
+### 4.1. Java SE 12 switch expressions
+
+:orange_book: **References**<br>
+- https://docs.oracle.com/en/java/javase/13/language/switch-expressions.html
+- https://dev-kani.tistory.com/21
+- https://stackoverflow.com/questions/58049131/what-does-the-new-keyword-yield-mean-in-java-13
+
+자바 12에 break대신 `yield문`과 `arrow`를 사용한 switch문이 소개되었다.<br>
+- `yield` : case의 결과로 반환하고 싶은 값이 있을 경우. yield를 사용한다.
+- `->`:  `:`대신 사용할 수 있다.
+
+
+:point_right: **예제6 :  arrow 사용전후 코드 비교**<br>
+
+```java
+	public enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY; }  
+  
+    // 기존의 switch문  
+	  int numLetters = 0;  
+	  Day day = Day.WEDNESDAY;  
+	  switch (day) {  
+	        case MONDAY:  
+	        case FRIDAY:  
+	        case SUNDAY:  
+	            numLetters = 6;  
+				break; 
+			case TUESDAY:  
+	            numLetters = 7;  
+				break; 
+			case THURSDAY:  
+	        case SATURDAY:  
+	            numLetters = 8;  
+				break; 
+			case WEDNESDAY:  
+	            numLetters = 9;  
+				break; 
+			default:  
+	            throw new IllegalStateException("Invalid day: " + day);  
+	  }  
+	   System.out.println(numLetters);  
+    
+  // arrow 사용한 switch문  
+	  Day day = Day.WEDNESDAY;  
+	  System.out.println(  
+	            switch (day) {  
+			        case MONDAY, FRIDAY, SUNDAY -> 6;  
+					case TUESDAY                -> 7;  
+					case THURSDAY, SATURDAY     -> 8;  
+					case WEDNESDAY              -> 9;  
+					default -> throw new IllegalStateException("Invalid day: " + day);  
+			  }  
+);
+
+```
+<br>
+
+:point_right: **예제7 : yield문을 사용하여 정수값을 반환**<br>
+```java
+    Day day = Day.WEDNESDAY;
+    // numLetters case문 실행 결과값 numLetter에 삽입
+    int numLetters = switch (day) {
+        case MONDAY:
+        case FRIDAY:
+        case SUNDAY:
+            System.out.println(6);
+            yield 6; // `월, 금, 일`인 경우 6을 yield하여 numLetter변수 초기화
+        case TUESDAY:
+            System.out.println(7);
+            yield 7;// `화`인 경우 7을 yield하여 numLetter변수 초기화
+        case THURSDAY:
+        case SATURDAY:
+            System.out.println(8);
+            yield 8; // `목,토`인 경우 8을 yield하여 초기화
+        case WEDNESDAY:
+            System.out.println(9);
+            yield 9;
+        default:
+            throw new IllegalStateException("Invalid day: " + day);
+    };
+    System.out.println(numLetters);
+```
+<br>
+
+
+
 
 ### 5. while
 
@@ -313,7 +437,7 @@ while (표현식 expression){
 - **표현식**이 참인 경우 명령문을 계속해서 수행한다.
 <br>
 
-:point_right: **예제5 :  더하기 연산 반복하기**<br>
+:point_right: **예제8 :  더하기 연산 반복하기**<br>
 
 ```java
 package javastudy.fourth;
@@ -340,7 +464,6 @@ public class WhileStatement {
 ```
 
 ```java
-/*
 i : 1
 sum : 1
 
@@ -352,7 +475,6 @@ sum : 45
 
 i : 10
 sum : 55
-*/
 ```
 
 <br>
@@ -363,7 +485,7 @@ sum : 55
 - 명령문이 최소 1번 실행된 후에, while문 뒤에 있는 표현식을 확인하여 반복여부를 결정한다.
 <br>
 
-:point_right: **예제6 :  횟수 카운팅하기**<br>  
+:point_right: **예제9 :  횟수 카운팅하기**<br>  
 
 
 ```java
@@ -388,9 +510,7 @@ public class DoWhile {
 ```
 
 ```java
-/*
 횟수 : 0
-*/
 ```
 
 <br>
@@ -426,7 +546,7 @@ for (int i = 0; i < 10 ; i++) {
 `2`단계의 조건이 거짓이 될 때까지 시행을 반복한다. <br>
 <br>
 
-:point_right: **예제 7 :  배열 원소 출력하기**<br> 
+:point_right: **예제 10 :  배열 원소 출력하기**<br> 
 
 
 ```java
@@ -460,18 +580,16 @@ public class ForStatement {
 ```
 
 ```java
-/*
 내 이름은 이효리
 거꾸로 해도 
 리효이 은름이 내
-*/
 ```
 
 <br>
 
 **괄호 안에 2개 이상의 명령문을 사용할 수도 있다**<br>
 
-:point_right: **예제 8 :  난수의 합 구하기**<br>  
+:point_right: **예제 11 :  난수의 합 구하기**<br>  
 
 - for문의 각 시행마다 `i++`과  `sum += num` 연산을 함께한다.
 - `block`안에 **sum**을 구하는 명령문을 따로 넣을 필요 없이, 괄호 안에서 연산할 수 있다.
@@ -510,17 +628,15 @@ public class ForStatement2 {
 
 ```
 ```java
-/*
 [6, 8, 5, 7, 2, 8, 2, 2, 0, 5]
 합은 45입니다
-*/
 ```
 
 <br>
 
 **배열의 원소를 하나씩 빼오는 형태로 사용할 수도 있다.**<br>
 
-:point_right: **예제 9 :  배열 원소 출력하기**<br>  
+:point_right: **예제 12 :  배열 원소 출력하기**<br>  
 
 ```java
 package javastudy.fourth;
@@ -545,6 +661,31 @@ public class ForStatement3 {
 
 <br>
 
+**(추가1) 무한루프**<br>
+```java
+// infinite loop
+for ( ; ; ) {
+    
+    // your code goes here
+}
+```
+<br>
+
+**(추가2) forEach 메서드**<br>
+```java
+// 기존의 forEach문
+for (String name : names) {
+	System.out.println(name);
+}
+// arrow를 사용하는 새로운 forEach 함수
+names.forEach( name -> { // name 배열을 순회하며 꺼내온 값을 `name` 변수에 삽입하고, 매 시행마다 블럭을 실행
+	System.out.println(name);
+});
+```
+<br>
+
+
+
 ### 8. break
 
 **break는 반복을 종료할 수 있는 키워드이다.**<br>
@@ -552,7 +693,7 @@ public class ForStatement3 {
 - `while`, `for`, `switch`와 함께 쓰인다.
 <br>
 
-:point_right: **예제10 :  특정숫자일 경우 반복 종료하기**<br>  
+:point_right: **예제13 :  특정숫자일 경우 반복 종료하기**<br>  
 
 
 ```java
@@ -587,9 +728,7 @@ public class BreakStatement {
 ```
 
 ```java
-/*
 20 19 46 49 16 49 18 6 47 31 38 38 31 24 36 33 43 37 9 22
-*/
 ```
 
 <br>
@@ -601,7 +740,7 @@ public class BreakStatement {
 - `for`, `while`과 함께 쓰인다.
 <br>
 
-:point_right: **예제11 : 홀수만 출력하기**<br>
+:point_right: **예제14 : 홀수만 출력하기**<br>
 
 
 ```java
@@ -635,7 +774,6 @@ public class ContinueStatement {
 ```  
 
 ```java
-/*
 1 
 3 
 5 
@@ -643,26 +781,13 @@ public class ContinueStatement {
 25 
 27 
 29 
-*/
 ```
 
 <br>
-
-
-:bulb:  **정리**<br>
-
-1. if 
-2. else
-3. else if
-4. switch
-5. while
-6. do while
-7. for
-8. break
-9. continue
 <br>
 
-:orange_book: [참고자료](http://zetcode.com/lang/java/flow/) <br>
+:orange_book: **References**<br>
+- http://zetcode.com/lang/java/flow/<br>
 
 
 <br> <br> 
