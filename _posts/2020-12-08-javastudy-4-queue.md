@@ -63,6 +63,7 @@ tags: ['Java']
 - `peek/element/front`: 큐의 front에 있는 원소를 제거하지 않고 반환하는 연산
 - `is_empty`: 큐가 비었는지 검사
 <br>
+<br>
 
 ### 1.3. 큐의 활용
 
