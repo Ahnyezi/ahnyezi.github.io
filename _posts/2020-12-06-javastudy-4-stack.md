@@ -185,18 +185,18 @@ public class StackImpl implements Stack {
 ```java
 package datastructure.stack;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StackImplTest {
     private StackImpl stack;
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         stack = new StackImpl();
         stack.push(1);
@@ -206,15 +206,15 @@ public class StackImplTest {
     }
 
     @Test
-    @DisplayName("push test")
+    @DisplayName("요소 추가 테스트") @Order(1)
     public void pushTest() {
         assertEquals("1,3,5,7", stack.toString());
     }
 
     @Test
-    @DisplayName("pop test")
+    @DisplayName("요소 제거 테스트") @Order(2)
     public void popTest() {
-        assertAll("pop test",
+        assertAll("요소 제거 오류",
                 () -> {//스택(1,3,5,7)에서 2번 pop한 후의 배열 확인
                     stack.pop();
                     stack.pop();
@@ -232,11 +232,12 @@ public class StackImplTest {
     }
 }
 
+
 ```
 <br>
 
 
-<img src="https://user-images.githubusercontent.com/62331803/101296999-efc02280-3869-11eb-973c-9355fae6357c.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002462-1be31400-3d40-11eb-837d-ce7ca83fde38.png" width="60%">
 <br>
 <br>
 
@@ -299,11 +300,13 @@ public class ListNodeStack implements Stack {
     public String toString() {
         if (head == null) return "";
 
+        ListNode tmp = head;
         String result = String.valueOf(head.getData()) + ',';
         while (head.next != null) {
             head = head.next;
             result += String.valueOf(head.getData()) + ',';
         }
+        head = tmp;
         return result.substring(0, result.length() - 1);
     }
 }
@@ -318,18 +321,18 @@ public class ListNodeStack implements Stack {
 ```java
 package datastructure.stack;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ListNodeStackTest {
     private ListNodeStack stack;
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         stack = new ListNodeStack();
         stack.push(1);
@@ -338,21 +341,22 @@ public class ListNodeStackTest {
     }
 
     @Test
-    @DisplayName("push test")
+    @DisplayName("요소 추가 테스트") @Order(1)
     public void pushTest() {
         assertEquals("1,3,5", stack.toString());
     }
 
 
     @Test
-    @DisplayName("pop test")
+    @DisplayName("요소 제거 테스트") @Order(2)
     public void popTest() {
-        assertAll("pop test",
+        assertAll("요소 제거 오류",
                 ()->{//스택(1,3,5)에서 2번 pop 한 결과
                     stack.pop();
                     stack.pop();
                     assertEquals("1",stack.toString());
-                },
+                }
+                ,
                 ()->{//스택(1)에서 1번 pop 한 결과 null
                     stack.pop();
                     assertEquals("",stack.toString());
@@ -360,7 +364,8 @@ public class ListNodeStackTest {
                 ()->{//빈 스택에서 pop 시도할 경우 예외처리
                     Exception exception = assertThrows(IndexOutOfBoundsException.class,()->
                             stack.pop());
-                });
+                }
+                );
     }
 }
 
@@ -368,7 +373,7 @@ public class ListNodeStackTest {
 <br>
 
 
-<img src="https://user-images.githubusercontent.com/62331803/101426745-e5248c80-3940-11eb-92eb-fddb9a6c5641.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002418-a5dead00-3d3f-11eb-9945-f874a009655b.png" width="60%">
 <br>
 <br>
 

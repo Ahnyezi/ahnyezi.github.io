@@ -153,18 +153,18 @@ public class QueueImpl implements Queue {
 ```java
 package datastructure.queue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class QueueImplTest {
     private QueueImpl queue;
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         queue = new QueueImpl();
         queue.enqueue(1);
@@ -173,15 +173,15 @@ public class QueueImplTest {
     }
 
     @Test
-    @DisplayName("enqueue test")
+    @DisplayName("요소 추가 테스트") @Order(1)
     public void enqueueTest() {
         assertEquals("1,3,5", queue.toString());
     }
 
     @Test
-    @DisplayName("dequeue test")
+    @DisplayName("요소 삭제 테스트") @Order(2)
     public void dequeueTest() {
-        assertAll("dequeue test",
+        assertAll("요소 삭제 오류",
                 () -> {//큐(1,3,5)에서 1번 pop 한 결과
                     queue.dequeue();
                     assertEquals("3,5", queue.toString());
@@ -285,18 +285,18 @@ public class LinkedNodeQueue implements Queue {
 ```java
 package datastructure.queue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LinkedNodeQueueTest {
     private LinkedNodeQueue queue;
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         queue = new LinkedNodeQueue();
         queue.enqueue(1);
@@ -305,15 +305,15 @@ public class LinkedNodeQueueTest {
     }
 
     @Test
-    @DisplayName("enqueue test")
+    @DisplayName("노드 큐 요소 삽입 테스트") @Order(1)
     public void enqueueTest() {
         assertEquals("1,3,5", queue.toString());
     }
 
     @Test
-    @DisplayName("dequeue test")
+    @DisplayName("노드 큐 요소 삭제 테스트") @Order(2)
     public void dequeueTest() {
-        assertAll("dequeue test",
+        assertAll("노드 큐 요소 삭제 오류",
                 () -> {//큐(1,3,5)에서 2번 pop 한 결과
                     queue.dequeue();
                     queue.dequeue();
@@ -334,11 +334,10 @@ public class LinkedNodeQueueTest {
 }
 
 
-
 ```
 <br>
 
-<img src="https://user-images.githubusercontent.com/62331803/101426674-c45c3700-3940-11eb-9c09-e6b8467cc71a.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002604-6d3fd300-3d41-11eb-8bd8-7a39ef791db6.png" width="60%">
 <br>
 <br>
 

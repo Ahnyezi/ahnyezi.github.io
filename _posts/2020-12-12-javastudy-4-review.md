@@ -100,6 +100,68 @@ class TestInstanceLifecycleTestTest {
 
 테스트 메서드의 실행 순서는 JUnit의 내부 알고리즘에 따라 결정된다.<br>
 이 때 @Order를 사용하여 메서드 실행 순서를 지정해줄 수 있다. <br>
+- 테스트 클래스에 `@TestMethodOrder(MethodOrderer.OrderAnnotation.class)` 어노테이션 추가
+- 각 테스트 메서드에 `@Order()`로 순서 지정
+<br>
+
+> 예제 : 노드 이용한 스택 테스트
+
+```java
+package datastructure.stack;
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class ListNodeStackTest {
+    private ListNodeStack stack;
+
+    @BeforeAll
+    public void init() {
+        stack = new ListNodeStack();
+        stack.push(1);
+        stack.push(3);
+        stack.push(5);
+    }
+
+    @Test
+    @DisplayName("요소 추가 테스트")
+    @Order(1)
+    public void pushTest() {
+        assertEquals("1,3,5", stack.toString());
+    }
+
+
+    @Test
+    @DisplayName("요소 제거 테스트")
+    @Order(2)
+    public void popTest() {
+        assertAll("요소 제거 오류",
+                ()->{//스택(1,3,5)에서 2번 pop 한 결과
+                    stack.pop();
+                    stack.pop();
+                    assertEquals("1",stack.toString());
+                }
+                ,
+                ()->{//스택(1)에서 1번 pop 한 결과 null
+                    stack.pop();
+                    assertEquals("",stack.toString());
+                },
+                ()->{//빈 스택에서 pop 시도할 경우 예외처리
+                    Exception exception = assertThrows(IndexOutOfBoundsException.class,()->
+                            stack.pop());
+                }
+                );
+    }
+}
+
+```
+
+
 <br>
 
 

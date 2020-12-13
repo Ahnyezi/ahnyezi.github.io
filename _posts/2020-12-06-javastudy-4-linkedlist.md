@@ -195,7 +195,7 @@ public class LinkedListImpl implements LinkedList{
         ListNode prevNode = getNodeAtThePosition(head, position - 1);// 삽입하려는 위치의 바로 이전 노드(position - 1)를 가져온다.
         nodeToAdd.next = prevNode.next;                                     // 삽입하려는 노드(nodeToAdd)에 기존의 linkedlist에서 position에 위치했던 node를 연결시킨다.
         prevNode.next = nodeToAdd;                                          // 삽입하려는 위치의 바로 이전 노드에 삽입하려는 노드를 연결시킨다.
-        return head; // 새로운 연결리스트의 head를 반환
+        return head;
     }
 
     @Override
@@ -212,7 +212,7 @@ public class LinkedListImpl implements LinkedList{
 
         ListNode prevNode = getNodeAtThePosition(head, positionToRemove - 1);// 제거하려는 위치의 바로 이전 노드를 가져온다.
         prevNode.next = prevNode.next.next;                                         // prevNode에 해당 노드의 다다음 노드를 연결시킨다.
-        return head; // 새로운 연결리스트의 head를 반환
+        return head;
     }
 
     @Override
@@ -262,14 +262,20 @@ public class LinkedListImpl implements LinkedList{
     }
 
     public String toString(ListNode head) {
+        if (head == null) return "";
+
         List<String> nodes = new ArrayList<>();
+        ListNode tmp = head;
+
         while (head != null) {
             nodes.add(String.valueOf(head.getData()));
             head = head.next;
         }
+        head = tmp;
         return String.join(",", nodes);
     }
 }
+
 
 ```
 <br>
@@ -280,9 +286,7 @@ public class LinkedListImpl implements LinkedList{
 ```java
 package datastructure.linkedlist;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -290,11 +294,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LinkedListImplTest {
     private LinkedListImpl list;
     private ListNode head;
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         list = new LinkedListImpl();
         head = list.add(null, new ListNode(1), 0);
@@ -304,9 +309,9 @@ public class LinkedListImplTest {
     }
 
     @Test
-    @DisplayName("addTest")
+    @DisplayName("노드 추가 테스트")
     public void addTest() {
-        assertAll("add test",
+        assertAll("노드 추가 오류",
                 () -> {// init()에서 생성한 linkedlist를 확인
                     assertEquals("1,3,5,7", list.toString(head));
                 },
@@ -318,9 +323,9 @@ public class LinkedListImplTest {
     }
 
     @Test
-    @DisplayName("removeTest")
+    @DisplayName("노드 제거 테스트")
     public void removeTest() {
-        assertAll("remove test",
+        assertAll("노드 제거 오류",
                 () -> {// 연결리스트(1,3,5,7)에서 위치가 3(idx 기준)인 node 삭제
                     assertEquals("1,3,5", list.toString(list.remove(head, 3)));
                 },
@@ -331,9 +336,9 @@ public class LinkedListImplTest {
     }
 
     @Test
-    @DisplayName("containsTest")
+    @DisplayName("노드 포함 테스트")
     public void containsTest() {
-        assertAll("contains test",
+        assertAll("노드 포함 오류",
                 () -> {// 연결리스트(1,3,5,7)가 1을 포함하는지 확인
                     assertTrue(list.contains(head, new ListNode(1)));
                 },
@@ -342,10 +347,11 @@ public class LinkedListImplTest {
                 });
     }
 }
+
 ```
 <br>
 
-<img src="https://user-images.githubusercontent.com/62331803/101296740-707e1f00-3868-11eb-9fb3-8372a0afe46b.png" width="80%">
+<img src="https://user-images.githubusercontent.com/62331803/102001992-7a59c380-3d3b-11eb-9162-873c6028fb20.png" width="80%">
 <br>
 
 
