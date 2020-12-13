@@ -8,26 +8,30 @@ tags: ['Java']
 [whiteship 라이브스터디] 4주차
 <br>
 
-## 라이브 피드백 내용
+# 라이브 피드백 내용
 
-### 1. 대시보드
+## 1. 대시보드
 
-- 선장님 코드
-https://gist.github.com/whiteship/5f0d9f800c0cfb7867c59cfc4fd6d5a7
-- 대시보드코드 잘 짜신 분!
-https://sowjd.github.io/docs/java/study-halle/week4
-<br>
+- 선장님 코드<br>
+
+[https://gist.github.com/whiteship/5f0d9f800c0cfb7867c59cfc4fd6d5a7](https://gist.github.com/whiteship/5f0d9f800c0cfb7867c59cfc4fd6d5a7)
+
+- 대시보드코드 잘 짜신 분!<br>
+
+[https://sowjd.github.io/docs/java/study-halle/week4](https://sowjd.github.io/docs/java/study-halle/week4)
+
+<br><br>
 
 
-### 2. JUnit5 사용법
+## 2. JUnit5 사용법
 
-**2.1. 테스트 메서드에 public 접근제어자 쓸 필요 없다.**<br>
+### 2.1. 테스트 메서드에 public 접근제어자 쓸 필요 없다.
 
-**2.2.  `@displayname`은 테스트 출력과 메서드 이름을 다르게 해줄 때 사용하는 어노테이션이다.** <br>
+### 2.2.  `@displayname`은 테스트 출력과 메서드 이름을 다르게 해줄 때 사용하는 어노테이션이다.
 
  - 이모지나 한글을 사용해서 가독성 높게 한다. <br>
 
-**2.3. Stateful 한 테스트케이스 만들기**<BR>
+### 2.3. Stateful 한 테스트케이스 만들기
 
 (참고: 전현우님 과제) [https://www.notion.so/4-c95ef49a7923425d84f403b5ba583bf4](https://www.notion.so/4-c95ef49a7923425d84f403b5ba583bf4) <br>
 
@@ -165,9 +169,9 @@ public class ListNodeStackTest {
 <br>
 
 
-### 3. 코드리뷰
+## 3. 코드리뷰
 
-**3.1. 잘 읽히는 코드**<br>
+### 3.1. 잘 읽히는 코드
 내가 짠 코드를 나중에 다시 이해할 수 있는 것은 기본이고, 내 코드를 읽는 다른 사람도 내 코드를 술술 읽을 수 있게 해라.<br>
 
 - 특정 기능을 메서드로 빼기
@@ -177,13 +181,13 @@ public class ListNodeStackTest {
     - 일관성없는 코드 노노: 널이면 다 널하고, 예외면 다 예외로
 <br>
 
-**3.2. 엣지케이스처리/시간복잡도**<br>
+### 3.2. 엣지케이스처리/시간복잡도
 [참고: 최지우님 과제](https://www.notion.so/4-c45c85fea0254d5d8fbc911d7f66c046)
 
 <br>
 <br>
 
-### 4. 내 과제 리뷰
+## 4. 내 과제 리뷰
 - 테스트 코드에 public 쓸 필요 없음
 - 클래스 명 dao-service 그렇게 하지 말래... (긁적)
 - init() 그렇게 쓸 필요없다. 
