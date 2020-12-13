@@ -115,7 +115,7 @@ class TestInstanceLifecycleTestTest {
     - 일관성없는 코드 노노: 널이면 다 널하고, 예외면 다 예외로
 <br>
 
-**3.2. 엣지케이스까지 처리하기**<br>
+**3.2. 엣지케이스처리/시간복잡도**<br>
 [참고: 최지우님 과제](https://www.notion.so/4-c45c85fea0254d5d8fbc911d7f66c046)
 
 <br>
