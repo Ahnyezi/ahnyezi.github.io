@@ -295,6 +295,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("연결리스트 테스트")
 public class LinkedListImplTest {
     private LinkedListImpl list;
     private ListNode head;
@@ -351,7 +352,7 @@ public class LinkedListImplTest {
 ```
 <br>
 
-<img src="https://user-images.githubusercontent.com/62331803/102001992-7a59c380-3d3b-11eb-9162-873c6028fb20.png" width="80%">
+<img src="https://user-images.githubusercontent.com/62331803/102002886-5fd81800-3d44-11eb-9a01-a597f83cf14f.png" width="80%">
 <br>
 
 

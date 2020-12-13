@@ -193,6 +193,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DisplayName("int 배열 스택 테스트")
 public class StackImplTest {
     StackImpl stack;
 
@@ -237,7 +238,7 @@ public class StackImplTest {
 <br>
 
 
-<img src="https://user-images.githubusercontent.com/62331803/102002462-1be31400-3d40-11eb-837d-ce7ca83fde38.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002868-328b6a00-3d44-11eb-96f1-f09386306287.png" width="60%">
 <br>
 <br>
 
@@ -329,6 +330,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DisplayName("노드 스택 테스트")
 public class ListNodeStackTest {
     ListNodeStack stack;
 
@@ -376,7 +378,7 @@ public class ListNodeStackTest {
 <br>
 
 
-<img src="https://user-images.githubusercontent.com/62331803/102002418-a5dead00-3d3f-11eb-9945-f874a009655b.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002855-112a7e00-3d44-11eb-8bf9-96023d70a122.png" width="60%">
 <br>
 <br>
 

@@ -1,4 +1,4 @@
----
+A---
 title:  "[Java] Queue 구현하고 JUnit5로 테스트하기"
 date: 2020-12-08
 categories: ['Java']
@@ -206,7 +206,7 @@ public class QueueImplTest {
 <br>
 
 
-<img src="https://user-images.githubusercontent.com/62331803/101426674-c45c3700-3940-11eb-9c09-e6b8467cc71a.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002836-cad51f00-3d43-11eb-865e-e810aa82e0fa.png" width="60%">
 <br>
 <br>
 
@@ -336,7 +336,7 @@ public class LinkedNodeQueueTest {
 ```
 <br>
 
-<img src="https://user-images.githubusercontent.com/62331803/102002604-6d3fd300-3d41-11eb-8bd8-7a39ef791db6.png" width="60%">
+<img src="https://user-images.githubusercontent.com/62331803/102002846-ec360b00-3d43-11eb-814f-226936de0311.png" width="60%">
 <br>
 <br>
 
