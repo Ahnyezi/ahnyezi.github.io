@@ -12,11 +12,11 @@ tags: ['Java']
 
 ## 1. 대시보드
 
-- 선장님 코드<br>
+- 선장님 코드
 
 [https://gist.github.com/whiteship/5f0d9f800c0cfb7867c59cfc4fd6d5a7](https://gist.github.com/whiteship/5f0d9f800c0cfb7867c59cfc4fd6d5a7)
 
-- 대시보드코드 잘 짜신 분!<br>
+- 대시보드코드 참고
 
 [https://sowjd.github.io/docs/java/study-halle/week4](https://sowjd.github.io/docs/java/study-halle/week4)
 

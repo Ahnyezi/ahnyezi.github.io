@@ -300,7 +300,7 @@ public class LinkedListImplTest {
     private ListNode head;
 
     @BeforeAll
-    public void init() {
+    void init() {
         list = new LinkedListImpl();
         head = list.add(null, new ListNode(1), 0);
         head = list.add(head, new ListNode(3), 1);
@@ -310,7 +310,7 @@ public class LinkedListImplTest {
 
     @Test
     @DisplayName("노드 추가 테스트")
-    public void addTest() {
+    void addTest() {
         assertAll("노드 추가 오류",
                 () -> {// init()에서 생성한 linkedlist를 확인
                     assertEquals("1,3,5,7", list.toString(head));
@@ -324,7 +324,7 @@ public class LinkedListImplTest {
 
     @Test
     @DisplayName("노드 제거 테스트")
-    public void removeTest() {
+    void removeTest() {
         assertAll("노드 제거 오류",
                 () -> {// 연결리스트(1,3,5,7)에서 위치가 3(idx 기준)인 node 삭제
                     assertEquals("1,3,5", list.toString(list.remove(head, 3)));
@@ -337,7 +337,7 @@ public class LinkedListImplTest {
 
     @Test
     @DisplayName("노드 포함 테스트")
-    public void containsTest() {
+    void containsTest() {
         assertAll("노드 포함 오류",
                 () -> {// 연결리스트(1,3,5,7)가 1을 포함하는지 확인
                     assertTrue(list.contains(head, new ListNode(1)));
