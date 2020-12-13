@@ -122,10 +122,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ListNodeStackTest {
-    private ListNodeStack stack;
+    ListNodeStack stack;
 
     @BeforeAll
-    public void init() {
+    void init() {
         stack = new ListNodeStack();
         stack.push(1);
         stack.push(3);
@@ -135,7 +135,7 @@ public class ListNodeStackTest {
     @Test
     @DisplayName("요소 추가 테스트")
     @Order(1)
-    public void pushTest() {
+    void pushTest() {
         assertEquals("1,3,5", stack.toString());
     }
 
@@ -143,7 +143,7 @@ public class ListNodeStackTest {
     @Test
     @DisplayName("요소 제거 테스트")
     @Order(2)
-    public void popTest() {
+    void popTest() {
         assertAll("요소 제거 오류",
                 ()->{//스택(1,3,5)에서 2번 pop 한 결과
                     stack.pop();
