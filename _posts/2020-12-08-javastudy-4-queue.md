@@ -1,4 +1,4 @@
-A---
+---
 title:  "[Java] Queue 구현하고 JUnit5로 테스트하기"
 date: 2020-12-08
 categories: ['Java']
