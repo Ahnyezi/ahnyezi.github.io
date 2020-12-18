@@ -29,13 +29,12 @@ tags: ['Java']
 **리프 노드를 만날 때까지 재귀적으로 함수를 호출한다.** <br>
 
 ```java
-public void dfsRecursive(Node node){  
-    if (node == null) return;  
-    
-	dfsRecursive(node.left);  
-	System.out.print(node.data+" ");  
-	dfsRecursive(node.right);  
-}
+public void dfsRecursive(Node node){
+        if (node == null) return;
+        dfsRecursive(node.left);
+        System.out.print(node.data+" ");
+        dfsRecursive(node.right);
+ }
 ```
 <br>
 
@@ -46,48 +45,48 @@ public void dfsRecursive(Node node){
 ### 1.2.1. 방문여부 표시한 코드
 
 ```java
-public void dfsIterative1(Node node){  
-    Deque<Node> stack = new ArrayDeque<>();  
-    Map<Node,Integer> visited = new HashMap<>();// 방문여부체크  
-  
-	Node current = node;  
-	stack.push(node);  
-	visited.put(node,1);  
-  
-	 while (! stack.isEmpty()){  
-	 
-        while(current.left != null && !visited.containsKey(current.left)){  
-            current = current.left;  
-		    stack.push(current);  
-		}  
-  
-        current = stack.pop();  
-	    System.out.print(current.data+" ");  
-		visited.put(current,1); // 출력한노드 방문체크
-  
-	    if (current.right != null && !visited.containsKey(current.right)){  
-            current = current.right;  
-			stack.push(current);  
-	    }  
-    }  
-}
+ public void dfsIterative1(Node node){
+        Deque<Node> stack = new ArrayDeque<>();
+        Map<Node,Integer> visited = new HashMap<>();
+
+        Node current = node;
+        stack.push(node);
+        visited.put(node,1);
+
+        while (! stack.isEmpty()){
+
+            while(current.left != null && !visited.containsKey(current.left)){
+                current = current.left;
+                stack.push(current);
+            }
+
+            current = stack.pop();
+            System.out.print(current.data+" ");
+            visited.put(current,1);
+
+            if (current.right != null && !visited.containsKey(current.right)){
+                current = current.right;
+                stack.push(current);
+            }
+        }
+    }
 ```
 <br>
 
 ### 1.2.1. 방문여부 표시 없이 구현한 코드
 
 ```java
-public void dfsIterative2(Node node){
+ public void dfsIterative2(Node node){
         Deque<Node> stack = new ArrayDeque<>();
         Node current = node;
-
+        // 현재 노드에서 가장 좌측 하단의 노드로 이동한다
         while(!stack.isEmpty() || current != null){
-            // 현재 노드에서 가장 좌측 하단에 있는 노드로 이동한다
+
             while(current != null){
                 stack.push(current);
                 current = current.left;
             }
-            // 현재지점에서 current는 항상 null이다 
+            // 현재 시점에서 current는 항상 null이다
             current = stack.pop();
             System.out.print(current.data +" ");
 
@@ -102,17 +101,17 @@ public void dfsIterative2(Node node){
 # 2. 너비우선탐색
 
 ```java
-public void bfs(Node node){  
-    Queue<Node> queue = new LinkedList<>();  
-    queue.add(node);  
-  
-    while(!queue.isEmpty()){  
-        Node current = queue.poll();  
-	    System.out.print(current.data + " ");  
-		if (current.left != null) queue.add(current.left);  
-		if (current.right != null) queue.add(current.right);  
-	}  
-}
+public void bfs(Node node){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+
+        while(!queue.isEmpty()){
+            Node current = queue.poll();
+            System.out.print(current.data + " ");
+            if (current.left != null) queue.add(current.left);
+            if (current.right != null) queue.add(current.right);
+        }
+    }
 ```
 <br><br>
 
