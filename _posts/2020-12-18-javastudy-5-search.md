@@ -79,6 +79,7 @@ public void dfsRecursive(Node node){
  public void dfsIterative2(Node node){
         Deque<Node> stack = new ArrayDeque<>();
         Node current = node;
+
         // 현재 노드에서 가장 좌측 하단의 노드로 이동한다
         while(!stack.isEmpty() || current != null){
 
@@ -86,10 +87,10 @@ public void dfsRecursive(Node node){
                 stack.push(current);
                 current = current.left;
             }
+
             // 현재 시점에서 current는 항상 null이다
             current = stack.pop();
             System.out.print(current.data +" ");
-
             current = current.right;
         }
     }
