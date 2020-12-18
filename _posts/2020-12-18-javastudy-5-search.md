@@ -47,7 +47,7 @@ public void dfsRecursive(Node node){
 ```java
  public void dfsIterative1(Node node){
         Deque<Node> stack = new ArrayDeque<>();
-        Map<Node,Integer> visited = new HashMap<>();
+        Map<Node,Integer> visited = new HashMap<>(); // 방문여부 체크를 위한 map
 
         Node current = node;
         stack.push(node);
@@ -62,7 +62,7 @@ public void dfsRecursive(Node node){
 
             current = stack.pop();
             System.out.print(current.data+" ");
-            visited.put(current,1);
+            visited.put(current,1);// 출력한 노드 방문체크
 
             if (current.right != null && !visited.containsKey(current.right)){
                 current = current.right;
