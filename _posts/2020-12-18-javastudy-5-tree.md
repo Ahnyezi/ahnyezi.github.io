@@ -162,7 +162,7 @@ tags: ['Java']
 <br>
 
 
-### 1.3.1. search 연산
+## 1.3.1. search 연산
 <img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="60%"><br>
 
 **특정 값의 위치를 찾는 연산이다.**<br> 
@@ -179,7 +179,7 @@ tags: ['Java']
 <br>
 
 
-### 1.3.2. insert 연산
+## 1.3.2. insert 연산
 
 <img src="https://user-images.githubusercontent.com/62331803/102678650-280e1c00-41ed-11eb-850a-d3be9d4d00b2.png" width="60%"><br>
 
@@ -190,14 +190,13 @@ tags: ['Java']
    - search 연산과 동일하게, 최악의 경우 O(N)
 
 
-### 1.2.3. delete 연산
+## 1.2.3. delete 연산
 
 **자식노드의 개수에 따라 3가지 케이스로 나뉜다.**<br>
-<br>
 
-#### 1) 자식노드가 없는 경우
+### 1) 자식노드가 없는 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="60%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="50%"><br>
 
 **4를 가진 노드를 delete해보자.**<br>
 
@@ -205,9 +204,9 @@ tags: ['Java']
 <br>
 <br>
 
-#### 2) 자식노드가 1개인 경우
+### 2) 자식노드가 1개인 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="60%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="50%"><br>
 
 **7을 가진 노드를 delete해보자.**<br>
 
@@ -215,9 +214,9 @@ tags: ['Java']
 <br>
 <br>
 
-#### 3) 자식노드가 2개인 경우
+### 3) 자식노드가 2개인 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="60%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="50%"><br>
 
 **루트노드를 delete해보자.**<br>
 - 앞의 경우들과 달리 자식 노드가 2개인 노드를 삭제할 경우에는 변화가 크다. 
