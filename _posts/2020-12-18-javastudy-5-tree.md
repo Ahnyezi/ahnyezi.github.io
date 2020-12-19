@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-**DFS와 BFS로 이진트리 탐색하기** :raising_hand:<br>
+**트리 자료구조를 알아보자** :raising_hand:<br>
 <br>
 
 
