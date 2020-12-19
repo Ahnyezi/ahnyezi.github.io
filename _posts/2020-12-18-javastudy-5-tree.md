@@ -134,7 +134,9 @@ tags: ['Java']
 <br>
 <br>
 
-## 1.2. 검색트리(Search Tree)
+## 1.3. Binary Search Tree (이진검색트리)
+
+### 검색트리란?
 
 일반적인 트리 자료구조는 사용하려는 데이터 자체가 계층적인 구조를 가지고 있다. 하지만 **검색트리**는 다르다.<br>
 
@@ -148,7 +150,7 @@ tags: ['Java']
 - B트리(B Tree)
 <br>
 
-## Binary Search Tree (이진검색트리)
+## 1.3.1. Binary Search Tree (이진검색트리)
 
 <img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="50%"><br>
 
@@ -159,16 +161,8 @@ tags: ['Java']
 <br>
 <br>
 
-### 1.2.1. insert 연산
 
-<img src="https://user-images.githubusercontent.com/62331803/102678650-280e1c00-41ed-11eb-850a-d3be9d4d00b2.png" width="60%"><br>
-
-**트리에 노드를 추가하는 연산이다.**<br>
-- 루트에서부터 key값을 비교하며 내려온다.
-- 비어있는 자리를 확인하면, 해당 자리에 자기자신을 연결시킨다.
-
-
-### 1.2.2. search 연산
+### 1.3.1. search 연산
 <img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="60%"><br>
 
 **특정 값의 위치를 찾는 연산이다.**<br> 
@@ -183,6 +177,18 @@ tags: ['Java']
    - 평균적으로는 O(log N)
 <br>
 <br>
+
+
+### 1.3.2. insert 연산
+
+<img src="https://user-images.githubusercontent.com/62331803/102678650-280e1c00-41ed-11eb-850a-d3be9d4d00b2.png" width="60%"><br>
+
+**트리에 노드를 추가하는 연산이다.**<br>
+- 루트에서부터 key값을 비교하며 내려온다.
+- 비어있는 자리를 확인하면, 해당 자리에 자기자신을 연결시킨다.
+- **시간 복잡도는 트리의 높이인 O(h)이다.**
+   - search 연산과 동일하게, 최악의 경우 O(N)
+
 
 ### 1.2.3. delete 연산
 
@@ -220,11 +226,14 @@ tags: ['Java']
    - **삭제할 노드의 data를 successor의 data로 초기화한다.**
    - **successor의 기존 위치에 오른쪽 자식이 존재했다면, successor의 기존 부모 노드에 해당 자식노드를 연결한다.**
       - successor는 오른쪽 부트리의 최소값을 가지므로, 왼쪽 자식이 있을 수 없다.<br>
+- **시간 복잡도는 트리의 높이인 O(h)이다.**
+   - search, insert 연산과 동일하게, 최악의 경우 O(N)
+ 
 <br>
 <br>
 <br>
 
-# 2. 이진트리 탐색코드
+# 2. 이진트리 구현
 ## 2.1. 깊이우선탐색(DFS)
 
 **재귀와 반복문을 사용해서 각각 구현해보았다.** <br>
@@ -393,7 +402,9 @@ public static void main(String[] args) {
 <br><br>
 
 
-# 3. BST(이진검색트리) 코드
+# 3. BST(이진검색트리) 구현
+
+
 
 
 
