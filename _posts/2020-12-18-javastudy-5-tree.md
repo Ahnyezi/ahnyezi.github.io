@@ -1,5 +1,5 @@
 ---
-title:  "[Java] DFS와 BFS로 이진트리 탐색하기"
+title:  "[Java] 트리 자료구조의 개념과 구현"
 date: 2020-12-18
 categories: ['Java']
 tags: ['Java']
