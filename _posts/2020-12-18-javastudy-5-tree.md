@@ -75,7 +75,7 @@ tags: ['Java']
 <br>
 <br>
 
-## 1.2. 이진트리
+## 1.2. 이진트리(Binary Tree)
 
 ### 1.2.1. 이진트리의 개념
 
@@ -134,20 +134,97 @@ tags: ['Java']
 <br>
 <br>
 
+## 1.2. 검색트리(Search Tree)
 
-# 2. 구현
+일반적인 트리 자료구조는 사용하려는 데이터 자체가 계층적인 구조를 가지고 있다. 하지만 **검색트리**는 다르다.<br>
+
+원래의 데이터가 트리 형태를 가지고 있는 것이 아니라,  `insert`, `search`, `delete` **등의 연산을 효율적으로 수행하기 위하여, 해당 데이터에 대해 tree 형태의 search structure를 구현한 형태이다.**<br>
+
+즉, 여러 개의 데이터를 저장하고 있는 일종의 컨테이너로 insert, search, delete 연산을 지원하기 위한 목적의 트리형 자료구조를 **검색트리(Dictionary , Dynamic set, Search structure)라 부른다**. <br>
+
+#### 검색트리 종류
+- 이진검색트리(Binary Search Tree)
+- 레드블랙트리(Red Black Tree)
+- B트리(B Tree)
+<br>
+
+## 1.2.1. Binary Search Tree (이진검색트리)
+
+<img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="70%"><br>
+
+**검색트리의 가장 기본적인 형태이다.**<br>
+- 특정한 조건을 가지는 이진트리이다.
+- 임의의 노드 v에 대해, 해당 노드의  왼쪽 부트리에 있는 key들은 key[v]보다 작거나 같고, 오른쪽 부트리에 있는 key들은 key[v]와 같거나 크다.<br>
+   - **즉, 현재 노드에서 내 왼쪽에 있는 노드의 값은 모두 나보다 작고, 내 오른쪽에 있는 노드의 값은 모두 나보다 크게 정렬된 형태이다**.
+<br>
+
+### 1.2. search 연산
+<img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="70%"><br>
+
+**특정 값의 위치를 찾는 연산이다.**<br> 
+- **13**을 찾는다고 가정해보자. 
+   - 루트노드 15보다 작다(왼쪽에 있을 것) => 왼쪽 부트리로 이동
+   - 그 다음 노드인 6보다 크다(오른쪽에 있을 것) => 오른쪽 부트리로 이동
+   - 그 다음 노드인 7보다 크다(오른쪽에 있을 것) => 오른쪽 부트리로 이동
+   - 발견
+- **시간 복잡도는 트리의 높이인 O(h)이다.**
+   - 어떤 경우에도 트리의 높이보다 더 아래로 내려갈 수는 없다.
+   - 하지만 Skewed Tree의 형태처럼 최악의 경우 O(N)이 될 수 있다. (높이자체가 N이 되기 때문)
+   - 평균적으로는 O(log N)
+<br>
+
+
+### 1.3. delete 연산
+
+**자식노드의 개수에 따라 3가지 케이스로 나뉜다.**<br>
+<br>
+
+#### 1.3.1. 자식노드가 없는 경우
+
+<img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="70%"><br>
+
+**4를 가진 노드를 delete해보자.**<br>
+
+- 그냥 삭제
+<br>
+
+#### 1.3.2. 자식노드가 1개인 경우
+
+<img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="70%"><br>
+
+**7을 가진 노드를 delete해보자.**<br>
+
+- 자신의 원래 위치에 자식노드를 연결
+<br>
+
+#### 1.3.3. 자식노드가 2개인 경우
+
+<img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="70%"><br>
+
+**루트노드를 delete해보자.**<br>
+- 앞의 경우들과 달리 자식 노드가 2개인 노드를 삭제할 경우에는 변화가 크다. 
+- **BST의 정렬 순서를 유지하면서 delete 하기 위해서는, 해당 노드의** `predecessor(왼쪽 부트리 중 가장 큰 노드)` **혹은** `successor(오른쪽 부트리의 가장 작은 노드)`**가 삭제할 노드위치에 와야 한다.**
+- `successor`**를 사용하여 DELETE하는 방식**을 살펴보자.
+   - **삭제할 노드의 data를 successor의 data로 초기화한다.**
+   - **successor의 기존 위치에 오른쪽 자식이 존재했다면, successor의 기존 부모 노드에 해당 자식노드를 연결한다.**
+      - successor는 오른쪽 부트리의 최소값을 가지므로, 왼쪽 자식이 있을 수 없다.
+<br>
+<br>
+
+# 2. 이진트리 탐색코드
 ## 2.1. 깊이우선탐색(DFS)
 
 **재귀와 반복문을 사용해서 각각 구현해보았다.** <br>
 <br>
 
-### 2.1.1. 재귀를 사용한 DFS
+### 2.1.1. Recursive한 DFS
 
 **리프 노드를 만날 때까지 재귀적으로 함수를 호출한다.** <br>
 
 ```java
 public void dfsRecursive(Node node){
         if (node == null) return;
+
         dfsRecursive(node.left);
         System.out.print(node.data+" ");
         dfsRecursive(node.right);
@@ -155,7 +232,7 @@ public void dfsRecursive(Node node){
 ```
 <br>
 
-### 2.1.2. 반복문을 사용한 DFS
+### 2.1.2. Iterative한 DFS
 
 **방문여부를 표시하는 방법과 표시하지 않는 방법으로 각각 구현해보았다.**<br> 
 
@@ -216,7 +293,7 @@ public void dfsRecursive(Node node){
 <br>
 
 
-## 2.2. 너비우선탐색
+## 2.2. 너비우선탐색(BFS)
 
 ```java
 public void bfs(Node node){
@@ -301,6 +378,12 @@ public static void main(String[] args) {
 ```
 
 <br><br>
+
+
+# 3. BST(이진검색트리) 코드
+
+
+
 
 
 :orange_book: References<br>
