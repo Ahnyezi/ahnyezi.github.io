@@ -417,8 +417,10 @@ public static void main(String[] args) {
 - [Binary Search Tree - Java](https://yaboong.github.io/data-structures/2018/02/12/binary-search-tree/)
 - [위키 : 트리 순회](https://ko.wikipedia.org/wiki/%ED%8A%B8%EB%A6%AC_%EC%88%9C%ED%9A%8C)
 - [Inorder Tree Traversal without Recursion](https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/)
-- https://shoark7.github.io/insight/rationality/relationship-between-graph-and-tree
-- https://namu.wiki/w/%ED%8A%B8%EB%A6%AC(%EA%B7%B8%EB%9E%98%ED%94%84)
-- https://ko.gadget-info.com/difference-between-tree
+- [나무위키 : 트리](https://namu.wiki/w/%ED%8A%B8%EB%A6%AC(%EA%B7%B8%EB%9E%98%ED%94%84)
+- [트리와 그래프의 차이점](https://ko.gadget-info.com/difference-between-tree)
+- [그래프와 트리의 관계에 대한 고찰](https://shoark7.github.io/insight/rationality/relationship-between-graph-and-tree)
+- [이진검색트리 알고리즘](https://www.youtube.com/watch?v=jZxjrJ9CgQw&list=PL52K_8WQO5oUuH06MLOrah4h05TZ4n38l&index=23)
+- [BST 코드](https://github.com/yaboong/datastructures-algorithms-study/blob/master/src/cc/yaboong/ds/tree/BinarySearchTree.java)
 
 <br><br>
