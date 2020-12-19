@@ -150,7 +150,7 @@ tags: ['Java']
 - B트리(B Tree)
 <br>
 
-## 1.3.1. Binary Search Tree (이진검색트리)
+## 1.3.1. BST의 구조
 
 <img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="50%"><br>
 
