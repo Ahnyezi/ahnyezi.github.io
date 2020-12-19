@@ -150,16 +150,26 @@ tags: ['Java']
 
 ## 1.2.1. Binary Search Tree (이진검색트리)
 
-<img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="70%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="50%"><br>
 
 **검색트리의 가장 기본적인 형태이다.**<br>
 - 특정한 조건을 가지는 이진트리이다.
 - 임의의 노드 v에 대해, 해당 노드의  왼쪽 부트리에 있는 key들은 key[v]보다 작거나 같고, 오른쪽 부트리에 있는 key들은 key[v]와 같거나 크다.<br>
    - **즉, 현재 노드에서 내 왼쪽에 있는 노드의 값은 모두 나보다 작고, 내 오른쪽에 있는 노드의 값은 모두 나보다 크게 정렬된 형태이다**.
 <br>
+<br>
 
-### 1.2. search 연산
-<img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="70%"><br>
+### 1.2.1.2. insert 연산
+
+<img src="https://user-images.githubusercontent.com/62331803/102678650-280e1c00-41ed-11eb-850a-d3be9d4d00b2.png" width="60%"><br>
+
+**트리에 노드를 추가하는 연산이다.**<br>
+- 루트에서부터 key값을 비교하며 내려온다.
+- 비어있는 자리를 확인하면, 해당 자리에 자기자신을 연결시킨다.
+
+
+### 1.2.1.3. search 연산
+<img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="60%"><br>
 
 **특정 값의 위치를 찾는 연산이다.**<br> 
 - **13**을 찾는다고 가정해보자. 
@@ -172,34 +182,36 @@ tags: ['Java']
    - 하지만 Skewed Tree의 형태처럼 최악의 경우 O(N)이 될 수 있다. (높이자체가 N이 되기 때문)
    - 평균적으로는 O(log N)
 <br>
+<br>
 
-
-### 1.3. delete 연산
+### 1.2.1.4. delete 연산
 
 **자식노드의 개수에 따라 3가지 케이스로 나뉜다.**<br>
 <br>
 
-#### 1.3.1. 자식노드가 없는 경우
+#### 1.2.1.4.1. 자식노드가 없는 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="70%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="60%"><br>
 
 **4를 가진 노드를 delete해보자.**<br>
 
 - 그냥 삭제
 <br>
+<br>
 
-#### 1.3.2. 자식노드가 1개인 경우
+#### 1.2.1.4.2. 자식노드가 1개인 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="70%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="60%"><br>
 
 **7을 가진 노드를 delete해보자.**<br>
 
 - 자신의 원래 위치에 자식노드를 연결
 <br>
+<br>
 
-#### 1.3.3. 자식노드가 2개인 경우
+#### 1.2.1.4.3. 자식노드가 2개인 경우
 
-<img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="70%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="60%"><br>
 
 **루트노드를 delete해보자.**<br>
 - 앞의 경우들과 달리 자식 노드가 2개인 노드를 삭제할 경우에는 변화가 크다. 
@@ -207,7 +219,7 @@ tags: ['Java']
 - `successor`**를 사용하여 DELETE하는 방식**을 살펴보자.
    - **삭제할 노드의 data를 successor의 data로 초기화한다.**
    - **successor의 기존 위치에 오른쪽 자식이 존재했다면, successor의 기존 부모 노드에 해당 자식노드를 연결한다.**
-      - successor는 오른쪽 부트리의 최소값을 가지므로, 왼쪽 자식이 있을 수 없다.
+      - successor는 오른쪽 부트리의 최소값을 가지므로, 왼쪽 자식이 있을 수 없다.<br>
 <br>
 <br>
 
