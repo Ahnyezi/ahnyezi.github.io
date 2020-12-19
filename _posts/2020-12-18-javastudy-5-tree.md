@@ -148,7 +148,7 @@ tags: ['Java']
 - B트리(B Tree)
 <br>
 
-## 1.2.1. Binary Search Tree (이진검색트리)
+## Binary Search Tree (이진검색트리)
 
 <img src="https://user-images.githubusercontent.com/62331803/102674776-7b2aa380-41da-11eb-85cf-d1377620630d.png" width="50%"><br>
 
@@ -159,7 +159,7 @@ tags: ['Java']
 <br>
 <br>
 
-### 1.2.1.2. insert 연산
+### 1.2.1. insert 연산
 
 <img src="https://user-images.githubusercontent.com/62331803/102678650-280e1c00-41ed-11eb-850a-d3be9d4d00b2.png" width="60%"><br>
 
@@ -168,7 +168,7 @@ tags: ['Java']
 - 비어있는 자리를 확인하면, 해당 자리에 자기자신을 연결시킨다.
 
 
-### 1.2.1.3. search 연산
+### 1.2.2. search 연산
 <img src="https://user-images.githubusercontent.com/62331803/102674781-7cf46700-41da-11eb-8884-d951585ef73a.png" width="60%"><br>
 
 **특정 값의 위치를 찾는 연산이다.**<br> 
@@ -184,12 +184,12 @@ tags: ['Java']
 <br>
 <br>
 
-### 1.2.1.4. delete 연산
+### 1.2.3. delete 연산
 
 **자식노드의 개수에 따라 3가지 케이스로 나뉜다.**<br>
 <br>
 
-#### 1.2.1.4.1. 자식노드가 없는 경우
+#### 1) 자식노드가 없는 경우
 
 <img src="https://user-images.githubusercontent.com/62331803/102678073-50941700-41e9-11eb-9444-0d07d4ef0347.png" width="60%"><br>
 
@@ -199,7 +199,7 @@ tags: ['Java']
 <br>
 <br>
 
-#### 1.2.1.4.2. 자식노드가 1개인 경우
+#### 2) 자식노드가 1개인 경우
 
 <img src="https://user-images.githubusercontent.com/62331803/102678071-4e31bd00-41e9-11eb-8bb4-d8119ad276a8.png" width="60%"><br>
 
@@ -209,7 +209,7 @@ tags: ['Java']
 <br>
 <br>
 
-#### 1.2.1.4.3. 자식노드가 2개인 경우
+#### 3) 자식노드가 2개인 경우
 
 <img src="https://user-images.githubusercontent.com/62331803/102678222-7837af00-41ea-11eb-8835-60721b6ada2a.png" width="60%"><br>
 
@@ -220,6 +220,7 @@ tags: ['Java']
    - **삭제할 노드의 data를 successor의 data로 초기화한다.**
    - **successor의 기존 위치에 오른쪽 자식이 존재했다면, successor의 기존 부모 노드에 해당 자식노드를 연결한다.**
       - successor는 오른쪽 부트리의 최소값을 가지므로, 왼쪽 자식이 있을 수 없다.<br>
+<br>
 <br>
 <br>
 
