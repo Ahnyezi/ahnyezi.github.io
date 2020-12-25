@@ -40,9 +40,9 @@ tags: ['Java']
    - 자식클래스인 `Pikachu`클래스의 인스턴스로 attack()을 호출한다면 `Pikachu의 attack()`이 실행 <br>
 <br>
 
-#### 메서드 오버라이딩의 규칙
+### 1) 메서드 오버라이딩의 규칙
 
-**1. 접근제어자에 따른 오버라이딩 가능여부**<br>
+**1-1) 접근제어자에 따른 오버라이딩 가능여부**<br>
 
 |접근제어자|가능여부|
 |:---:|:---:|
@@ -51,7 +51,9 @@ tags: ['Java']
 |private|X|
 
 - `private` 메서드는 오버라이딩할 수 없다.
-- 따라서 부모클래스의 메서드와 동일한 `메서드명`, `파라미터`, `리턴타입`으로 자식클래스에 메서드를 생성할 경우, 해당 메서드는 자식클래스의 추가적인 메서드로서 작동한다. 
+- 따라서 부모클래스의 메서드와 동일한 `메서드명`, `파라미터`, `리턴타입`으로 자식클래스에 메서드를 생성할 경우, 해당 메서드는 자식클래스의 추가적인 메서드로서 작동한다. <br>
+
+> private 메서드 오버라이딩 테스트
 
 ```java
 public class Test {
@@ -95,7 +97,7 @@ From child m2()
 ```
 <br>
 
-**2. final 메서드는 오버라이딩 될 수 없다.**<br>
+**1-2). final 메서드는 오버라이딩 될 수 없다.**<br>
 - 메서드에 final키워드를 붙여 자식 클래스에게 오버라이든될 수 없게 설정할 수 있다.
 
 ```java
@@ -117,7 +119,7 @@ class Child extends Parent {
 ```
 <br>
 
-**3. static 메서드는 Method Overriding이 아니라 Method Hiding(은닉)을 수행한다.**<br>
+**1-3) static 메서드는 Method Overriding이 아니라 Method Hiding(은닉)을 수행한다.**<br>
 
 - 부모클래스에서 정의된 static 메서드를 자식클래스에서 동일하게 static으로 재정의하는 것을 `Method hiding`이라 일컫는다.
 - 메서드 은닉이 일어나면 자식 클래스 인스턴스가 메서드를 호출할 경우 부모 클래스의 메서드가 호출된다. 
@@ -149,17 +151,19 @@ From parent static m1()
 <br>
 
 
-**4. 오버라이딩시 예외 처리 규칙**<br>
+**1-4) 오버라이딩시 예외 처리 규칙**<br>
 
 > Exception의 종류<br>
 
 source : [자바 예외 구분](https://madplay.github.io/post/java-checked-unchecked-exceptions)<br>
 
+
 |구분|Checked Exception| Unchecked Exception|
 |:---:|:---:|:---:|
-확인 시점 | 컴파일 시 | 런타임 시
-처리 여부 | 반드시 예외처리 | 명시적으로 하지 않아도 됨
-종류 | IOException, ClassNotFoundException 등 | NullPointerException, ClassCastException 등
+확인 시점 | 컴파일 시 | 런타임 시|
+처리 여부 | 반드시 예외처리 | 명시적으로 하지 않아도 됨|
+종류 | IOException, ClassNotFoundException 등 | NullPointerException, ClassCastException 등|
+
 <br>
 
 **4-1) 부모 클래스가 예외를 throw 하지 않는 경우, 자식 클래스는 unchecked exception(런타임 예외)만 throw 가능**<br>
@@ -170,7 +174,7 @@ source : [자바 예외 구분](https://madplay.github.io/post/java-checked-unch
 
 ## 2.2. 동적 메서드 디스패치(Dynamic Method Dispatch)
 
-위에서 살펴본 메서드 오버라이딩은 런타임 다형성을 구현하는 방법 중 하나였다. 이번에 살펴볼 다이나믹 메서드 디스패치는 호출할 메서드가 런타임시에 결정되도록 하는 매커니즘이다. <br>
+**위에서 살펴본 메서드 오버라이딩은 런타임 다형성을 구현하는 방법 중 하나였다. 이번에 살펴볼 다이나믹 메서드 디스패치는 호출할 메서드가 런타임시에 결정되도록 하는 매커니즘이다.** <br>
 <BR>
 
 #### 1) 동적 메서드 디스패치의 개념
@@ -283,12 +287,17 @@ ref= c; // C 타입 인스턴스
 ref.m1();
 ```
 <img src="https://user-images.githubusercontent.com/62331803/103139292-f382ee80-471d-11eb-9135-e135629da4bf.png" width="40%"><br>
-<br><br>
+<br>
+
+**즉, `참조변수 ref`가 참조하는 인스턴스를 기준으로 `m1()`을 호출한다.**<br>
+<br>
 
 
-:question:**다이나믹 '필드' 디스패치?**<br>
+:question: **다이나믹 '필드' 디스패치?**<br>
 
 - 재정의 할 수 있는 대상은 `메서드`뿐이며,  `필드`에 대해서 동적 디스패치를 수행할 수 없다.
+
+> 필드 디스패치 테스트
 
 ```java
 public class DispatchTest {
