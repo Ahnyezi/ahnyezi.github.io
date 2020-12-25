@@ -350,7 +350,7 @@ public class DispatchTest {
 
 
 
-## 2.3. 더블 디스패치(Doubld Dispatch)
+## 2.3. 더블 디스패치(Double Dispatch)
 
 **더블 디스패치**란 `인스턴스`와 `파라미터타입` **두 가지를 가지고 실행할 메서드의 버전을 선택하는 매커니즘을 일컫는다. 하지만 자바는 싱글 디스패치만을 지원하고 있다.**<br>
 
@@ -358,37 +358,23 @@ public class DispatchTest {
 
 - 싱글 디스패치란 위에서 살펴본 다이나믹 메서드 디스패치의 방식을 말한다.
 - 런타임 시 생성되는 **인스턴스의 타입**에 의존하여 실행할 메서드의 버전을 선택하는 것이다.<br>
-<br>
 
 #### 2) 더블 디스패치
 
 - 더블 디스패치란 **인스턴스 타입**과 **파라미터 타입** 2가지에 의존하여 실행할 메서드의 버전을 선택하는 것이다. 
 - 앞에서 말했듯 자바는 더블 디스패치 기능을 지원하지 않는다. 
 - 하지만 다형성을 2번 이용하여 디스패치가 2번 일어나도록 코드를 구현할 수 있다.
-   - [블로그의 예시](https://multifrontgarden.tistory.com/133)를 참고하여 코드를 작성했다. 
+   - [블로그의 예시](https://multifrontgarden.tistory.com/133)를 참고하여 코드를 작성했다. <br>
+<br>
 
-> 스마트폰으로 게임을 실행하는 코드가 있다.
+:point_right: **1. 스마트폰으로 게임을 실행하는 코드가 있다.**<br>
 
 - 스마트폰 인터페이스
 - 인터페이스 구현체 아이폰 클래스와 갤럭시 클래스
 - 스마트폰 인스턴스를 인자로 받아와 게임을 실행하는 Game 클래스
 
 ```java
-public class SingleDispatchTest {
-
-    // 스마트폰 인터페이스
-    interface SmartPhone{ }
-    // 구현체1 : 아이폰
-    static class Iphone implements SmartPhone{}
-    // 구현체2 : 갤럭시
-    static class Galaxy implements SmartPhone{}
-
-
-    static class Game{
-        public void play(SmartPhone phone){
-            System.out.println("game play ["+phone.getClass().getSimpleName()+"]");
-        }
-    }
+public class DoubleDispatchTest {
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -400,6 +386,21 @@ public class SingleDispatchTest {
         phoneList.forEach(game::play);
 //        for (SmartPhone p:phoneList) game.play(p);
     }
+
+    // 스마트폰 인터페이스
+    interface SmartPhone{ }
+    // 구현체1 : 아이폰
+    static class Iphone implements SmartPhone{}
+    // 구현체2 : 갤럭시
+    static class Galaxy implements SmartPhone{}
+
+
+    // 게임 실행을 위한 클래스
+    static class Game{
+        public void play(SmartPhone phone){
+            System.out.println("game play ["+phone.getClass().getSimpleName()+"]");
+        }
+    }
 }
 ```
 ```java
@@ -408,7 +409,7 @@ game play [Galaxy]
 ```
 <br>
 
-> 스마트폰별로 Game play()가 다르게 구현되게 코드를 수정해보자
+:point_right: **2. 이번엔 스마트폰별로 게임 플레이 방식이 달라지게끔 코드를 수정해보자.**<br>
 
 - Game 클래스의 play()메서드에 `instanceof`로 분기문을 작성
 
@@ -428,36 +429,27 @@ static class Game{
 Iphone play [Iphone]
 Galaxy play [Galaxy]
 ```
-- 이 방식으로 코드를 구현하는 경우 SmartPhone의 구현체가 추가될 때마다 `play()` 메서드가 변경되어야 한다.
-   - OOP적인 방법이 아님<br>
+
+- 안 좋은 코드다.
+- SmartPhone의 구현체가 추가될 때마다 `play()` 메서드 내부가 변경되어야 한다.
+- OOP적인 방법이 아님<br>
 <br>
 
-> Game 클래스 내부의 로직을 인터페이스로 옮기고, 동적 디스패치가 2번 일어나도록 코드를 수정
+:point_right: **3.Game 클래스 내부의 로직을 인터페이스로 옮기고, 동적 디스패치가 2번 일어나도록 코드를 수정**<br>
 
-- Game 인터페이스 추가
-- Game 구현체 어몽어스, 카트라이더 클래스 추가
-- 동적 디스패치 1 : `game.play()` 어떤 버전의 play()를 실행시킬 것인가
-- 동적 디스패치 2 : `phone.game()` 어떤 버전의 game()을 실행시킬 것인가
+- `Game` 인터페이스 추가
+- Game 구현체 `어몽어스`, `카트라이더 클래스` 추가
+- **동적 디스패치 1** : `game.play()` 어떤 버전의 play()를 실행시킬 것인가
+- **동적 디스패치 2** : `phone.game()` 어떤 버전의 game()을 실행시킬 것인가
 
 ```java
 public class DoubleDispatchTest {
 
-    // 스마트폰 인터페이스
-    interface SmartPhone {
-        void game(Game game);
-    }
-    // 구현체1 : 아이폰
-    static class Iphone implements SmartPhone {
-        @Override
-        public void game(Game game) {
-            System.out.println(" with my " + this.getClass().getSimpleName());
-        }
-    }
-    // 구현체2 : 갤럭시
-    static class Galaxy implements SmartPhone {
-        @Override
-        public void game(Game game) {
-            System.out.println(" with my " + this.getClass().getSimpleName());
+    public static void main(String[] args) {
+        List<SmartPhone> phoneList = Arrays.asList(new Iphone(), new Galaxy());
+        List<Game> gameList = Arrays.asList(new AmongUsGame(), new KartRiderGame());
+        for (Game game : gameList) {
+            phoneList.forEach(game::play); // 동적 디스패치 1
         }
     }
 
@@ -482,11 +474,22 @@ public class DoubleDispatchTest {
         }
     }
 
-    public static void main(String[] args) {
-        List<SmartPhone> phoneList = Arrays.asList(new Iphone(), new Galaxy());
-        List<Game> gameList = Arrays.asList(new AmongUsGame(), new KartRiderGame());
-        for (Game game : gameList) {
-            phoneList.forEach(game::play); // 동적 디스패치 1
+    // 스마트폰 인터페이스
+    interface SmartPhone {
+        void game(Game game);
+    }
+    // 구현체1 : 아이폰
+    static class Iphone implements SmartPhone {
+        @Override
+        public void game(Game game) {
+            System.out.println(" with my " + this.getClass().getSimpleName());
+        }
+    }
+    // 구현체2 : 갤럭시
+    static class Galaxy implements SmartPhone {
+        @Override
+        public void game(Game game) {
+            System.out.println(" with my " + this.getClass().getSimpleName());
         }
     }
 }
