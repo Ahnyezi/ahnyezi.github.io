@@ -15,7 +15,6 @@ tags: ['Java']
 - 1.3. [Super 키워드](#13-super-키워드)
 - 1.4. [Object 클래스](#14-object-클래스)
 - 1.5. [final 키워드](#15-final-키워드)
-- 1.6. [추상 클래스]()
 
 <br><br><br>
 
