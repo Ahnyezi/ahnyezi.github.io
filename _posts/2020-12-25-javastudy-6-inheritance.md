@@ -9,12 +9,13 @@ tags: ['Java']
 <br>
 
 ## 목차 
-### 1. 상속
-- 1.1. 상속의 기본
-- 1.2. 상속의 특징
-- 1.3. Super 키워드
-- 1.4. Object 클래스
-- 1.5. final 키워드
+### 상속
+- 1.1. [상속의 기본](#11-상속의-기본)
+- 1.2. [상속의 특징](#12-상속의-특징)
+- 1.3. [Super 키워드](#13-super-키워드)
+- 1.4. [Object 클래스](#14-object-클래스)
+- 1.5. [final 키워드](#15-final-키워드)
+- 1.6. [추상 클래스]()
 
 <br><br><br>
 
@@ -56,7 +57,7 @@ class 자식클래스 extends 부모클래스{
 
 >  상속 예시
 
-**부모 클래스 Pocketmon 클래스**<br>
+- **부모 클래스 Pocketmon 클래스**<br>
 ```java
  // 부모 클래스
     static class Pocketmon{
@@ -87,7 +88,9 @@ class 자식클래스 extends 부모클래스{
         }        
     }
 ```
- **Pocketmon을 상속받은 Pikachu 클래스**<br>
+<br>
+
+-  **Pocketmon을 상속받은 Pikachu 클래스**<br>
 
 ```java
 	static class Pikachu extends Pocketmon{
@@ -112,7 +115,9 @@ class 자식클래스 extends 부모클래스{
         }
     }
 ```
-**자식 클래스의 인스턴스 생성과 결과 확인**<br>
+<br>
+
+- **자식 클래스의 인스턴스 생성과 결과 확인**<br>
 
 ```java
 public static void main(String[] args) {
@@ -133,9 +138,9 @@ source : [GeeksforGeeks - Java Object Creation of Inherited Class](https://www.g
 **자식 클래스의 인스턴스가 생성되면, 해당 인스턴스 내부에 부모 클래스 멤버를 위한 메모리 공간이 포함된다.**<br>
 - 즉, 자식 클래스(Pikachu 클래스)의 인스턴스는 내부에 부모 클래스(Pocketmon 클래스)의 멤버에 대한 복사본을 가지게 된다. 
 - 이 과정을 통해 자식 클래스의 인스턴스가 부모 클래스 멤버에 접근 가능한 것이다<br>
- <br>
+ <br><br>
 
-**hashcode()와 getClass().getName() 메서드를 이용해서 이를 증명할 수 있다.**<br> 
+:point_right:  **hashcode()와 getClass().getName() 메서드를 이용해서 이를 증명할 수 있다.**<br> 
 
 ```java
 public class PocketmonTest2 {
@@ -168,7 +173,7 @@ public class PocketmonTest2 {
 - `부모 클래스의 Object hashcode`와 `자식 클래스의 Object hashcode`가 일치한다. 
    - 즉, 하나의 객체만이 생성되었음을 알 수 있다.
 - `getClass().getName()`을 통해서 생성된 객체가 자식 클래스인 `Yadoran`의 인스턴스임을 알 수 있다.<br>
-<br>
+<br><br>
 
 **cf. 부모클래스 멤버의 접근제어별 접근범위**<br>
 
@@ -190,7 +195,7 @@ public class PocketmonTest2 {
 | 외부패키지 포함관계 | O | X | X | X |
 
 
-<br><br>
+<br><br><br>
 
 
 ## 1.2. 상속의 특징
@@ -224,7 +229,7 @@ public class PocketmonTest2 {
 **super 키워드는 부모 클래스(super class) 객체를 참조할 수 있는 참조변수이다.**<br>
 super 키워드가 사용되는 상황은 다음과 같다.<br><br>
 
-**1. 부모 클래스 필드에 접근**<br>
+**1) 부모 클래스 필드에 접근할 때**<br>
 
 부모 클래스와 자식 클래스가 동일한 필드를 가지는 경우, JVM이 이를 해석하는데 모호함이 생길 수 있다. 이 때, 부모 클래스의 필드에 `super`를 붙여 구분지을 수 있다.<br>
 
@@ -258,7 +263,7 @@ Default Hp : 100
 ```
 <br>
 
-**2. 부모클래스의 메서드에 접근**<br>
+**2) 부모클래스의 메서드에 접근할 때**<br>
 
 자식 클래스에서 부모 클래스의 메서드를 호출할 때 모호함이 생길 수 있다. `super` 키워드를 이용하면 이런 모호함을 제거할 수 있다.<br>
 
@@ -298,11 +303,12 @@ This message is from LongStone class
 This message is from Pocketmon class
 ```
 
-자식 클래스에서 `message()`를 호출하면, 현재 클래스의 메서드가 실행된다. `super` 키워드와 함께 `message()`를 호출할 경우 부모 클래스의 메서드가 실행된다.<br>
+- 자식 클래스에서 `message()`를 호출하면, 현재 클래스의 메서드가 실행된다. 
+- `super` 키워드와 함께 `message()`를 호출할 경우 부모 클래스의 메서드가 실행된다.<br>
 <br>
 
 
-**3. 부모 클래스의 생성자에 접근**<br>
+**3. 부모 클래스의 생성자에 접근할 때**<br>
 
 디폴트 생성자와 파라미터가 존재하는 생성자 모두에 접근할 수 있다.<br>
 
@@ -336,12 +342,12 @@ Pocketmon class 생성자
 LongStone 클래스 생성자
 ```
 
-`super()`**로 부모 클래스의 생성자를 호출할 때  몇 가지 주의할 점이 있다.**<br>
+`super()`**로 부모 클래스의 생성자를 호출할 때 주의할 점**<br>
 
 1. `super()`는 항상 자식 클래스 생성자의 맨 첫 줄에 와야한다.
 2. 만약 자식 클래스의 생성자에 부모클래스의 생성자 호출코드가 없다면, 자바 컴파일러가 자동적으로 디폴트 super()를 삽입해 준다. 이 때 부모 클래스에 디폴트 생성자가 없다면 컴파일 에러가 난다.
 3. 자식 클래스는 명시적으로든 암묵적으로든 자신의 부모 클래스 생성자를 호출하게 된다. 이러한 호출은 모든 클래스의 조상인 `Object`클래스의 생성자까지 이어지게 되고, 이를 `constructor chaining`이라 부른다.
-<br>
+<br><br><br>
 
 ## 1.4. Object 클래스
 
@@ -457,28 +463,37 @@ finalize 메소드 호출
 1. `wait()` : 작업을 진행하던 스레드가 `lock` 상태를 포기하고, 다른 스레드가 `notify()`를 호출할 때까지 `sleep`상태에 빠진다.
 2. `notify()` : 동일한 인스턴스 내에서 `wait()`로 인해 `sleep` 상태에 빠졌던 하나의 스레드를 깨운다.
 3. `notifyAll()` : `wait()`로 인해 `sleep` 상태에 빠졌던 모든 스레드를 깨운다<br>
-<br>
+<br><br><br>
 
 
 ## 1.5. final 키워드
 
 **final 키워드**는 `변수`, `메서드`, `클래스`에 적용될 수 있으며, 적용되는 대상에 따라 다른 역할을 수행한다.<br>
 
-- Final Variable ⇒ Constant 변수를 생성하기 위함
-- Final Methods ==> 메서드 오버라이딩을 막기 위함
-- Final Classes ⇒ 클래스 상속을 막기 위함
-<br>
+- `Final Variable` ⇒ 변수의 재할당을 막기 위함
+- `Final Methods` ==> 메서드 오버라이딩을 막기 위함
+- `Final Classes` ⇒ 클래스 상속을 막기 위함
+<br><br>
 
-#### 1. Final 변수
+#### 1) Final 변수
 
 - final 키워드가 변수의 앞에 붙으면, 해당 변수는 수정될 수 없다. 
 - 따라서, 반드시 선언시에 초기화 값을 넣어주어야 한다.
 - 하지만 final 변수가 참조변수일 경우에는 해당 참조값이 가리키는 인스턴스가 달라질 수 있다.
-   - final array나 final collection은 요소 추가/제거가 가능
+   - final array나 final collection은 요소 추가/제거가 가능<br>
 
 :point_right: **1-1) value를 담는 final 변수**
 
 한 번 값이 할당되면 재할당이 불가능하기 때문에, 프로그램이 실행되는 동안 지속되어야하는 값에 final을 붙인다. <br>
+
+- **final 변수 초기화 방법**<br>
+   - final 변수를 초기화하지 않으면 컴파일 에러를 발생시킨다.
+   - final 변수 오직 한 번만 초기화 될 수 있으며, 초기화 블럭과 할당연산자를 통해 초기화가 가능하다.
+
+1. 선언과 동시에 초기화 : 가장 보편적인 초기화 방법
+2. 초기화 블록에서 초기화
+3. 생성자에서 초기화
+<br>
 
 ```java
 public class FinalTest {
@@ -504,15 +519,6 @@ public class FinalTest {
     }
 }
 ```
-<br>
-
-**final 변수 초기화 방법**<br>
-- final 변수를 초기화하지 않으면 컴파일 에러를 발생시킨다.
-- final 변수 오직 한 번만 초기화 될 수 있으며, 초기화 블럭과 할당연산자를 통해 초기화가 가능하다.
-
-1. 선언과 동시에 초기화 : 가장 보편적인 초기화 방법
-2. 초기화 블록에서 초기화
-3. 생성자에서 초기화
 <br>
 <br>
 
@@ -546,11 +552,11 @@ Merry Christmas
 ```
 <br><br>
 
-#### 2. Final 클래스
+#### 2) Final 클래스
 
-`final 클래스`란 다른 클래스로 상속될 수 없는 클래스를 말한다. 크게 2가지 종류가 있다. 
+`final 클래스`란 다른 클래스로 상속될 수 없는 클래스를 말한다. 크게 2가지 종류가 있다.<br>
 
-:point_right: **2-1) 상속을 방지하기 위한 final 클래스**<br>
+:point_right: **2-1) 상속을 방지하기 위함**<br>
 
 - 대표적인 예로 `Integer`, `Float`와 같은 **Wrapper** 클래스가 있다.
 
@@ -593,11 +599,13 @@ class B extends A {
 <br><br>
 
 :orange_book: References
-- [geeksforgeeks-Inheritance in Java](https://www.geeksforgeeks.org/inheritance-in-java/)
-- [geeksforgeeks-super](https://www.geeksforgeeks.org/super-keyword/)
-- [geeksforgeeks-object class](https://www.geeksforgeeks.org/object-class-in-java/)
-- [geeksforgeeks-Inter thread Communication in Java](https://www.geeksforgeeks.org/inter-thread-communication-java/)
-- [geeksforgeeks-final keyword in Java](https://www.geeksforgeeks.org/final-keyword-java/?ref=rp)
+- geeksforgeeks
+   - [Inheritance in Java](https://www.geeksforgeeks.org/inheritance-in-java/)
+   - [super](https://www.geeksforgeeks.org/super-keyword/)
+   - [object class](https://www.geeksforgeeks.org/object-class-in-java/)
+   - [Inter thread Communication in Java](https://www.geeksforgeeks.org/inter-thread-communication-java/)
+   - [final keyword in Java](https://www.geeksforgeeks.org/final-keyword-java/?ref=rp)
+   - [abstract classes in Java](https://www.geeksforgeeks.org/abstract-classes-in-java/)
 - [TCP School - 상속](http://www.tcpschool.com/java/java_inheritance_concept)
 - [자바의 정석 - 상속](https://youtu.be/Pgutf0G3nE4)
 <br>
