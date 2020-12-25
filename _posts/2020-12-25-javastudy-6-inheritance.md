@@ -5,7 +5,7 @@ categories: ['Java']
 tags: ['Java']
 ---
 
-**자바의 상속과 관련 개념을 알아보자** :raising_hand:<br>
+**자바의 상속과 관련된 개념을 알아보자** :raising_hand:<br>
 <br>
 
 ## 목차 
