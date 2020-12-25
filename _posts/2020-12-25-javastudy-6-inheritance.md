@@ -131,7 +131,10 @@ public static void main(String[] args) {
 <br>
 
 :point_right:  여기서 주목할 점은 **자식 클래스의 인스턴스가 생성될 때,  부모 클래스의 인스턴스가 생성되는 것이 아니라는 것**이다.<br>
+
 source : [GeeksforGeeks - Java Object Creation of Inherited Class](https://www.geeksforgeeks.org/gfact-52-java-object-creation-of-inherited-classes/)<br>
+
+> 피카츄 클래스 인스턴스 메모리 구조
 
 <img src="https://user-images.githubusercontent.com/62331803/103097171-c402b200-4649-11eb-9e84-403712e8103f.png" width="70%"><br>
 
@@ -140,7 +143,9 @@ source : [GeeksforGeeks - Java Object Creation of Inherited Class](https://www.g
 - 이 과정을 통해 자식 클래스의 인스턴스가 부모 클래스 멤버에 접근 가능한 것이다<br>
  <br><br>
 
-:point_right:  **hashcode()와 getClass().getName() 메서드를 이용해서 이를 증명할 수 있다.**<br> 
+:point_right:  **생성된 인스턴스의 해시코드와 등록된 클래스네임을 이용해서 이를 증명할 수 있다.**<br> 
+
+> `this`와 `super` 키워드를 통해 해시코드 값과 등록된 인스턴스 네임을 비교
 
 ```java
 public class PocketmonTest2 {
@@ -233,6 +238,7 @@ super 키워드가 사용되는 상황은 다음과 같다.<br><br>
 
 부모 클래스와 자식 클래스가 동일한 필드를 가지는 경우, JVM이 이를 해석하는데 모호함이 생길 수 있다. 이 때, 부모 클래스의 필드에 `super`를 붙여 구분지을 수 있다.<br>
 
+> 부모와 자식 클래스 모두 `defaultHp` 필드를 가지고 있는 경우
 
 ```java
 public class SuperTest {
@@ -266,6 +272,8 @@ Default Hp : 100
 **2) 부모클래스의 메서드에 접근할 때**<br>
 
 자식 클래스에서 부모 클래스의 메서드를 호출할 때 모호함이 생길 수 있다. `super` 키워드를 이용하면 이런 모호함을 제거할 수 있다.<br>
+
+> 부모와 자식 클래스 모두 `message()`메서드를 가지고 있는 경우
 
 ```java
 public class SuperTest {
