@@ -385,7 +385,7 @@ public String toString()
 
 - JVM은 생성된 각각의 인스턴스에 대하여 고유한 번호인 해시코드를 부여한다. 
 - 해시코드는 인스턴스로 가는 직접적인 주소가 아니라, 인스턴스의 주소를 내부적인 알고리즘을 통해 정수형태로 바꾼 형태이다. 
-- 자바는 C/C++처럼 인스턴스의 reference를 없는 언어이기 때문에, hashcode()는 [native](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4)로 구현되어 있다. <br>
+- 자바는 C/C++과 다르게 인스턴스의 reference를 사용하지 않는 언어이다. 따라서 hashcode()는 [native](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4)로 구현되어 있다. <br>
 <br>
 
 **3. equals(Object obj)**<br>
