@@ -201,14 +201,14 @@ source : [자바 예외 구분](https://madplay.github.io/post/java-checked-unch
 
 ```java
 public class DispatchTest {
-	// 부모클래스 A
+    // 부모클래스 A
     static class A{
         void m1(){
             System.out.println("A 클래스의 m1 메서드");
         }
     }
 
-	// A의 자식클래스 B
+    // A의 자식클래스 B
     static class B extends A{
         @Override
         void m1() {
