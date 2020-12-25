@@ -55,7 +55,7 @@ class 자식클래스 extends 부모클래스{
 ```
 <br>
 
->  상속 예시
+>  Pocketmon 클래스 상속받는 피카츄 클래스 생성 테스트
 
 - **부모 클래스 Pocketmon 클래스**<br>
 ```java
