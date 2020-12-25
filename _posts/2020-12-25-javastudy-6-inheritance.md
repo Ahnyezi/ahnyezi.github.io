@@ -91,7 +91,6 @@ class 자식클래스 extends 부모클래스{
 <br>
 
 -  **Pocketmon을 상속받은 Pikachu 클래스**<br>
-
 ```java
 	static class Pikachu extends Pocketmon{
         public String owner;
@@ -118,7 +117,6 @@ class 자식클래스 extends 부모클래스{
 <br>
 
 - **자식 클래스의 인스턴스 생성과 결과 확인**<br>
-
 ```java
 public static void main(String[] args) {
     Pikachu p = new Pikachu("피카츄",100,"지우");

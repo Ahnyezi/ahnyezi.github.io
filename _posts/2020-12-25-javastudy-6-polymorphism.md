@@ -12,7 +12,7 @@ tags: ['Java']
 ### 2. 다형성
 - 2.1. [오버라이딩](#21-오버라이딩overriding)
 - 2.2. [다이나믹 메서드 디스패치](#22-동적-메서드-디스패치dynamic-method-dispatch)
-- 2.3. [더블 디스패치](#)
+- 2.3. [더블 디스패치](#23-더블-디스패치double-dispatch)
 
 <br><br><br>
 
@@ -179,6 +179,10 @@ source : [자바 예외 구분](https://madplay.github.io/post/java-checked-unch
 ## 2.2. 동적 메서드 디스패치(Dynamic Method Dispatch)
 
 **위에서 살펴본 메서드 오버라이딩은 런타임 다형성을 구현하는 방법 중 하나였다. 이번에 살펴볼 다이나믹 메서드 디스패치는 호출할 메서드가 런타임시에 결정되도록 하는 매커니즘이다.** <br>
+
+- 디스패치의 종류
+   - static dispatch: 정적 디스패치, 컴파일 시 호출할 메서드 버전을 결정
+   - dynamic dispatch : 동적 디스패치, 런타임 시 호출할 메서드 버전을 결정<BR>
 <BR>
 
 #### 1) 동적 메서드 디스패치의 개념
@@ -299,10 +303,10 @@ ref.m1();
 <img src="https://user-images.githubusercontent.com/62331803/103139292-f382ee80-471d-11eb-9135-e135629da4bf.png" width="40%"><br>
 <br>
 
-**즉, `ref`가 **참조하는 인스턴스의 타입**을 기준으로 `m1()`을 호출한다.**<br>
+즉, `ref`가 **참조하는 인스턴스의 타입을 기준**으로 `m1()`을 호출한다.<br>
 - 생성된 인스턴스 타입이 A일 경우 A버전 m1 호출
-- 생성된 인스턴스 타입이 B일 경우 B버전 m1 
-- 생성된 인스턴스 타입이 C일 경우 C버전 m1
+- 생성된 인스턴스 타입이 B일 경우 B버전 m1 호출 
+- 생성된 인스턴스 타입이 C일 경우 C버전 m1 호출
 
 <br>
 
@@ -327,7 +331,8 @@ public class DispatchTest {
     public static void main(String[] args) {
         A a = new B(); // B 클래스 타입의 인스턴스 생성
 
-        // A 클래스의 멤버로 접근한다.
+        // 생성된 인스턴스의 타입인 B가 아니라
+        // 참조변수 타입 A 클래스의 멤버에 접근
         System.out.println(a.x);
     }
 }
@@ -347,24 +352,153 @@ public class DispatchTest {
 
 ## 2.3. 더블 디스패치(Doubld Dispatch)
 
+**더블 디스패치**란 `인스턴스`와 `파라미터타입` **두 가지를 가지고 실행할 메서드의 버전을 선택하는 매커니즘을 일컫는다. 하지만 자바는 싱글 디스패치만을 지원하고 있다.**<br>
+
+#### 1) 싱글 디스패치
+
+- 싱글 디스패치란 위에서 살펴본 다이나믹 메서드 디스패치의 방식을 말한다.
+- 런타임 시 생성되는 **인스턴스의 타입**에 의존하여 실행할 메서드의 버전을 선택하는 것이다.<br>
+<br>
+
+#### 2) 더블 디스패치
+
+- 더블 디스패치란 **인스턴스 타입**과 **파라미터 타입** 2가지에 의존하여 실행할 메서드의 버전을 선택하는 것이다. 
+- 앞에서 말했듯 자바는 더블 디스패치 기능을 지원하지 않는다. 
+- 하지만 디스패치가 2번 일어나게 코드를 구현하여 더블디스패치 기능을 사용할 수는 있다. 
+   - [블로그의 예시](https://multifrontgarden.tistory.com/133)를 참고하여 코드를 작성했다. 
+
+> 스마트폰으로 게임을 실행하는 코드가 있다.
+
+- 스마트폰 인터페이스
+- 인터페이스 구현체 아이폰 클래스와 갤럭시 클래스
+- 스마트폰 인스턴스를 인자로 받아와 게임을 실행하는 Game 클래스
+
+```java
+public class SingleDispatchTest {
+
+    // 스마트폰 인터페이스
+    interface SmartPhone{ }
+    // 구현체1 : 아이폰
+    static class Iphone implements SmartPhone{}
+    // 구현체2 : 갤럭시
+    static class Galaxy implements SmartPhone{}
 
 
+    static class Game{
+        public void play(SmartPhone phone){
+            System.out.println("game play ["+phone.getClass().getSimpleName()+"]");
+        }
+    }
 
+    public static void main(String[] args) {
+        Game game = new Game();
 
+        // 아이폰과 갤럭시(스마트폰 인터페이스 구현체들)를 담은 리스트 
+        List<SmartPhone> phoneList = Arrays.asList(new Iphone(),new Galaxy());
 
+        // 모든 스마트폰을 순회하며 game 실행
+        phoneList.forEach(game::play);
+//        for (SmartPhone p:phoneList) game.play(p);
+    }
+}
+```
+```java
+game play [Iphone]
+game play [Galaxy]
+```
+<br>
 
+> 스마트폰별로 Game play()가 다르게 구현되게 코드를 수정해보자
 
+- Game 클래스의 play()메서드에 `instanceof`로 분기문을 작성
 
+```java
+static class Game{
+        public void play(SmartPhone phone){
+            if (phone instanceof Iphone){
+                System.out.println("Iphone play ["+phone.getClass().getSimpleName()+"]");
+            }
+            if (phone instanceof Galaxy){
+                System.out.println("Galaxy play ["+phone.getClass().getSimpleName()+"]");
+            }
+        }
+    }
+```
+```java
+Iphone play [Iphone]
+Galaxy play [Galaxy]
+```
+- 이 방식으로 코드를 구현하는 경우 SmartPhone의 구현체가 추가될 때마다 `play()` 메서드가 변경되어야 한다.
+   - OOP적인 방법이 아님<br>
+<br>
 
+> Game 클래스 내부의 로직을 인터페이스로 옮기고, 동적 디스패치가 2번 일어나도록 코드를 수정
 
+- Game 인터페이스 추가
+- Game 구현체 어몽어스, 카트라이더 클래스 추가
+- 동적 디스패치 1 : `game.play()` 어떤 버전의 play()를 실행시킬 것인가
+- 동적 디스패치 2 : `phone.game()` 어떤 버전의 game()을 실행시킬 것인가
 
+```java
+public class DoubleDispatchTest {
 
+    // 스마트폰 인터페이스
+    interface SmartPhone {
+        void game(Game game);
+    }
+    // 구현체1 : 아이폰
+    static class Iphone implements SmartPhone {
+        @Override
+        public void game(Game game) {
+            System.out.println(" with my " + this.getClass().getSimpleName());
+        }
+    }
+    // 구현체2 : 갤럭시
+    static class Galaxy implements SmartPhone {
+        @Override
+        public void game(Game game) {
+            System.out.println(" with my " + this.getClass().getSimpleName());
+        }
+    }
 
+    // 게임 인터페이스
+    interface Game {
+        void play(SmartPhone phone);
+    }
+    // 구현체1 : 어몽어스
+    static class AmongUsGame implements Game {
+        @Override
+        public void play(SmartPhone phone) {
+            System.out.print("Play '" + this.getClass().getSimpleName() + "'");
+            phone.game(this);	// 동적 디스패치 2
+        }
+    }
+    // 구현체2 : 카트
+    static class KartRiderGame implements Game {
+        @Override
+        public void play(SmartPhone phone) {
+            System.out.print("Play '" + this.getClass().getSimpleName() + "'");
+            phone.game(this);	// 동적 디스패치 2
+        }
+    }
 
+    public static void main(String[] args) {
+        List<SmartPhone> phoneList = Arrays.asList(new Iphone(), new Galaxy());
+        List<Game> gameList = Arrays.asList(new AmongUsGame(), new KartRiderGame());
+        for (Game game : gameList) {
+            phoneList.forEach(game::play); // 동적 디스패치 1
+        }
+    }
+}
+```
 
-
-
-
+### 실행결과
+```java
+Play 'AmongUsGame' with my Iphone
+Play 'AmongUsGame' with my Galaxy
+Play 'KartRiderGame' with my Iphone
+Play 'KartRiderGame' with my Galaxy
+```
 
 
 <br><br>
@@ -374,3 +508,6 @@ public class DispatchTest {
 - geeksforgeeks
    - [overriding](https://www.geeksforgeeks.org/overriding-in-java/)
    - [dynamic method dispatch](https://www.geeksforgeeks.org/dynamic-method-dispatch-runtime-polymorphism-java/)
+- baeldung
+   - [ddd double dispatch](https://www.baeldung.com/ddd-double-dispatch)
+- [토비의봄 01. Double Dispatch](https://multifrontgarden.tistory.com/133)
