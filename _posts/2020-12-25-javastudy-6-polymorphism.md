@@ -403,6 +403,7 @@ public class DoubleDispatchTest {
     }
 }
 ```
+### 실행결과
 ```java
 game play [Iphone]
 game play [Galaxy]
@@ -425,6 +426,7 @@ static class Game{
         }
     }
 ```
+### 실행결과
 ```java
 Iphone play [Iphone]
 Galaxy play [Galaxy]
