@@ -53,7 +53,7 @@ tags: ['Java']
 - `private` 메서드는 오버라이딩할 수 없다.
 - 따라서 부모클래스의 메서드와 동일한 `메서드명`, `파라미터`, `리턴타입`으로 자식클래스에 메서드를 생성할 경우, 해당 메서드는 자식클래스의 추가적인 메서드로서 작동한다. <br>
 
-> private 메서드 오버라이딩 테스트
+> 부모 클래스의 private 메서드 `m1()`은 자식 클래스에 오버라이딩 되지 못하기 때문에, 새로운 메서드 `m1()`이 자식 클래스에 추가됨
 
 ```java
 public class Test {
@@ -100,6 +100,8 @@ From child m2()
 **1-2). final 메서드는 오버라이딩 될 수 없다.**<br>
 - 메서드에 final키워드를 붙여 자식 클래스에게 오버라이든될 수 없게 설정할 수 있다.
 
+> final 메서드 `display()`는 자식 클래스에서 재정의 될 수 없으므로 컴파일 에러를 발생시킴
+
 ```java
 class Parent {
     // final 메서드는 오버라이든 불가
@@ -124,6 +126,8 @@ class Child extends Parent {
 - 부모클래스에서 정의된 static 메서드를 자식클래스에서 동일하게 static으로 재정의하는 것을 `Method hiding`이라 일컫는다.
 - 메서드 은닉이 일어나면 자식 클래스 인스턴스가 메서드를 호출할 경우 부모 클래스의 메서드가 호출된다. 
 - 런타임시에 인스턴스가 실제로 참조하고 있는 클래스를 찾아가는 것이 아니라 컴파일 시에 결정된 클래스를 찾아가기 때문에 이와 같은 상황이 발생한다.
+
+> 부모의 static 메서드를 자식이 다시 static으로 정의하는 경우 `Method Hiding`이 일어남
 
 ```java
 public class MethodHidingTest {
@@ -193,7 +197,7 @@ source : [자바 예외 구분](https://madplay.github.io/post/java-checked-unch
 - A 클래스 타입의 참조변수 `ref`를 선언한다.
 - 참조변수 `ref`가 참조하는 인스턴스를 변경하면서, 각 시행에서 호출되는 `m1()`의 결과를 확인한다.<br>
 
-> A,B,C 클래스의 메서드 디스패치 테스트
+> A 클래스와 자식 B,C 클래스의 메서드 디스패치 테스트
 
 ```java
 public class DispatchTest {
