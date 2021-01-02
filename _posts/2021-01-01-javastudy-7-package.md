@@ -293,7 +293,8 @@ set CLASSPATH=.;C;/Program Files\Java\jdk-15.0.1\bin
 -classpath(cp) path(파일 절대 경로)
 ```
 
-**자바파일을 컴파일을 하기 위해서 필요한 클래스 파일을 찾기 위해, 컴파일 시 파일 경로를 지정해주는 옵션이다.** <br>
+**자바파일을 실행 및 컴파일을 하기 위해서는 해당 파일에서 필요한 클래스 파일을 찾아야 한다.
+이 때 필요한 파일들의 경로를 지정해주는 옵션이다.** <br>
 <br>
 
 :point_right: **실습**<br>
@@ -340,8 +341,7 @@ java ClasspathDemo
 **결과**<br>
 
 ```java
-`Exception` `in` `thread` `"main"` `java.lang.NoClassDefFoundError: RequiredClass`
-`at ClasspathDemo.main(ClasspathDemo.java:9)`
+Exception in thread "main" java.lang.NoClassDefFoundError: RequiredClass at ClasspathDemo.main(ClasspathDemo.java:9)
 ```
 requiredClass.class가 현재 디렉터리에 존재하지 않기 때문<br>
 <br>
