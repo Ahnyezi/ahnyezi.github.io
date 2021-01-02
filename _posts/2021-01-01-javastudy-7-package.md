@@ -161,7 +161,7 @@ public class PrintName{
 
 **Static import**는 자바 5버전 이상에서 소개된 기능이다.<br>
 
-**임의의 패키지의 클래스에서 public static으로 정의된 멤버(필드나 메서드)를 사용할 때, 클래스 풀네임을 나열하지 않고도 사용할 수 있다.**<br> 
+**임의의 패키지의 클래스에서 public static으로 정의된 멤버(필드나 메서드)를 사용할 때, 클래스명을 언급하지 않고도 사용할 수 있다.**<br> 
 
 ```java
 // import 뒤에 static을 붙여 가져온다.
