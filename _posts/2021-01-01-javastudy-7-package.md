@@ -119,7 +119,7 @@ import my.package.Date;
 - `java.io` : 입출력 기능을 지원하는 클래스들을 포함하는 패키지
 - `java.util` : 자료 구조 구현을 위한 유틸리티 클래스를 포함하는 패키지
    - Linked List, Dictionary...
-   - Date, Time 기능 또한 지원
+   - `Date`, `Time`도 지원 
 - `java.applet` : Applets을 생성하기 위한 클래스들을 포함하는 패키지
 - `java.awt` : GUI 컴포넌트를 구현하기 위한 클래스들을 포함하는 패키지
 - `java.net` : 네트워킹 기능을 지원하기 위한 클래스를 포함하는 패키지<BR>
