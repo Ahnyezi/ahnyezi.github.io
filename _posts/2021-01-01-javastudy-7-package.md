@@ -115,6 +115,7 @@ import my.package.Date;
 - `java.lang` : language support 클래스들을 포함하는 패키지
    - 프리미티브 타입이나 수학 연산이 정의되어 있는 클래스들
    - 자동적으로 import 됨
+   - `String`, `System`
 - `java.io` : 입출력 기능을 지원하는 클래스들을 포함하는 패키지
 - `java.util` : 자료 구조 구현을 위한 유틸리티 클래스를 포함하는 패키지
    - Linked List, Dictionary...
