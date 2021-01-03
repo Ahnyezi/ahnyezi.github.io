@@ -18,7 +18,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 <img src="https://user-images.githubusercontent.com/62331803/103474419-07e27d80-4de7-11eb-823b-2296465812cb.png" width="80%"><br>
 <br>
 
-### 1. 클래스로더 서브 시스템 
+## 1. 클래스로더 서브 시스템 
 
 **프로그램을 실행하는 데 필요한 클래스를 읽어오는 역할을 한다.**<br> 
 
@@ -44,7 +44,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 로딩 과정은 크게 `로딩`-> `연결`-> `초기화`의 3단계로 나눠진다. <br>
 <br>
 
-### 1-1) 로딩(Loading)
+## 1-1) 로딩(Loading)
 
 <img src="https://user-images.githubusercontent.com/62331803/102475811-b1aed400-409d-11eb-9832-a7931076ffd5.png" width="30%"><br>
 
@@ -66,7 +66,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 <br>
  <br>
 
-### 1-2) 연결(Linking)
+## 1-2) 연결(Linking)
 
 <img src="https://user-images.githubusercontent.com/62331803/102475828-b7a4b500-409d-11eb-97e2-804c313fdb93.png" width="30%"><br>
 
@@ -81,7 +81,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 <br>
 <br>
 
-### 1-3) 초기화(Initializing)
+## 1-3) 초기화(Initializing)
 
 <img src="https://user-images.githubusercontent.com/62331803/102475852-be332c80-409d-11eb-9363-f2b11bf1f157.png" width="30%"><br>
 
@@ -90,10 +90,10 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 - **Initialization : 초기화**
    - 모든 정적 변수가 자바 코드에 명시된 값으로 초기화
    - 정적블록 실행  
-<br><br>
+<br><br><br>
 
 
-### 2. 실행 데이터 영역(Runtime Data Area) 
+## 2. 실행 데이터 영역(Runtime Data Area) 
 
  클래스 로드 과정에서 읽힌 클래스 수준의 데이터뿐만 아니라 **프로그램에서 사용되는 모든 데이터들이 저장되는 영역**이다.  **크게 5가지**로 나뉘며, **스레드간 공유하는 영역**과 **스레드별로 개별 할당되는 영역**이 존재한다. <br>
 
@@ -112,7 +112,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 <br>
   <br>
 
-#### 2-1) 공유영역 - 메서드 영역(method area)
+### 2-1) 공유영역 - 메서드 영역(method area)
 
 **프로그램에서 사용되는 클래스 수준의 정보가 저장되는 영역이다.**<br>
 
@@ -120,7 +120,7 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 - JVM당 하나밖에 없으며, 모든 스레드가 공유한다. 
 <br><br>
 
-#### 2-2) 공유영역 - 힙 영역(heap area)
+### 2-2) 공유영역 - 힙 영역(heap area)
 
 **프로그램에서 사용되는 모든 인스턴스 변수가 저장되는 영역이다.** <br>
 - `new` 키워드를 사용하여 인스턴스가 생성되면, 해당 인스턴스의 정보를 힙 영역에 저장한다.
@@ -131,11 +131,12 @@ source : [dzone.com](https://dzone.com/articles/jvm-architecture-explained)
 <br><br>
 
 
-#### 2-3) 개별영역 - 스택 영역(stack area/JVM Stack)
+### 2-3) 개별영역 - 스택 영역(stack area/JVM Stack)
+
+source : [jaxenter.com](https://jaxenter.com/stackoverflowerror-causes-152027.html)<br>
 
 <img src="https://user-images.githubusercontent.com/62331803/102499977-2a725800-40bf-11eb-93f8-5e56c5f5e201.png" width="80%"><br>
 
-source : [jaxenter.com](https://jaxenter.com/stackoverflowerror-causes-152027.html)<br>
 
 **프로그램에서 메서드가 호출될 때, 메서드의 스택 프레임이 저장되는 영역이다.**<BR>
 
@@ -154,25 +155,25 @@ source : [jaxenter.com](https://jaxenter.com/stackoverflowerror-causes-152027.ht
    - **Frame Data(FD)**
       - 특정 메서드와 관련된 모든 참조와 리턴 값 등이 저장되는 공간이다.
 
-<br><br>
+<br>
 
 
-#### 2-4) 개별영역 - PC 레지스터(Program Counter registers)
+### 2-4) 개별영역 - PC 레지스터(Program Counter registers)
 
 - 각 스레드마다 존재한다.
 - 스레드가 시작할 때 생성되고, 종료되면 해제된다.
 - 스레드가 실행중인 명령어 주소를 담고있다.
 <br><br>
 
-#### 2-5) 개별영역 - 네이티브 메서드 스택(native method stack)
+### 2-5) 개별영역 - 네이티브 메서드 스택(native method stack)
 
 - bytecode가 아닌 binarycode를 실행하는 영역이다.
 - 자바 이외의 언어(C, C++, 어셈블리 등)로 작성된 코드를 실행할 때 할당되는 영역이다.
 - I/O 작업을 위한 C 라이브러리 함수 등..
-<br><br>
+<br><br><br>
 
 
-### 3. 실행 엔진(Execution Engine) 
+## 3. 실행 엔진(Execution Engine) 
 
 **실행 엔진**은 **(1)클래스 로딩 과정**을 통해 **(2)런타임 데이터 영역**에 배치된 바이트 코드를 명령어 단위로 읽어서 실행하는 역할을 한다.<br>
 
@@ -194,23 +195,24 @@ JVM이 이해할 수 있는 바이트코드로 컴파일한 뒤에 인터프리�
 
 <br><br>
 
-하이브리드 방식을 채택함으로서 WORA가 가능해졌지만, 소스코드를 바이트코드로 변환한 후 또 다시 Interpreting하는 과정을 거치는 만큼 프로그램 성능(시간)에 영향을 미친다.<br>
+:porint_right: **하이브리드 방식을 채택함으로서 WORA가 가능해졌지만, 소스코드를 바이트코드로 변환한 후 또 다시 Interpreting하는 과정을 거치는 만큼 프로그램 성능(시간)에 영향을 미친다.**<br>
 
 **java 실행단계**<br>
 - Source code ---(Compiler)---> Byte code ---(Interpreter) ---> Binary code
 
 **Python 실행단계**<br>
 - Source code --- (Interpreter) ---> Binary code
-<br>
+<br><br><br>
 
 
 **자바는** `JIT Compiler`**를 통해 이러한 단점을 극복한다.** <br>
 
 source : [aboullaite.me](https://aboullaite.me/understanding-jit-compiler-just-in-time-compiler/)<br>
 
-<img src="https://user-images.githubusercontent.com/62331803/103475541-42511800-4df1-11eb-950c-3498b37545a4.png" width="80%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/103475541-42511800-4df1-11eb-950c-3498b37545a4.png" width="60%"><br>
 
 **JIT(Just-In-Time) 컴파일러**는 반복되어 사용되는 코드나 기계어로 변환 시 많은 리소스가 필요한 부분을 코드가 실행되는 과정(Just-In-Time)에 실시간으로 변환하여(기계어로) 캐싱한다. <br>
+<br>
 
 > 처음 바이트 코드를 읽을 때 <br>
 
@@ -220,6 +222,7 @@ source : [catch-me-java.tistory.com](https://catch-me-java.tistory.com/11)<br>
 
 - 특정 method가 호출되면 JIT 컴파일러가 해당 코드를 `native machine code(기계어)`로 컴파일한다.
 - 한 번 읽어서 기계어로 번역한 코드는 캐싱해둔다. 
+<br>
 
 > 추후 동일한 바이트코드를 읽을 때<br>
 
