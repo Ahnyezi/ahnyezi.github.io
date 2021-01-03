@@ -114,8 +114,12 @@ import my.package.Date;
 
 - `java.lang` : language support 클래스들을 포함하는 패키지
    - 프리미티브 타입이나 수학 연산이 정의되어 있는 클래스들
-   - 자동적으로 import 됨
-   - `String`, `System`
+   - 자동적으로 import 되기 때문에 해당 패키지의 클래스를 바로 사용할 수 있다.
+   - EX
+      - `java.lang의 String 클래스` 
+         -  String s = new String(); // java.lang 생략
+      - `java.lang의 System 클래스`
+         -  System.out.println(); // java.lang 생략
 - `java.io` : 입출력 기능을 지원하는 클래스들을 포함하는 패키지
 - `java.util` : 자료 구조 구현을 위한 유틸리티 클래스를 포함하는 패키지
    - Linked List, Dictionary...
@@ -163,24 +167,38 @@ public class PrintName{
 
 **임의의 패키지의 클래스에서 public static으로 정의된 멤버(필드나 메서드)를 사용할 때, 클래스명을 언급하지 않고도 사용할 수 있다.**<br> 
 
-```java
-// import 뒤에 static을 붙여 가져온다.
-import static java.lang.System.*;
+**사용이유**<br>
+- static 메서드를 사용하는 경우 짧고 간단한 코드를 작성할 수 있다.
+- ex) `System.gc();` =>`gc();`
+- 테스트 코드에서 자주 사용
 
-class StaticImportTest{
-	public static void main(String args[]){
-	
-	// static import를 사용했기 때문에 'System.out'을 모두 나열할 필요 없다.
-	out.println("Pocketmon");
-	
-	}
+> 사용 예시 : 연결리스트 테스트
+
+```java
+// import static으로 static 메서드 쓸 수 있게 한다.
+import static org.junit.jupiter.api.Assertions.assertAll;  
+import static org.junit.jupiter.api.Assertions.assertEquals;  
+import static org.junit.jupiter.api.Assertions.assertThrows;
+```
+
+```java
+// assertAll(), assertEquals(), assertThrows()등의 
+// static 메서드를 '메서드 이름으로만' 사용할 수 있다. 
+
+@Test  
+@DisplayName("노드 추가 테스트")  
+void addTest() {  
+    assertAll("노드 추가 오류",  
+  () -> {// init()에서 생성한 linkedlist를 확인  
+  assertEquals("1,3,5,7", list.toString(head));  
+  },  
+  () -> {// 허용범위를 벗어난 position에 add하려는 경우  
+  Exception exception = assertThrows(IndexOutOfBoundsException.class, () ->  
+                        list.add(head, new ListNode(9), list.getSize(head) + 1));  
+  }  
+    );  
 }
 ```
-```java
-Pocketmon
-```
-
-:pencil2: cf. [System 클래스](https://docs.oracle.com/javase/7/docs/api/java/lang/System.html)<br>
 
 <BR>
 <BR>
@@ -208,13 +226,20 @@ import java.sql.*;
 ```
 <BR>
  
- 만약 2개의 패키지에 있는 Date를 다 사용하려할 경우, 클래스 풀네임을 사용해서 코드를 작성한다.<BR>
+ 만약 2개의 패키지에 있는 Date를 다 사용하려할 경우, 클래스 풀네임(FQCN)을 사용해서 코드를 작성한다.<BR>
 
 ```java
 java.util.Date deadLine = new java.util.Date();
 java.sql.Date today = new java.sql.Date();
 ```
 <br>
+
+cf. FQCN(Full Qualified Class Name)
+- 클래스가 속한 패키지명을 모두 포함한 이름
+- 예시 : String 인스턴스 생성방법
+   - `Alias Name` : String s = new String();
+   - `FQCN` : java.lang.String s = new java.lang.String();
+
 <br>
 
 ## 7. 디렉토리 구조
