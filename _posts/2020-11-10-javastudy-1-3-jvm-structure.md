@@ -195,7 +195,7 @@ JVM이 이해할 수 있는 바이트코드로 컴파일한 뒤에 인터프리�
 
 <br><br>
 
-:porint_right: **하이브리드 방식을 채택함으로서 WORA가 가능해졌지만, 소스코드를 바이트코드로 변환한 후 또 다시 Interpreting하는 과정을 거치는 만큼 프로그램 성능(시간)에 영향을 미친다.**<br>
+:point_right: **하이브리드 방식을 채택함으로서 WORA가 가능해졌지만, 소스코드를 바이트코드로 변환한 후 또 다시 Interpreting하는 과정을 거치는 만큼 프로그램 성능(시간)에 영향을 미친다.**<br>
 
 **java 실행단계**<br>
 - Source code ---(Compiler)---> Byte code ---(Interpreter) ---> Binary code

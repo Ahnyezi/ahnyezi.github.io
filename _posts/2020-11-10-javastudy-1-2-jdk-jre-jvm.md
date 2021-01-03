@@ -9,7 +9,7 @@ tags: ['Java']
 <br>
 
 
-### 2-1) 자바의 WORA(Write Once Run Anywhere)
+### 1. 자바의 WORA(Write Once Run Anywhere)
 
 C언어의 특징을 먼저 살펴보자.
 C언어로 작성된 프로그램은 플랫폼에 종속적이다. <br>
@@ -46,7 +46,7 @@ C언어로 작성된 프로그램은 플랫폼에 종속적이다. <br>
 - 이 때 JVM이 실행되는 플랫폼마다 다른 형태로 존재하며, 따라서 실행될 환경에 맞게 Byte Code(`.class`)를 인터프리팅하여 실행시킨다. <br>
 <br>
 
-### 2-2) JDK, JRE, JVM
+### 2. JDK, JRE, JVM
 
 **JDK, JRE, JVM은 다음과 같은 관계를 가지고 있다.**<br>
 <br>
@@ -59,18 +59,18 @@ source : [catch-me-java.tistory.com](https://catch-me-java.tistory.com/11?catego
 <br>
 
 
-**1. JDK(Java Development Kit)** : 컴파일러, 역 어셈블러, 디버거, 의존관계 분석 등 개발에 필요한 도구를 제공한다. 즉, 소스코드를 JVM이 읽을 수 있는 형태로 변경해준다. 
+**2-1) JDK(Java Development Kit)** : 컴파일러, 역 어셈블러, 디버거, 의존관계 분석 등 개발에 필요한 도구를 제공한다. 즉, 소스코드를 JVM이 읽을 수 있는 형태로 변경해준다. 
    - `javac.exe` : 자바 컴파일러
    - `javap.exe` : 디스어셈블 도구
    - `jar.exe` 서로 관련있는 클래스 라이브러 리들과 리소스를 하나의 JAR 파일로 묶는 도구
     - `jdb.exe` : 자바 디버깅 도구
 
 
-**2. JRE(Java Runtime Environment)** : JVM이 원활하게 작동할 수 있도록 환경을 맞춰주는 역할을 한다. 클래스로더와 클래스 라이브러리를 통해 작성된 코드를 라이브러리와 결합한 후 JVM에 넘긴다. 개발과 관련된 도구는 포함하지 않는다.
+**2-2) JRE(Java Runtime Environment)** : JVM이 원활하게 작동할 수 있도록 환경을 맞춰주는 역할을 한다. 클래스로더와 클래스 라이브러리를 통해 작성된 코드를 라이브러리와 결합한 후 JVM에 넘긴다. 개발과 관련된 도구는 포함하지 않는다.
    - `java.exe` : 자바 응용 프로그램 로더. javac 컴파일러가 만든 클래스 파일을 해석 및 실행
    - `Class Loader` 
 
-**3. JVM(Java Virtual Machine)** : 플랫폼에 독립적으로 실행될 수 있는 추상층을 제공한다. 즉, 바이트코드를 OS에 맞추어 변경해주는데 이 때 사용하는 것이 인터프리터와 JIT이다.
+**2-3) JVM(Java Virtual Machine)** : 플랫폼에 독립적으로 실행될 수 있는 추상층을 제공한다. 즉, 바이트코드를 OS에 맞추어 변경해주는데 이 때 사용하는 것이 인터프리터와 JIT이다.
    - `Interpreter` : 바이트코드를 읽고 해석
    - `JIT(Just In Time) Compiler` : 런타임에 기계어로 번역해주는 컴파일러. 동적 번역(Dynamic translation)이라고도 불리는 기법. 프로그램 실행 속도 향상을 위해 개발<br>
 <br>
