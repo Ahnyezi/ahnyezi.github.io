@@ -92,7 +92,6 @@ interface Attackable{
 	void attack(Unit u);
 }
 ```
-<br>
 
 > Movable과 Attackable 인터페이스를 다중 상속 받은 Fightable 인터페이스
 
@@ -137,7 +136,7 @@ class Fighter implements Fightable{
 	public void attack(Unit u){}
 }
 
-// 일부만 구현
+// 일부만 구현(추상클래스)
 abstract class Fighter implements Fightable{
 	public void move(int x, int y){ /* 구현 내용*/}
 	// public abstract void attack(Unit u); 가 생략된 형태
@@ -157,9 +156,8 @@ interface Fightable { // 인터페이스의 모든 메서드는 public abstract�
 
 class Fighter implements Fightable{
 	// 오버라이딩 규칙: 조상(public)보다 접근제어자 범위가 좁으면 안된다.
-	// public 안쓰면 default가 되므로 컴파일 에러 발생
-	// void move(int x, int y){
-	public void move(int x, int y){
+
+	public void move(int x, int y){   // public 안쓰면 default가 되므로 컴파일 에러 발생
 		System.out.println("이동");
 	}
 }
@@ -175,6 +173,7 @@ class Fighter implements Fightable{
 > 다형성의 예시
 
 ```java
+// 부모타입(Tv)으로 자손타입(SmartTv) 인스턴스를 가리킴
 Tv t = new SmartTv();
 ```
 <br>
@@ -188,9 +187,12 @@ interface Fightable{
 }
 
 class Fighter implements Fightable{
-	public void move(int x, int y){		}
-	public void attack(Fightable f){	 }
-	public void skill(){	  }				// 자손 클래스에서 추가한 인스턴스 메서드
+	//추상클래스를 구현한 메서드
+	public void move(int x, int y){}
+	public void attack(Fightable f){}
+
+             // 자손 클래스에서 추가한 인스턴스 메서드
+	public void skill(){} 
 }
 ```
 
@@ -199,10 +201,14 @@ class Fighter implements Fightable{
 - 부모 타입(Fightable)의 참조변수를 사용하면, 자손 타입(Fighter)에 얼마나 많은 멤버가 있든 부모의 멤버만 사용 가능
 
 ```java
+// 인터페이스 타입으로 구현클래스 인스턴스를 가리킴
 Fightable f = new Fighter();
+
 f.move(100,200);
 f.attack(new Fighter());
-// f.skill() // 자손클래스에만 존재하는 메서드 호출시 컴파일 에러
+
+// 자손클래스에만 존재하는 메서드 호출시 컴파일 에러
+// f.skill() 
 ```
 <br>
 
@@ -212,7 +218,8 @@ f.attack(new Fighter());
 
 ```java
 interface Fightable{
-   void attack(Fightable f);		// 인터페이스 타입
+   // Fightable 인터페이스 구현클래스 인스턴스만 들어올 수 있음
+   void attack(Fightable f);		
 }
 ```
 <br>
@@ -267,7 +274,7 @@ class C {
    - 전자는 유연하지 않고 변경에 불리. 
    - 후자는 껍데기와 알맹이가 분리되어 있기 때문에 알맹이(클래스)를 다른 것으로 바꾸기 쉬움 => 유연한 코드
 
-> 하나의 클래스에서 설계와 구현을 동시에
+> 선언과 구현 동시에
 
 ```java
 class B {
@@ -276,7 +283,7 @@ class B {
     }
 }
 ```
-> 인터페이스로 선언과 구현 분리
+> 선언과 구현 분리
 
 ```java
 // 선언(설계)
@@ -293,7 +300,7 @@ class B implements I {
 ```
 
 
-:question: **강한 결합과 느슨한 결합**<br>
+### :question: 강한 결합과 느슨한 결합
 
 <img src="https://user-images.githubusercontent.com/62331803/104047821-9dd23a00-5225-11eb-9f89-d24354bcbd7a.png" width="70%"><br>
 
@@ -514,7 +521,7 @@ static 메서드 실행
 4. static 메서드
 5. private 메서드
 6. private static 메서드
-<br> 
+<br><br> 
 
 private 메서드는 오직 해당 인터페이스 내에서만 접근 가능하며, 인터페이스를 상속받은 클래스나 서브 인터페이스에서는 접근할 수 없다. <br>
 
