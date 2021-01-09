@@ -10,17 +10,14 @@ tags: ['Java']
 
 ## 목차 
 ### 인터페이스
-1. [패키지의 역할](#1-패키지의-역할)
-2. [패키지 사용방법](#2-패키지-사용방법)
-3. [패키지 내의 클래스에 접근하기](#3-패키지-내의-클래스에-접근하기)
-4. [패키지의 종류](#4-패키지의-종류)
-5. [static import 사용하기](#5-static-import-사용하기)
-6. [클래스명 conflicts 처리하기](#5-static-import-사용하기)
-7. [디렉토리 구조](#7-디렉토리-구조)
-- 7.1. [CLASSPATH란?](#7-1-classpath란)
-- 7.2. [CLASSPATH 세팅하기](#7-2-classpath-세팅하기)
-- 7.3. [classpath 옵션](#7-3-javac-java-옵션--classpath)
-8. [접근제어자](#8-접근제어자) 
+1. [인터페이스의 선언](#1-인터페이스의-선언)
+2. [인터페이스의 상속](#2-인터페이스의-상속)
+3. [인터페이스의 구현](#3-인터페이스의-구현)
+4. [인터페이스를 활용한 다형성](#4-인터페이스를-활용한-다형성)
+5. [인터페이스의 역할(의미)](#5-인터페이스의-역할의미)
+6. [default 메서드 - 자바8](#6-인터페이스의-default-메서드---자바8)
+7. [static 메서드 - 자바8](#7-인터페이스의-static-메서드---자바8)
+8. [private 메서드 - 자바9](#8-인터페이스의-private-메서드---자바9) 
 
 <br><br><br>
 
@@ -48,6 +45,7 @@ interface 인터페이스이름{
 :question: **인터페이스와 추상클래스의 차이**<br>
 - **추상클래스 : 추상 메서드를 포함하는 일반 클래스**
    - 생성자, 인스턴스 변수 등을 멤버로 가질 수 있다.
+
 ```java
 abstract class Player{
 	boolean pause;	// 인스턴스 변수
@@ -62,6 +60,7 @@ abstract class Player{
 
 - **인터페이스 : 추상 메서드만으로 이루어진 집합**
    - 자바8부터 인터페이스도 일반 메서드를 가질 수 있도록 변경되었지만, 이것은 인터페이스의 본질과는 거리가 있음.
+
 ```java
 interface Fightable{
 	public static final int x = 10; // 상수	
@@ -75,7 +74,7 @@ interface Fightable{
 
 ## 2. 인터페이스의 상속
 
-자바는 클래스의 다중상속이 금지되어 있다. 부모들의 메서드가 자손에서 충돌나는 문제를 방지하기 위해서이다. 하지만 인터페이스에 존재하는 추상메서드는 선언부(head)만 존재하기 때문에,  충돌날 가능성이 없다. 따라서 다중상속(조상이 여러개인 형태)이 가능하다. 
+자바는 클래스의 다중상속이 금지되어 있다. 부모들의 메서드가 자손에서 충돌나는 문제를 방지하기 위해서이다. 하지만 **인터페이스에 존재하는 추상메서드는 선언부(head)만 존재하기 때문에 충돌날 가능성이 없다. 따라서 다중상속(조상이 여러개인 형태)이 가능하다.**<br> 
 
 - 인터페이스의 조상은 인터페이스만 가능(Object가 최고 조상 x)
 <br>
@@ -97,10 +96,9 @@ interface Attackable{
 
 > Movable과 Attackable 인터페이스를 다중 상속 받은 Fightable 인터페이스
 
-- Fightable 인터페이스는 자동으로 멤버를 2개 가지게 됨 (move, attack)
-
 ```java
 interface Fightable extends Movable, Attackable{ }
+// Fightable 인터페이스는 자동으로 멤버를 2개 가지게 됨 (move, attack)
 ```
 <br>
 <br>
@@ -109,7 +107,7 @@ interface Fightable extends Movable, Attackable{ }
 ## 3. 인터페이스의 구현
 
 **인터페이스**는 추상클래스의 집합으로 **미완성된 설계도**라 생각하면 된다. <br>
-이를 완성시키는 것이 인터페이스의 구현(implements)이다. 
+이를 완성시키는 것이 `인터페이스의 구현(implements)`이다. 
 <br>
 
 > 인터페이스 구현 키워드
@@ -125,6 +123,7 @@ class 클래스이름 implements 인터페이스이름{
 <br>
 
 > Fightable 인터페이스 구현
+
 ```java
 interface Fightable{
 	// public abstract 생략된 형태
@@ -146,7 +145,8 @@ abstract class Fighter implements Fightable{
 ```
 <br>
 
-:bulb: **주의할 점**
+:bulb: **주의할 점**<br>
+
 - 인터페이스의 모든 메서드는 `public` 접근제어를 가진다.
 - 구현 클래스에서 메서드를 오버라이딩 할 때, 오버라이딩 메서드 접근 제어 범위가 조상보다 좁아서는 안된다. 
 
@@ -173,6 +173,7 @@ class Fighter implements Fightable{
 
 **다형성은 조상 타입의 참조변수가 자손타입의 인스턴스를 가리키는 형태를 말했다.**<br>
 > 다형성의 예시
+
 ```java
 Tv t = new SmartTv();
 ```
@@ -196,6 +197,7 @@ class Fighter implements Fightable{
 **(1)  인터페이스 타입으로 자손 타입의 인스턴스를 가리킬 수 있다.**<br> 
 
 - 부모 타입(Fightable)의 참조변수를 사용하면, 자손 타입(Fighter)에 얼마나 많은 멤버가 있든 부모의 멤버만 사용 가능
+
 ```java
 Fightable f = new Fighter();
 f.move(100,200);
@@ -207,10 +209,10 @@ f.attack(new Fighter());
 **(2) 매개변수 타입을 인터페이스로 둘 수도 있다.**<br>
 
  - 이럴 경우, 해당 인터페이스를 구현한 클래스 인스턴스만 들어올 수 있다.
+
 ```java
 interface Fightable{
-	...
-	void attack(Fightable f);		// 인터페이스 타입
+   void attack(Fightable f);		// 인터페이스 타입
 }
 ```
 <br>
@@ -222,20 +224,23 @@ interface Fightable{
    - `Fightable`을 구현한 다른 클래스가 있다면, new 뒤 부분만 수정해서 같은 코드를 사용할 수 있음.
 
 ```java
-class Fighter implements Fightable{}
-
-class B{
-	public Fightable testMethod(){
-		Fighter f = new Fighter();  // 인터페이스 구현클래스의 인스턴스
-		return f; 			// return (Fightable) f; 자동으로 부모로 형변환(업캐스팅)
-	}
+class Fighter implements Fightable {
+    @Override
+    public void attack(Fightable f) {}
 }
 
-class C{
-	void Test(){
-		B b = new B();
-		Fightable f = b.method(); // 인터페이스(부모) 타입으로 저장
-	}
+class B {
+    public Fightable testMethod() {
+        Fighter f = new Fighter();  // 인터페이스 구현클래스의 인스턴스
+        return f;            // return (Fightable) f; 자동으로 부모로 형변환(업캐스팅)
+    }
+}
+
+class C {
+    void Test() {
+        B b = new B();
+        Fightable f = b.testMethod(); // 인터페이스(부모) 타입으로 저장
+    }
 }
 ```
 <br>
@@ -244,7 +249,9 @@ class C{
 
 ## 5. 인터페이스의 역할(의미)
 
-**앞에서 인터페이스를 선언하고 구현하는 방법을 알아보았다. 그럼 인터페이스를 왜 사용하는 것일까? 인터페이스가 하는 역할과 의미에 대해 알아보자.**<br> 
+**앞에서 인터페이스를 선언하고 구현하는 방법을 알아보았다. 그럼 인터페이스를 왜 사용하는 것일까?**<br>
+**인터페이스가 하는 역할과 의미에 대해 알아보자.**<br> 
+<br> 
 
 **(1) 두 대상(객체)의 '중간 역할'**<br>
 - 예시1 : 사용자 - 기계의 껍데기 - 자판기
@@ -253,7 +260,7 @@ class C{
    - 컴퓨터 내부가 바뀌어도 껍데기가 안바뀌면 사용자는 영향을 받지 않음
    - 따라서 변경에 유리. 
    - 연결, 대화, 소통에 도움.
-<br>
+<br><br> 
 
 **(2) 선언(설계)와 구현의 분리**
    - 껍데기와 알맹이가 붙어있던 형태를, 인터페이스를 사용하여 인터페이스(껍데기) 클래스(알맹이)로 분리
@@ -261,24 +268,27 @@ class C{
    - 후자는 껍데기와 알맹이가 분리되어 있기 때문에 알맹이(클래스)를 다른 것으로 바꾸기 쉬움 => 유연한 코드
 
 > 하나의 클래스에서 설계와 구현을 동시에
+
 ```java
-class B{
-	public void method(){
-		System.out.println("methodInB");
-	}
+class B {
+    public void method() {
+        System.out.println("methodInB");
+    }
 }
 ```
 > 인터페이스로 선언과 구현 분리
+
 ```java
 // 선언(설계)
-interface I{
-	public void method();
+interface I {
+    public void method();
 }
+
 // 구현
-class B implements I{
-	public void method(){
-		System.out.println("methodInB");
-	}
+class B implements I {
+    public void method() {
+        System.out.println("methodInB");
+    }
 }
 ```
 
@@ -305,21 +315,23 @@ class B implements I{
 :point_right: **[강한결합] 직접적인 관계의 두 클래스 (A -> B)**<BR>
 
 ```java
-class A{
-	public void methodA(B b){ // B를 사용!!(따라서 B와 관계 있음)
-		b.methodB();
-	}
+class A {
+    public void methodA(B b) { // B를 사용!!(따라서 B와 관계 있음)
+        b.methodB();
+    }
 }
-class B{
-	public void methodB(){
-		System.out.println("methodB()");
-	}
+
+class B {
+    public void methodB() {
+        System.out.println("methodB()");
+    }
 }
-class InterfaceTest{
-	public static void main(String args[]){
-		A a = new A();
-		a.methodA(new B());
-	}
+
+class InterfaceTest {
+    public static void main(String args[]) {
+        A a = new A();
+        a.methodA(new B());
+    }
 }
 ```
 :point_right: **[느슨한결합] 간접적인 관계의 두 클래스 (A -> I -> B)**<BR>
@@ -329,26 +341,29 @@ class InterfaceTest{
 - 인터페이스 타입을 매개변수로 사용해서 다형성을 구현
 
 ```java
-class A{
-	public void methodA(I i){// I를 사용! (따라서 A는 B클래스와 관계 없음.I 인터페이스랑만 관계 있음)
-		i.methodB();
-	}
+class A {
+    public void methodA(I i) {// I를 사용! (따라서 A는 B클래스와 관계 없음.I 인터페이스랑만 관계 있음)
+        i.methodB();
+    }
 }
+
 // 껍데기
 interface I {
-	public abstract void methodB();
+    public abstract void methodB();
 }
+
 // 알맹이
-class B implements I{
-	public void methodB(){
-		System.out.println("methodB()");
-	}
+class B implements I {
+    public void methodB() {
+        System.out.println("methodB()");
+    }
 }
+
 // 나중에 B를 C로 변경하여도 C만 변경하면 됨. methodB를 호출하는 A를 변경할 필요 없음
-class c implements I{
-	public void methodB(){
-		System.out.println("methodB() in C");
-	}
+class c implements I {
+    public void methodB() {
+        System.out.println("methodB() in C");
+    }
 }
 ```
 
@@ -361,7 +376,7 @@ class c implements I{
 하지만 느슨한결합 형태는 B가 완성되지 않아도 껍데기인 I를 이용해서 A를 개발할 수 있다. 
 A에서 I의 추상메서드를 호출할 수 있기 때문에, 메서드가 완성되었다고 가정하고 개발하는 것이다. 
 - 인스턴스 변수는 메서드를 이용해서 접근. (캡슐화된 형태에서 setter와 getter를 이용해 데이터 전달)
-<br>
+<br><br> 
 
 **(4) 표준화**<br>
 
@@ -372,7 +387,7 @@ A에서 I의 추상메서드를 호출할 수 있기 때문에, 메서드가 완
 과거에 DB를 사용해서 자바 어플리케이션을 개발하면, 사용하는 DB에 따라서 코드가 달라졌다. 오라클 DB를 사용한다면 오라클에 맞는 자바 코드를 짜야했고, 다른 DB로 바꿀 경우 코드를 다 변경해야 하는 문제가 있었다. 즉, A가 B에 의존적일 때 B에서 C로 바뀌면 A도 많이 바꿧어야 하는 형태였다.<BR>
 
 이러한 문제를 해결하기 위해 중간에 JDBC라는 인터페이스 집합(껍데기)을 두기로 했다. JDBC 인터페이스를 각 DB 회사들에게 제공하고, 회사들은 해당 인터페이스에 맞춰서 자사의 서비스를 개발하였다. 이렇게 된다면 자바 어플리케이션을 개발하는 회사는 해당 인터페이스에 맞게 개발하면되기 때문에, JDBC 인터페이스 자체가 변경되지 않는 이상 다양한 종류의 DB를 코드 수정없이 사용할 수 있게 되었다.<BR>
-<BR>
+<BR><br> 
 
 **(5) 관계 없는 클래스들 관계생성**<BR>
 
@@ -419,7 +434,7 @@ void repair(Repairable r){} // 인터페이스를 매개변수로 하여, Repair
 - 인터페이스를 `repair` 메서드의 매개변수로 설정
    - 해당 인터페이스 구현 클래스만 `repair` 메서드를 사용할 수 있게함. 
 <br>
-<br>
+<br><br> 
 
 ## 6. 인터페이스의 default 메서드 - 자바8
 
@@ -432,24 +447,24 @@ void repair(Repairable r){} // 인터페이스를 매개변수로 하여, Repair
 :point_right: **인터페이스에 디폴트 메서드 선언하고, 구현클래스에서 호출하기**
 
 ```java
-interface TestInterface{
-	// 이미 구현된 default 메서드
-	default void show(){
-		System.out.println("디폴트 메서드 실행");
-	}
+interface TestInterface {
+    // 이미 구현된 default 메서드
+    default void show() {
+        System.out.println("디폴트 메서드 실행");
+    }
 }
 
-class TestClass implements TestInterface{
-	public static void main(String args[]){
-		TestClass d = new TestClass();
-		d.show(); // 디폴트 메서드 호출
-	}
+class TestClass implements TestInterface {
+    public static void main(String args[]) {
+        TestClass d = new TestClass();
+        d.show(); // 디폴트 메서드 호출
+    }
 }
 ```
 ```java
 디폴트 메서드 실행
 ```
-<br>
+<br><br> 
 
 
 ## 7. 인터페이스의 static 메서드 - 자바8
@@ -457,34 +472,35 @@ class TestClass implements TestInterface{
 인터페이스의 static 메서드는 인터페이스 내에서 이미 body를 구현한 메서드이다(default 메서드와 동일). 하지만 구현 클래스에서 오버라이딩하여 사용할 수 없다. 
 
 ```java
-interface NewInterface{
-	// static 메서드
-	static void hello(){
-		System.out.println("static 메서드 실행");
-	}
-	// 추상메서드
-	void overrideMethod(String str);
-}
-
-public class InterfaceDemo implements NewInterface{
-	// Implementing interface method
-	@Override
-	public void overrideMethod(String str){
-		System.out.println("추상메서드 구현>>"+str);
-	}
-
-	public static void main(String[] args){
-		InterfaceDemo id = new InterfaceDemo();
-		id.hello();
-		id.overrideMethod("구현 메서드 실행");
-	}
+interface NewInterface {  
+    // static 메서드  
+  static void hello() {  
+        System.out.println("static 메서드 실행");  
+  }  
+  
+    // 추상메서드  
+  void overrideMethod(String str);  
+}  
+  
+public class InterfaceDemo implements NewInterface {  
+    // Implementing interface method  
+  @Override  
+  public void overrideMethod(String str) {  
+        System.out.println("추상메서드 구현>>" + str);  
+  }  
+  
+    public static void main(String[] args) {  
+        InterfaceDemo id = new InterfaceDemo();  
+  NewInterface.hello();  
+  id.overrideMethod("구현 메서드 실행");  
+  }  
 }
 ```
 ```java
 static 메서드 실행
 추상메서드 구현>>구현 메서드 실행
 ```
-<br>
+<br><br> 
 
 ## 8. 인터페이스의 private 메서드 - 자바9
 
@@ -498,49 +514,51 @@ static 메서드 실행
 4. static 메서드
 5. private 메서드
 6. private static 메서드
-
+<br> 
 
 private 메서드는 오직 해당 인터페이스 내에서만 접근 가능하며, 인터페이스를 상속받은 클래스나 서브 인터페이스에서는 접근할 수 없다. <br>
 
 > 인터페이스 메서드 종류별 실행
 
 ```java
-public interface TestInterface{
-	void mul(int a, int b);
-	default void add(int a, int b){
-		System.out.print("default 메서드 => ");
-		System.out.println(a + b);
-	}
 
-	static void mod(int a, int b){
-		System.out.print("static 메서드 => ");
-		System.out.println(a % b);
-	}
-	
-	private void sub(int a, int b){
-		System.out.print("private 메서드 => ");
-		System.out.println(a - b);
-	}
-	
-	private static void div(int a, int b){
-		System.out.print("private static 메서드 => ");
-		System.out.println(a / b);		
-	}
+public interface TestInterface {
+    void mul(int a, int b);
+
+    default void add(int a, int b) {
+        System.out.print("default 메서드 => ");
+        System.out.println(a + b);
+    }
+
+    static void mod(int a, int b) {
+        System.out.print("static 메서드 => ");
+        System.out.println(a % b);
+    }
+
+    private void sub(int a, int b) {
+        System.out.print("private 메서드 => ");
+        System.out.println(a - b);
+    }
+
+    private static void div(int a, int b) {
+        System.out.print("private static 메서드 => ");
+        System.out.println(a / b);
+    }
 }
 
-class Test implements TestInterface{
-	@Override
-	public void mul(int a, int b){
-			System.out.print("abstract 메서드 => ");
-		System.out.println(a * b);		
-	}
+class Test implements TestInterface {
+    @Override
+    public void mul(int a, int b) {
+        System.out.print("abstract 메서드 => ");
+        System.out.println(a * b);
+    }
 
-	public static void main(String[] args){
-		Test t = new t();
-		t.mul(2,3);
-		t.add(6,2);
-		Test.mod(5,3);
-	}
+    public static void main(String[] args) {
+        Test t = new t();
+        t.mul(2, 3);
+        t.add(6, 2);
+        Test.mod(5, 3);
+    }
 }
 ```
 ```java
