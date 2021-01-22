@@ -9,13 +9,13 @@ tags: ['Java']
 <br>
 
 ## 목차 
-1. [스레드와 프로세스의 개념](#1-패키지의-역할)
-2. [쓰레드 구현방법 - Thread 클래스와 Runnable 인터페이스](#2-패키지-사용방법)
-3. [스레드의 종류](#3-패키지-내의-클래스에-접근하기)
-4. [멀티 스레드 프로그램의 장점](#4-패키지의-종류)
-5. [스레드의 우선순위](#5-static-import-사용하기)
-6. [스레드의 상태와 실행제어 메서드](#5-static-import-사용하기)
-7. [스레드의 동기화](#7-디렉토리-구조)
+1. [스레드와 프로세스의 개념](#1-스레드와-프로세스의-개념)
+2. [쓰레드 구현방법 - Thread 클래스와 Runnable 인터페이스](#2-쓰레드-구현방법---thread-클래스와-runnable-인터페이스)
+3. [스레드의 종류](#3-스레드의-종류)
+4. [멀티 스레드 프로그램의 장점](#4-멀티-스레드-프로그램의-장점)
+5. [스레드의 우선순위](#5-스레드의-우선순위)
+6. [스레드의 상태와 실행제어 메서드](#6-스레드의-상태와-실행제어-메서드)
+7. [스레드의 동기화](#7-스레드의-동기화)
 
 <br><br><br>
 
@@ -48,7 +48,7 @@ tags: ['Java']
 
 대부분이 멀티 스레드 프로그램인 것을 알 수 있다.<br>
  
-<img src="https://user-images.githubusercontent.com/62331803/105343494-0a393a00-5c25-11eb-988b-92e235960527.png" width="50%"><br>
+<img src="https://user-images.githubusercontent.com/62331803/105343494-0a393a00-5c25-11eb-988b-92e235960527.png" width="80%"><br>
 
 <br><br>
 
@@ -223,7 +223,7 @@ class MyThread extends Thread{ // Thread 클래스 상속
 <br>
 
 다음과 같은 과정을 거쳐 각각의 스레드가 서로 독립적인 작업을 수행할 수 있다.
-만약 메인 스레드가 `start()`가 아닌 `run()`을 호출한다면, 메인 스레드의 호출스택에 run()이 push되어 메인 스레드의 호출스택에서 작업하게 되는 것이다. 
+만약 메인 스레드가 `start()`가 아닌 `run()`을 호출한다면, 메인 스레드의 호출스택에 `run()`이 push되어 **메인 스레드의 호출스택에서 작업하게 되는 것**이다. 
 따라서 2개의 스레드가 병렬적으로 작업하게 하기 위해 반드시 `start()`를 호출해야 한다.
 
 
@@ -663,8 +663,8 @@ synchronized (객체의 참조변수){
 public class ThreadTest {
     public static void main(String[] args) {
         Runnable r = new RunnableEx1();
-        new Thread(r).start(); // ThreadGroup에 의해 참조되므로 gc대상이 아니다.
-        new Thread(r).start(); // ThreadGroup에 의해 참조되므로 gc대상이 아니다.
+        new Thread(r).start(); 
+        new Thread(r).start(); 
     }
 }
 
