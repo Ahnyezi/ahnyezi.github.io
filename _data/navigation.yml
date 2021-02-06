@@ -31,6 +31,12 @@ docs:
         url: /custom/greedy/
       - title: "BFS/DFS"
         url: /custom/search/
+      - title: "Recursion"
+        url: /custom/recursion/
+      - title: "Backtracking"
+        url: /custom/backtracking/
+      - title: "Simulation"
+        url: /custom/simulation/
       - title: "Hash/Heap"
         url: /custom/hashheap/
       - title: "Sort"
