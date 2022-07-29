@@ -616,5 +616,6 @@ class B extends A {
    - [abstract classes in Java](https://www.geeksforgeeks.org/abstract-classes-in-java/)
 - [TCP School - 상속](http://www.tcpschool.com/java/java_inheritance_concept)
 - [자바의 정석 - 상속](https://youtu.be/Pgutf0G3nE4)
+- [Scaler Topics - Inheritance in Java](https://www.scaler.com/topics/java/inheritance-in-java/)
 <br>
 <br>
